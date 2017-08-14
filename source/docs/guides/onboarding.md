@@ -78,7 +78,7 @@ Most reviews take no longer than a single business day, and ensure that your int
 
 After your integration is approved, you'll be provided with a Production API key for your Production environment. Other than your magic string no longer working, the two environments will be identical.
 
-All API calls to the sandbox are made through the following URL:
+All API calls to production are made through the following URL:
 
 `https://api.na.bambora.com/`
 
