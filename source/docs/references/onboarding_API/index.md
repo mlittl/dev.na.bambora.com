@@ -46,8 +46,6 @@ The following workflows are currently supported:
     * Document max file size is now 8MB
 * Gateway flows
     * Terminal data has been moved into a terminal.terminal_data object. This object field will have different fields depending on the terminal.terminal_type passed in.
-    * Terminal type moneris has been removed
-
 
 ### **API Version 2016-08-18**
 
