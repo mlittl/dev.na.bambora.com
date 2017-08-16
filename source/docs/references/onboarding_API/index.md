@@ -43,6 +43,7 @@ The following workflows are currently supported:
     * More strict validation on several fields
     * Phone numbers are now numbers only and can not contain other characters
     * Documents are now available on all fields and are uploaded using a multipart form
+    * Document max file size is now 8MB
 * Gateway flows
     * Terminal data has been moved into a terminal.terminal_data object. This object field will have different fields depending on the terminal.terminal_type passed in.
     * Terminal type moneris has been removed
