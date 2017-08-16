@@ -39,8 +39,13 @@ The following workflows are currently supported:
 [Terms API Spec](./tac_v2016-08-18)
 
 #### August 11th, 2017
-* New API version released (2017-08-03)
-
+* All flows
+    * More strict validation on several fields
+    * Phone numbers are now numbers only and can not contain other characters
+    * Documents are now available on all fields and are uploaded using a multipart form
+    * Document max file size is now 8MB
+* Gateway flows
+    * Terminal data has been moved into a terminal.terminal_data object. This object field will have different fields depending on the terminal.terminal_type passed in.
 
 ### **API Version 2016-08-18**
 
