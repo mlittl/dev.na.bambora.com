@@ -1015,6 +1015,8 @@ definitions:
         description: 'Result of postal verification. 0 if the postal_code parameter does does not match the customers address records or if AVS was not processed for the transaction. 1 if the postal_code parameter matches the consumers address records at the issuing bank.'
       avs:        
         $ref: '#/definitions/AvsResponse'
+      cavv_result:        
+        $ref: '#/definitions/CavvResult'
   AvsResponse:
     properties:
       id:
@@ -1063,6 +1065,8 @@ definitions:
         type: string
         maxLength: 2
         description: 'a 2 digit representation of the expiry year. For example 2016 is 16.'
+      cavv_result:        
+        $ref: '#/definitions/CavvResult'
   Link:
     properties:
       ref:
@@ -1278,6 +1282,9 @@ definitions:
       trn_cvd_result:
         type: number
         format: integer
+      trn_cavv_result:
+        type: string
+        description: 3D Secure Code Result
       trn_card_expiry:
         type: string
       message_id:
@@ -1637,6 +1644,9 @@ definitions:
   CvdResult:
     type: integer
     description: 'Result of CVD verification. 1=CVD Match, 2=CVD Mismatch, 3=CVD Not Verified, 4=CVD Should have been present, 5=CVD Issuer unable to process request, 6=CVD Not Provided'
+  CavvResult:
+    type: string
+    description: 'Result code returned back from performing the 3D Secure Code validation.'
   Level2:
     description: "Level 2 processing is for B2B customers. Additional information can be provided, to the benefit of corporate/government/industrial customers, that includes a customer code & tax amounts."
     required:
