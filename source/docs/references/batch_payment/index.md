@@ -1,9 +1,9 @@
 ---
-title: Batch Payment Reference
+title: Batch Payment API Spec
 layout: tutorial
 
 summary: >
-  A full API reference for Batch Payment.
+  API spec for our Batch Payment API.
 
 navigation:
   header: na.tocs.na_nav_header

@@ -84,6 +84,18 @@ cards:
         icon: creditcard-outline
         link: /docs/guides/interac_online
     -
+        title: Batch Payment
+        description: >
+            Batch credit card, EFT and ACH transactions.
+        icon: creditcard-outline
+        link: /docs/guides/batch_payment
+    -
+        title: Recurring Payment
+        description: >
+            Schedule series of automatic payments.
+        icon: creditcard-outline
+        link: /docs/guides/recurring_payment
+    -
         title: SSL
         description: >
             Encrypt information and provide computer to computer authentication.

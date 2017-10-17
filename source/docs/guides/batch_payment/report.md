@@ -1,9 +1,9 @@
 ---
-title: Batch Payment Report
+title: Batch Payment Report API - Overview
 layout: tutorial
 
 summary: >
-  Batch credit card, EFT and ACH transaction requests.
+  Overview of Batch Payment Report API.
 
 navigation:
   header: na.tocs.na_nav_header

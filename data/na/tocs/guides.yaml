@@ -24,5 +24,7 @@
   title: 'Interac Online'
 - file: '/docs/guides/batch_payment'
   title: 'Batch Payment'
+- file: '/docs/guides/recurring_payment'
+  title: 'Recurring Payment'
 - file: '/docs/guides/SSL'
   title: 'SSL'

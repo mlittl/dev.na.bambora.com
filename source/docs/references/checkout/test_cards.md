@@ -11,6 +11,6 @@ navigation:
   toc: na.tocs.checkout_reference
   header_active: References
 
-  includes:
-    - na/test_cards
+includes:
+  - na/test_cards
 ---

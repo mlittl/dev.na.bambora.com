@@ -1,9 +1,9 @@
 ---
-title: Batch Payment
+title: Introduction to batched payments
 layout: tutorial
 
 summary: >
-  Batch credit card, EFT and ACH transaction requests.
+  Introduction to batched credit card, EFT and ACH payments.
 
 navigation:
   header: na.tocs.na_nav_header
@@ -26,9 +26,9 @@ The Batch Report API allows you to query the status of batches and individual tr
 
 ## Settlement flow
 
-Batches of credit card transactions can be processed immediately, on upload, or they can be scheduled to be processed on a certain date. Scheduled batches of credit card transactions are processed at 0600 PST (AM) each day. 
+Batches of credit card transactions can be processed immediately, on upload, or they can be scheduled to be processed on a certain date. Scheduled batches of credit card transactions are processed at 0600 PST (AM) each day.
 
-Batches of funds transfer transactions take multiple days to process. Batches submitted before 1100 PST (AM) can be scheduled to begin processing on the same day. Batches submitted after this time will be processed the following day. 
+Batches of funds transfer transactions take multiple days to process. Batches submitted before 1100 PST (AM) can be scheduled to begin processing on the same day. Batches submitted after this time will be processed the following day.
 
 ### Funds transfers
 
