@@ -111,6 +111,9 @@ The following workflows are currently supported:
 
 [Specification](./v2016-06-11)
 
+#### November 16th, 2017
+* Added new 'temp_disabled' and 'on_hold' status as possible return value for all flows.
+
 #### November 9th, 2017
 * Added new 'live' status as possible return value for all flows.
 
