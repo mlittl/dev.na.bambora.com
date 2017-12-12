@@ -1526,7 +1526,6 @@ definitions:
         type: string
         maxLength: 64
         description: Card holder name.
-        default: '5100000010001004'
       number:
         type: string
         maxLength: 20
