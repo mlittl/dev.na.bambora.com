@@ -13,7 +13,7 @@ navigation:
 ---
 
 
-# Risk thresholds
+# Risk Thresholds
 Risk Thresholds can be used by merchants to block certain high-risk transactions. With this service, we determine the risk of each transaction using a number of monitoring elements such as geolocation checks, proxy detection, IP tracking, and Bank Identification Number checks. Based on this evaluation, transactions are assigned a risk score between 0.01 and 100. The risk score represents the percentage of probability that the transaction is fraudulent. For example, a score of 10 represents a 10% possibility that the transaction is fraudulent. A score of 90 represents a 90% possibility the transaction is fraudulent.
 
 If a transaction is assigned a risk score greater than or equal to the threshold set in the decline field, the transaction is not processed. You will receive an email message for transactions with a risk score lower than the decline threshold but greater than or equal to the warn threshold.
