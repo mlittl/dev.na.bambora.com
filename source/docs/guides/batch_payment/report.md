@@ -238,7 +238,7 @@ curl -X POST \
 #### Settlement request
 ```bash
 curl -X POST \
-  https://dbft.na.bambora.com/scripts/reporting/report.aspx \
+  https://api.na.bambora.com/scripts/reporting/report.aspx \
   -H 'content-type: application/xml' \
   -d '<?xml version="1.0" encoding="utf-8"?>
 <request>
