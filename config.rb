@@ -97,6 +97,7 @@ ONBOARDING_HOST = ENV['ONBOARDING_HOST'] || 'onboardingapi'
 get_swagger_spec "https://" + ONBOARDING_HOST + ".na.bambora.com/v1/boarding/swagger/2016-08-18", "/data/autodownload/na/API_spec/onboarding", "2016-08-18.yaml"
 get_swagger_spec "https://" + ONBOARDING_HOST + ".na.bambora.com/v1/boarding/swagger/2016-06-11", "/data/autodownload/na/API_spec/onboarding", "2016-06-11.yaml"
 get_swagger_spec "https://" + ONBOARDING_HOST + ".na.bambora.com/v1/boarding/swagger/terms/2016-08-18", "/data/autodownload/na/API_spec/onboarding", "terms_2016-08-18.yaml"
+get_swagger_spec "https://" + ONBOARDING_HOST + ".na.bambora.com/v1/boarding/swagger/2017-08-03", "/data/autodownload/na/API_spec/onboarding", "2017-08-03.yaml"
 
 # Build Configuration
 configure :build do
