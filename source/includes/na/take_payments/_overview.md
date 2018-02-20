@@ -68,9 +68,9 @@ dependencies {
 
 ```csharp
 //Nuget
-Id: Beanstream
+Id: Bambora.NA.SDK
 
-PM> Install-Package Beanstream
+PM> Install-Package Bambora.NA.SDK
 ```
 
 ```go
