@@ -99,13 +99,13 @@ try {
 ```
 
 ```csharp
-Gateway beanstream = new Gateway () {
+Gateway bambora = new Gateway () {
     MerchantId = 300200578,
     PaymentsApiKey = "4BaD82D9197b4cc4b70a221911eE9f70",
     ApiVersion = "1"
 };
 
-PaymentResponse payment = beanstream.Payments.MakePayment (new ProfilePaymentRequest() {
+PaymentResponse payment = bambora.Payments.MakePayment (new ProfilePaymentRequest() {
     Amount = 40.95,
     OrderNumber = "myOrder002233",
     PaymentProfile = new PaymentProfileField() {
@@ -275,13 +275,13 @@ try {
 ```
 
 ```csharp
-Gateway beanstream = new Gateway () {
+Gateway bambora = new Gateway () {
     MerchantId = 300200578,
     PaymentsApiKey = "4BaD82D9197b4cc4b70a221911eE9f70",
     ApiVersion = "1"
 };
 // pre-auth
-PaymentResponse payment = beanstream.Payments.PreAuth (new ProfilePaymentRequest() {
+PaymentResponse payment = bambora.Payments.PreAuth (new ProfilePaymentRequest() {
     Amount = 50,
     OrderNumber = "myFancyOrderID-1234",
     PaymentProfile = new PaymentProfileField() {
@@ -290,7 +290,7 @@ PaymentResponse payment = beanstream.Payments.PreAuth (new ProfilePaymentRequest
     }
 });
 // complete payment
-payment = beanstream.Payments.PreAuthCompletion (payment.TransactionId, 15.12);
+payment = bambora.Payments.PreAuthCompletion (payment.TransactionId, 15.12);
 ```
 
 ```go
