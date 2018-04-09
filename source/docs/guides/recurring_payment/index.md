@@ -75,7 +75,5 @@ You can register for a callback when recurring payments are processed. The callb
 
 The parameters posted to the webhook are the same as those returned by the API when first creating a Recurring Account.
 
-**Caveat:** The callback is made over HTTPS using TLS 1.0 (rather than TLS 1.2).
-
 ### Testing redirects
 You may find it helpful while testing to use tools that allow you to inspect and debug webhook requests like [PutsReq](http://putsreq.com).
