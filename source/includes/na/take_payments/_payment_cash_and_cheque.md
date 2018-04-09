@@ -58,12 +58,12 @@ try {
 ```
 
 ```csharp
-Gateway beanstream = new Gateway () {
+Gateway bambora = new Gateway () {
     MerchantId = 300200578,
     PaymentsApiKey = "4BaD82D9197b4cc4b70a221911eE9f70",
     ApiVersion = "1"
 };
-PaymentResponse response = beanstream.Payments.MakePayment (
+PaymentResponse response = bambora.Payments.MakePayment (
     new CashPaymentRequest () {
         Amount = 50.00,
         OrderNumber = "orderNum-GobBluth"
@@ -152,12 +152,12 @@ try {
 ```
 
 ```csharp
-Gateway beanstream = new Gateway () {
+Gateway bambora = new Gateway () {
     MerchantId = 300200578,
     PaymentsApiKey = "4BaD82D9197b4cc4b70a221911eE9f70",
     ApiVersion = "1"
 };
-PaymentResponse response = beanstream.Payments.MakePayment (
+PaymentResponse response = bambora.Payments.MakePayment (
     new ChequePaymentRequest () {
         Amount = 50.00,
         OrderNumber = "orderNum-TobiasFunke"

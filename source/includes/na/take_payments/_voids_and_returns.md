@@ -43,7 +43,7 @@ PaymentResponse response = beanstream.payments().voidPayment(transactionId, 70.0
 ```
 
 ```csharp
-PaymentResponse response = beanstream.Payments.Void (response.TransactionId, 30);
+PaymentResponse response = bambora.Payments.Void (response.TransactionId, 30);
 ```
 
 ```go
@@ -97,7 +97,7 @@ PaymentResponse response = beanstream.payments().returnPayment(transactionId, 70
 ```
 
 ```csharp
-PaymentResponse response = beanstream.Payments.Return (response.TransactionId, 40.0);
+PaymentResponse response = bambora.Payments.Return (response.TransactionId, 40.0);
 ```
 
 ```go
