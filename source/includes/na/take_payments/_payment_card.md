@@ -138,13 +138,13 @@ try {
 ```
 
 ```csharp
-Gateway beanstream = new Gateway () {
+Gateway bambora = new Gateway () {
     MerchantId = YOUR_MERCHANT_ID,
     PaymentsApiKey = "YOUR_PAYMENTS_API_PASSCODE",
     ApiVersion = "1"
 };
 
-PaymentResponse response = beanstream.Payments.MakePayment (
+PaymentResponse response = bambora.Payments.MakePayment (
     new CardPaymentRequest {
         Amount = 100.00,
         OrderNumber = "orderNum002233",
@@ -370,13 +370,13 @@ try {
 ```
 
 ```csharp
-Gateway beanstream = new Gateway () {
+Gateway bambora = new Gateway () {
     MerchantId = 300200578,
     PaymentsApiKey = "4BaD82D9197b4cc4b70a221911eE9f70",
     ApiVersion = "1"
 };
 
-PaymentResponse response = beanstream.Payments.PreAuth (
+PaymentResponse response = bambora.Payments.PreAuth (
     new CardPaymentRequest {
         Amount = 100.00,
         OrderNumber = getRandomOrderId("test"),
@@ -390,7 +390,7 @@ PaymentResponse response = beanstream.Payments.PreAuth (
     }
 );
 
-PaymentResponse response2 = beanstream.Payments.PreAuthCompletion (response.TransactionId, 35.99);
+PaymentResponse response2 = bambora.Payments.PreAuthCompletion (response.TransactionId, 35.99);
 ```
 
 ```go

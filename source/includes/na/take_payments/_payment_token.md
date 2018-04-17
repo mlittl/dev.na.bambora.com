@@ -109,13 +109,13 @@ try {
 ```
 
 ```csharp
-Gateway beanstream = new Gateway () {
+Gateway bambora = new Gateway () {
     MerchantId = 300200578,
     PaymentsApiKey = "4BaD82D9197b4cc4b70a221911eE9f70",
     ApiVersion = "1"
 };
 
-PaymentResponse response = beanstream.Payments.MakePayment (
+PaymentResponse response = bambora.Payments.MakePayment (
     new TokenPaymentRequest ()
     {
         Amount = 30.0,
@@ -301,13 +301,13 @@ try {
 ```
 
 ```csharp
-Gateway beanstream = new Gateway () {
+Gateway bambora = new Gateway () {
     MerchantId = 300200578,
     PaymentsApiKey = "4BaD82D9197b4cc4b70a221911eE9f70",
     ApiVersion = "1"
 };
 
-PaymentResponse response = beanstream.Payments.PreAuth (
+PaymentResponse response = bambora.Payments.PreAuth (
     new TokenPaymentRequest ()
     {
         Amount = 30,
@@ -319,7 +319,7 @@ PaymentResponse response = beanstream.Payments.PreAuth (
     }
 );
 
-response = beanstream.Payments.PreAuthCompletion (response.TransactionId, 15.45);
+response = bambora.Payments.PreAuthCompletion (response.TransactionId, 15.45);
 ```
 
 ```go
