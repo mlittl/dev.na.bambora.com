@@ -4,9 +4,15 @@ EXPOSE 4567
 RUN apt-get update && apt-get install -y git
 RUN apt-get install -y nodejs
 
-COPY Gemfile /
+COPY Gemfile /usr/src/app/
+COPY Gemfile.lock /usr/src/app/
+
+COPY Rakefile /usr/src/app/
+WORKDIR /usr/src/app
 RUN gem install bundler
 RUN bundle install
+
+COPY . /usr/src/app
 
 ENTRYPOINT ["rake"]
 CMD ["dev"]
