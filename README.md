@@ -43,20 +43,21 @@ docker build -t devbamboracom .
 *Mac and Linux*
 
 ```shell
-docker run -v `pwd`/:/usr/src/app/ -p 4567:4567 devbamboracom development_server
+docker run -v `pwd`/:/usr/src/app/ -p 4567:4567 -w /usr/src/app devbamboracom development_server
 ```
 
 *Windows*
 
 ```shell
-docker run -v $pwd/:/usr/src/app/ -p 4567:4567 devbamboracom development_server_windows
+docker run -v $pwd/:/usr/src/app/ -p 4567:4567 -w /usr/src/app devbamboracom development_server_windows
 ```
 
 **Note**: If you get a `request canceled while waiting for connection` error when running `docker build`, go to `Docker Settings > Network` and change the DNS server to fixed.
 
 #### Test Local
-[http://localhost:4567/]
- 
+
+<http://localhost:4567/>
+
 **Note**: The site will update with changes you make when a page is reloaded.
 
 ### Bundler
@@ -66,7 +67,7 @@ Alternatively, you can build and run the site locally. You're going to need:
 * **Node.js**
 * **Bundler**
     *  If Ruby is already installed, but the `bundle` command doesn't work run:
-    
+
     ```gem install bundler```
 
 #### Build
@@ -352,7 +353,7 @@ swagger: API_spec.merchant.1-0-3
 
 ignored_paths: # optional
   - "/payments"       # methods on these paths will not be shown on the page.
-  - "/payments/{transId}/void" 
+  - "/payments/{transId}/void"
 ```
 
 Or if you want to hide an entire tag that is also possible with 'ignored_tags':
@@ -433,6 +434,3 @@ Feel free to show the full range of our personality. Our brand is filled with pa
 ## Making non-documentation changes to the site
 
 With a little more effort, larger changes (e.g. adding a new template, changing css styling) can be made to the developer portal.
-
-
-
