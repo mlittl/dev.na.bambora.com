@@ -38,7 +38,7 @@ With your Merchant ID in hand and your passcodes set, you're ready to combine th
 
 To process credit card transactions online, you must be in compliance with standards set out by the Payment Card Industry (PCI). Tokenizing credit card details is the most effective way to reduce the scope of your PCI compliance by removing the interaction between your server and your customer's card details.
 
-You can also use our hosted [Custom Checkout](https://github.com/bambora/na-customcheckout) library to validate and tokenize all card data to further reduce scope.
+You can also use our hosted [Custom Checkout](/docs/guides/custom_checkout/) library to validate and tokenize all card data to further reduce scope.
 
 ```shell
 curl https://api.na.bambora.com/scripts/tokenization/tokens  \
