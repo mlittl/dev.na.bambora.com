@@ -20,9 +20,9 @@ You can either interact with the API directly or through an SDK (a library of he
 
 Note: this doc is limited to the Payments, Reporting, Payment Profile, and Tokenization APIs. You may also be interested in the Onboarding API.
 
-## v1.0.4
+## v1.0.5
 
-* [Payment APIs Spec](/docs/references/payment_APIs/v1-0-4)
+* [Payment APIs Spec](/docs/references/payment_APIs/v1-0-5)
 
 ### Change logs
 No change log available.
