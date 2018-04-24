@@ -1607,6 +1607,8 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Detail'
+      validation:
+        $ref: '#/definitions/CardValidation'
   CardValidation:
     properties:
       id:
