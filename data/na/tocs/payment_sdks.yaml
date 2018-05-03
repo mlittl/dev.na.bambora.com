@@ -6,3 +6,5 @@
   title: Take Payments
 - file: /docs/references/payment_SDKs/analyze_payments/
   title: Analyze Payments
+- file: /docs/references/payment_SDKs/support_tls12/
+  title: Support for TLS 1.2
