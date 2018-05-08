@@ -25,3 +25,23 @@ includes:
 ---
 
 # SDK Support for TLS 1.2
+
+### System requirements for Ruby, Python and Node on Linux and Mac OS (OS X):
+
+* OpenSSL (or LibreSSL) >= 1.0.1
+
+Operating systems that provide support for OpenSSL >= 1.0.1:
+
+* Ubuntu 12.04 (Precise) or later
+* RedHat Enterprise Linux 6 / CentOS 6 or later
+* Debian 7 (Wheezy) or later
+* Mac OS X 10.9 (Mavericks) or later
+
+You can confirm the version of OpenSSL installed by running "openssl version" from the command line.  Note: The command may output either “OpenSSL” or “LibreSSL”.
+
+## SDK testing with TLS 1.2 only server
+
+URL for TLS 1.2 only server is https://tls12-api.na.bambora.com
+
+Follow instructions below for SDK you are using to test your integration against TLS 1.2 only server.
+
