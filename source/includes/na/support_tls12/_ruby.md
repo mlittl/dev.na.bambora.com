@@ -52,6 +52,6 @@ To:
   end
   
   def self.api_base_url()
-    "tls12-api.na.bambora.com/#{url_version}"
+    "/#{url_version}"
   end
 ```
