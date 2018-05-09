@@ -7,8 +7,9 @@ From:
 ```
 Beanstream.DEFAULT_HOST = "https://www.beanstream.com/api/";
 ```
+
 To:
+
 ```
 Beanstream.DEFAULT_HOST = "https://tls12-api.na.bambora.com/";
-
 ```
