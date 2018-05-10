@@ -16,14 +16,13 @@ To test your integration against TLS 1.2 only server, change BaseUrl in:
 
 From:
 
-`
+```Java
 public static final String BaseUrl = "https://{0}.beanstream.com/api";
-`
+```
 
 To:
 
-`
+```Java
 public static final String BaseUrl = "https://tls12-api.na.bambora.com";
-`
-
+```
   

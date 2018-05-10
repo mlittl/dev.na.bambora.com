@@ -10,7 +10,7 @@ Our github repository has simple application to get you started.
 
 ### Test TLS 1.2 
 
-To test your integration against TLS 1.2 only server, add follwoing line in your code before instantiating Bambora gateway object
+To test your integration against TLS 1.2 only server, add following line in your code before instantiating Bambora gateway object
 
 ```c#
 
