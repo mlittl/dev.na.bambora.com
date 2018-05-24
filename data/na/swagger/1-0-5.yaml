@@ -236,7 +236,7 @@ paths:
   /reports:
     post:
       summary: Search Query
-      description: 'Query for transactions using a date range and optional search criteria. This method allows you to page your search results if you are expecting a lot of results to be returned. The page start value begins at 1. If no records are found the API will return a 404 error message. For details on the parameters and allowed values for Criteria please visit the documentation http://dev.na.bambora.com'
+      description: 'Query for transactions using a date range and optional search criteria. This method allows you to page your search results if you are expecting a lot of results to be returned. The page start value begins at 1. If no records are found the API will return a 200 response message with an empty array. For details on the parameters and allowed values for Criteria please visit the documentation http://dev.na.bambora.com'
       tags:
         - Reporting
       operationId: getReport
@@ -1252,6 +1252,8 @@ definitions:
         type: string
       trn_payment_method:
         type: string
+      trn_comments:
+        type: string
       trn_masked_card:
         type: string
         description: "The credit card with the middle digits redacted with X's"
@@ -1364,6 +1366,11 @@ definitions:
       merchant_name:
         type: string
         description: 'The name of the merchant for this transaction.'
+      entry_method:
+        type: string
+        maxLength: 1
+        description: 'How the transaction was initiated. N = Standard Entry, A = Apple Pay, G = Android Pay, M = MasterPass, S = EMV Swipe, V = Visa Checkout, Y = Unimag Card Swiper, T = EMV Chip Tap, E = EMV Chip Dip'
+        enum: ['N','A','G','M','S','V','Y','T','E']
       authorizing_merchant_id:
         type: integer
         description: 'The id of the merchant that authorized this transaction.'
