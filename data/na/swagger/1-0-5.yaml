@@ -1367,7 +1367,7 @@ definitions:
         type: string
         description: 'The name of the merchant for this transaction.'
       entry_method:
-        type:
+        type: string
         maxLength: 1
         description: 'How the transaction was initiated. N = Standard Entry, A = Apple Pay, G = Android Pay, M = MasterPass, S = EMV Swipe, V = Visa Checkout, Y = Unimag Card Swiper, T = EMV Chip Tap, E = EMV Chip Dip'
         enum: ['N','A','G','M','S','V','Y','T','E']
