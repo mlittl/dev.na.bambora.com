@@ -36,7 +36,11 @@
     <% printed_fields.each do |field| %>
       <% if property[field] %>
         <span class="property-detail">
-          <%= field %>: <%= property[field] %>
+          <% if field == 'description' %>
+            <%= field %>: <%= render_markdown property[field] %>
+          <% else %>
+            <%= field %>: <%= property[field] %>
+          <% end %>
         </span>
       <% end %>
     <% end %>
