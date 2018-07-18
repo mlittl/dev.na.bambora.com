@@ -19,7 +19,7 @@ We'll now go through the process of performing and validating a transaction usin
 
 ### cURL
 
-We use the command-line tool cURL for all HTTP request examples in this guide. cURL allows you make API requests without a web application, just like you would with command prompts in Windows, or Terminal on Apple computers. You can read more on cURL <a href="https://develop.zendesk.com/hc/en-us/articles/360001068567-Installing-and-using-cURL">here</a>.
+We use the command-line tool cURL for all HTTP request examples in this guide. cURL allows you make API requests without a web application, just like you would with command prompts in Windows, or Terminal on Apple computers. You can read more on cURL <a href="https://help.zendesk.com/hc/en-us/articles/229136847-Installing-and-using-cURL">here</a>.
 
 ### Postman
 
