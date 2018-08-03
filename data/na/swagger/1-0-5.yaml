@@ -680,7 +680,7 @@ definitions:
         default: '5100000010001004'
       name:
         type: string
-        minLength: 4
+        minLength: 1
         maxLength: 64
         description: Card holder name.
       expiry_month:
