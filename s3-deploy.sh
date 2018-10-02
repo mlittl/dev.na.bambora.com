@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e 
+
 # This file is passed evironment variables AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, 
 # APP_HOME=bamboo.build.working.directory and planName=bamboo.shortPlanName by Bamboo.
 
