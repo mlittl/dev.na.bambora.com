@@ -29,7 +29,7 @@ The following parameters are passed as a JSON object on a Content-Disposition he
   - **0** – Transactions are processed on the date passed in the process_date field.
 - **process_date** - The date the transactions starts processing. Format **YYYYMMDD**.
 - **sub_merchant_id** - The merchant account on which to process the transactions. Required only if request is authorized by a partner account.
-- **addendum** - A note associated with the batch file. **no max string lengths listed**
+- **addendum** - A note associated with the batch file. Max length: 80 characters.
 
 ### Format of data in file
 
