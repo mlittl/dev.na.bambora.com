@@ -19,7 +19,7 @@ We'll now go through the process of performing and validating a transaction usin
 
 ### cURL
 
-We use the command-line tool cURL for all HTTP request examples in this guide. cURL allows you make API requests without a web application, just like you would with command prompts in Windows, or Terminal on Apple computers. You can read more on cURL <a href="https://help.zendesk.com/hc/en-us/articles/229136847-Installing-and-using-cURL">here</a>.
+We use the command-line tool cURL for all HTTP request examples in this guide. cURL allows you make API requests without a web application, just like you would with command prompts in Windows, or Terminal on Apple computers. You can read more on cURL <a href="https://develop.zendesk.com/hc/en-us/articles/360001068567-Installing-and-using-cURL">here</a>.
 
 ### Postman
 
@@ -38,7 +38,7 @@ With your Merchant ID in hand and your passcodes set, you're ready to combine th
 
 To process credit card transactions online, you must be in compliance with standards set out by the Payment Card Industry (PCI). Tokenizing credit card details is the most effective way to reduce the scope of your PCI compliance by removing the interaction between your server and your customer's card details.
 
-You can also use our hosted [Custom Checkout](https://github.com/bambora/na-customcheckout) library to validate and tokenize all card data to further reduce scope.
+You can also use our hosted [Custom Checkout](/docs/guides/custom_checkout/) library to validate and tokenize all card data to further reduce scope.
 
 ```shell
 curl https://api.na.bambora.com/scripts/tokenization/tokens  \
