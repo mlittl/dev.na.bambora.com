@@ -31,8 +31,8 @@ GEM
       sass (>= 3.2, < 3.5)
     erubis (2.7.0)
     execjs (2.5.2)
-    ffi (1.9.23)
-    ffi (1.9.23-x64-mingw32)
+    ffi (1.9.24)
+    ffi (1.9.24-x64-mingw32)
     haml (4.0.6)
       tilt
     hike (1.2.3)
