@@ -665,6 +665,8 @@ definitions:
           indicator may be set for credit card based pre-auth, capture and purchase transactions.
       level2:
         $ref: '#/definitions/Level2'
+      card_on_file:
+        $ref: '#/definitions/CardOnFile'
   Card:
     description: "Payment with a credit card. The payment_method must be 'card'"
     required:
@@ -993,6 +995,8 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Link'
+      card_on_file:
+        $ref: '#/definitions/CardOnFileResponse'
   CardPurchaseResponse:
     properties:
       card_type:
@@ -1742,6 +1746,26 @@ definitions:
           * Visa - Amount of state or provincial tax included in the transaction amount - Must between 0.1% and 22% of the transaction amount.
           * Master Card - Sales tax/VAT on the total purchase - Must be between 0.1% and 30% of the transaction amount.
           * American Express - Transaction tax amount (calculated or entered).
+  CardOnFile:
+    description: "When processing a transaction where the credit card information is stored on file, you must pass along an indicator showing the type of credential-on-file transaction that is being processed."
+    required:
+      - type
+    properties:
+      type:
+        type: string
+        description: |
+          * not_card_on_file - A transaction where the credit card information is not stored on file.
+          * first_installment - The first payment in a series of installment payments.  (Eg. Initial installment payment when purchasing a fridge.)
+          * subsequent_installment - A subsequent payment (ie. not the first) in a series of installment payments.  (Eg. Next installment payment when purchasing a fridge.)
+          * first_recurring - The first payment in a series of scheduled payments with no expected end date.  (Eg. Initial payment for a subscription service.)
+          * subsequent_recurring - A subsequent payment (ie. not the first) in a series of scheduled payments with no expected end date.  (Eg. Next payment for a subscription service.)
+          * subsequent_customer_initiated - A recurring transaction that is initiated by the customer.  (Eg. Customer reloads a prepaid cash card.)
+          * subsequent_unscheduled - An unscheduled recurring transaction that is initiated by the merchant. (Eg. Merchant auto-reloads a prepaid cash card for the customer when the balance on the card reaches a predetermined threshold.)
+        enum: ['not_card_on_file', 'first_installment', 'subsequent_installment', 'first_recurring', 'subsequent_recurring', 'subsequent_customer_initiated', 'subsequent_unscheduled']
+      series_id:
+        type: number
+        format: integer
+        description: 'The identifier for the set of transactions that this transaction belongs to.  This field is required for "subsequent_installment", "subsequent_recurring", and "subsequent_unscheduled" credential-on-file transaction types.'
   ContinueRequest:
     required:
       - payment_method
@@ -1820,3 +1844,20 @@ definitions:
         type: string
         maxLength: 32
         description: 'The original trnOrderNumber you submitted to Bambora.'
+  CardOnFileResponse:
+    properties:
+      type:
+        type: string
+        description: |
+          * not_card_on_file - A transaction where the credit card information is not stored on file.
+          * first_installment - The first payment in a series of installment payments.  (Eg. Initial installment payment when purchasing a fridge.)
+          * subsequent_installment - A subsequent payment (ie. not the first) in a series of installment payments.  (Eg. Next installment payment when purchasing a fridge.)
+          * first_recurring - The first payment in a series of scheduled payments with no expected end date.  (Eg. Initial payment for a subscription service.)
+          * subsequent_recurring - A subsequent payment (ie. not the first) in a series of scheduled payments with no expected end date.  (Eg. Next payment for a subscription service.)
+          * subsequent_customer_initiated - A recurring transaction that is initiated by the customer.  (Eg. Customer reloads a prepaid cash card.)
+          * subsequent_unscheduled - An unscheduled recurring transaction that is initiated by the merchant. (Eg. Merchant auto-reloads a prepaid cash card for the customer when the balance on the card reaches a predetermined threshold.)
+        enum: ['not_card_on_file', 'first_installment', 'subsequent_installment', 'first_recurring', 'subsequent_recurring', 'subsequent_customer_initiated', 'subsequent_unscheduled']
+      series_id:
+        type: number
+        format: integer
+        description: 'The identifier for the set of transactions that this transaction belongs to.'
