@@ -861,7 +861,7 @@ definitions:
         pattern: '^\d{1,20}$'
       email_address:
         type: string
-        maxLength: 32
+        maxLength: 64
         description: Email Address. Impacts risk score.
   Address:
     properties:
@@ -899,7 +899,7 @@ definitions:
         pattern: '^\d{1,20}$'
       email_address:
         type: string
-        maxLength: 32
+        maxLength: 64
         description: Email Address
   Custom:
     properties:
