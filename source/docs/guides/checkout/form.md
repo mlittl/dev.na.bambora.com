@@ -12,6 +12,8 @@ navigation:
 ---
 
 # Configure the form
+After the user click on the link or button on your site, they are redirected to the Bambora Checkout Form.
+
 You can configure the form in the [Member Area](https://web.na.bambora.com). You can control what fields are displayed by default and how they are styled. You can also add a custom header and footer to the page. Click on **configuration**, and select **checkout** to find a list of title and form options.
 
 ## Layout
@@ -62,7 +64,7 @@ You can brand Checkout by adding a custom header and footer to the html text box
 
   </head>
   <body>
-    <script src="https://libs.na.bambora.com/checkouttheme/0.1.0/checkouttheme.min.js"></script>  	
+    <script src="https://libs.na.bambora.com/checkouttheme/0.1.0/checkouttheme.min.js"></script>
     <script>CheckoutTheme.init();</script>
 
     <header class="custom-header">
