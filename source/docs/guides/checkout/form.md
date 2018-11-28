@@ -12,7 +12,7 @@ navigation:
 ---
 
 # Configure the form
-After the user click on the link or button on your site, they are redirected to the Bambora Checkout Form.
+After the user clicks on the link or button on your site, they are redirected to the Bambora Checkout Form.
 
 You can configure the form in the [Member Area](https://web.na.bambora.com). You can control what fields are displayed by default and how they are styled. You can also add a custom header and footer to the page. Click on **configuration**, and select **checkout** to find a list of title and form options.
 
