@@ -101,7 +101,7 @@ GEM
     padrino-support (0.12.9)
       activesupport (>= 3.1)
     puma (3.4.0)
-    rack (1.6.9)
+    rack (1.6.11)
     rack-test (0.6.3)
       rack (>= 1.0)
     rake (10.4.2)
@@ -149,10 +149,11 @@ DEPENDENCIES
   middleman-search (~> 0.10.0)
   middleman-syntax (~> 2.0.0)
   puma (~> 3.4.0)
+  rack (~> 1.6.11)
   rake (~> 10.4.2)
   redcarpet (~> 3.3.2)
   rouge (~> 1.9.0)
   therubyracer (~> 0.12.2)
 
 BUNDLED WITH
-   1.16.1
+   1.17.1

@@ -12,8 +12,11 @@ navigation:
 ---
 
 ## Create links
+In order to redirect the user to the Checkout Form, you will need to create a button or link for them to click.
 
 Checkout is configured by the parameters passed in the URL of a GET request. The key/value pairs of the query string are secured by passing a hashed string created from the query string, in addition to the query string itself.
+
+While it is possible to also do this through a Form element using a POST request, we have found that the POST approach does not always work with older browsers and some versions of Internet Explorer. We recommend using a GET request with a link or button.
 
 The most basic URL contains just the `merchant_id` and `hashValue` parameters. If your merchant ID is "123456789" and your hash key is "abc", you would create a SHA-1 hash of the string `merchant_id=123456789abc`. You would then pass the hashed string with the parameters `hashValue`.
 

@@ -13,3 +13,5 @@ gem 'puma', '~> 3.4.0'
 
 gem 'rake', '~> 10.4.2'
 gem 'therubyracer', '~> 0.12.2', platforms: :ruby
+
+gem 'rack', '~> 1.6.11'

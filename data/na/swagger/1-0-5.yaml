@@ -788,7 +788,8 @@ definitions:
     properties:
       complete:
         type: boolean
-        description: Set to FALSE for pre-auth. digit(1) or boolean
+        default: true
+        description: 'set to false for Pre-Authorize, and true to complete a payment'
       customer_code:
         type: string
         maxLength: 32
@@ -805,7 +806,8 @@ definitions:
     properties:
       complete:
         type: boolean
-        description: Set to FALSE for pre-auth
+        default: false
+        description: 'set to false for Pre-Authorize, and true to complete a payment'
       code:
         type: string
         maxLength: 36
@@ -861,7 +863,7 @@ definitions:
         pattern: '^\d{1,20}$'
       email_address:
         type: string
-        maxLength: 32
+        maxLength: 64
         description: Email Address. Impacts risk score.
   Address:
     properties:
@@ -899,7 +901,7 @@ definitions:
         pattern: '^\d{1,20}$'
       email_address:
         type: string
-        maxLength: 32
+        maxLength: 64
         description: Email Address
   Custom:
     properties:
