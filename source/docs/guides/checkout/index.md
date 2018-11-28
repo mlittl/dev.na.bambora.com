@@ -18,6 +18,8 @@ Checkout allows you to accept payments online with just one link. It is a hosted
 This guide will show you how to create a form and a link before sending it out to clients, customers, and donors.
 
 ## Example
+A common use of Checkout would involve hosting a link or a button on your own website that would then redirect the user to the Checkout product hosted on Bambora's services.
+
 Try it out! Click the "Pay" button below. You can use using the test card number **4030 0000 1000 1234**, with a security code **123** and any expiry date in the future. Checkout will open in a new tab.
 
 <a href="https://web.na.bambora.com/scripts/payment/payment.asp?merchant_id=300204468&trnAmount=10.00&hashValue=198b1de5fae8e1671bdf720cbbf292e15671dfaa" class="btn btn-small"
@@ -54,7 +56,7 @@ You can enable Checkout styling on your legacy Hosted Payment Form in the [Membe
     <link rel="stylesheet" type="text/css" href="https://libs.na.bambora.com/checkouttheme/0.1.0/style.css">
   </head>
   <body>
-    <script src="https://libs.na.bambora.com/checkouttheme/0.1.0/checkouttheme.min.js"></script>  	
+    <script src="https://libs.na.bambora.com/checkouttheme/0.1.0/checkouttheme.min.js"></script>
     <script>CheckoutTheme.init();</script>
 ```
 <div style="margin-bottom:24px;"></div>
