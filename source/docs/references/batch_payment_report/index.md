@@ -110,7 +110,7 @@ This section documents the fields returned for each of the 4 reports.
 - **status_id** - Our validation of the format of the request
 - **status_name** - An enum relative to the status_id.
 - **bank_descriptor** - Text to display on the payee's bank statement associated with the debit/credit.
-- **message_id** - Comma separated listing of message IDs. (what are the message IDs?)
+- **message_id** - Comma separated listing of message IDs.
 - **customer_code** - Payee's Secure Payment Profile customer code.
 - **settlement_date** - Date the credit/debit is expected to settle against the payee's bank account. YYYY-MM-DD.
 - **returned_date** - Date the bank has applied a return or reject against the transaction. YYYY-MM-DD
@@ -141,7 +141,7 @@ This section documents the fields returned for each of the 4 reports.
 - **status_id** - Our validation of the format of the request
 - **status_name** - An enum relative to the status_id.
 - **bank_descriptor** - Text to display on the payee's bank statement associated with the debit/credit.
-- **message_id** - Comma separated listing of message IDs. (what are the message IDs?)
+- **message_id** - Comma separated listing of message IDs.
 - **customer_code** - The payee's Secure Payment Profile customer code.
 - **settlement_date** - Date that the credit/debit is expected to settle against the payee's bank account. YYYY-MM-DD
 - **returned_date** - Date that the bank has applied a return or reject against the transaction. YYYY-MM-DD
@@ -169,10 +169,10 @@ This section documents the fields returned for each of the 4 reports.
 - **status_id** - Our validation of the format of the request
 - **status_name** - An enum relative to the status_id.
 - **bank_descriptor** - The text to display on the payee's bank statement associated with the debit/credit.
-- **message_id** - Comma separated listing of message IDs. (but what are the IDs?)
+- **message_id** - Comma separated listing of message IDs.
 - **settlement_date** - The date that the credit/debit is expected to settle against the payee's bank account. YYYY-MM-DD
 - **returned_date** - Date the bank applied a return or reject against the transaction. YYYY-MM-DD
-- **eft_id** - Globally unique identifier associated to a transaction that was processed with the bank. (is this for eft and ach both? is this for the first or second transaction in a funds transfer?)
+- **eft_id** - Globally unique identifier associated to a transaction that was processed with the bank.
 - **noc_date** - ACH transaction only. Date the bank returned a Notice of Change for the transaction. YYYY-MM-DD
 - **noc_account_type** - ACH transaction only.
   - **PC** - US Personal Checking account
