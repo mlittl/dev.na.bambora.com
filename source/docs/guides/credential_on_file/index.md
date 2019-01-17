@@ -63,9 +63,9 @@ Since this is the first transaction in a set of transactions, no series ID is re
 #### Request 1
 
 ```curl
-curl -X POST https://test01-api.na.bambora.com/v1/payments
+curl -X POST https://api.na.bambora.com/v1/payments
 -H "Content-Type: application/json"
--H "Authorization: Passcode MzcyOTMwMDAwOmJlYW5zdHJlYW0="
+-H "Authorization: Passcode your_encoded_payment_passcode"
 -d '{
         "amount": 5.00,
         "payment_method": "card",
@@ -121,12 +121,12 @@ curl -X POST https://test01-api.na.bambora.com/v1/payments
     "links": [
         {
             "rel": "void",
-            "href": "https://test01-api.na.bambora.com/v1/payments/10000589/void",
+            "href": "https://api.na.bambora.com/v1/payments/10000589/void",
             "method": "POST"
         },
         {
             "rel": "return",
-            "href": "https://test01-api.na.bambora.com/v1/payments/10000589/returns",
+            "href": "https://api.na.bambora.com/v1/payments/10000589/returns",
             "method": "POST"
         }
     ],
@@ -149,9 +149,9 @@ Since this is a subsequent transaction in a set of transactions, the series ID f
 #### Request 2
 
 ```curl
-curl -X POST https://test01-api.na.bambora.com/v1/payments
+curl -X POST https://api.na.bambora.com/v1/payments
 -H "Content-Type: application/json"
--H "Authorization: Passcode MzcyOTMwMDAwOmJlYW5zdHJlYW0="
+-H "Authorization: Passcode your_encoded_payment_passcode"
 -d '{
         "amount": 5.00,
         "payment_method": "card",
@@ -208,12 +208,12 @@ curl -X POST https://test01-api.na.bambora.com/v1/payments
     "links": [
         {
             "rel": "void",
-            "href": "https://test01-api.na.bambora.com/v1/payments/10000589/void",
+            "href": "https://api.na.bambora.com/v1/payments/10000589/void",
             "method": "POST"
         },
         {
             "rel": "return",
-            "href": "https://test01-api.na.bambora.com/v1/payments/10000589/returns",
+            "href": "https://api.na.bambora.com/v1/payments/10000589/returns",
             "method": "POST"
         }
     ],
@@ -237,9 +237,9 @@ Since this is the first transaction in a set of transactions, no series ID is re
 #### Request 3
 
 ```curl
-curl -X POST https://test01-api.na.bambora.com/v1/payments
+curl -X POST https://api.na.bambora.com/v1/payments
 -H "Content-Type: application/json"
--H "Authorization: Passcode MzcyOTMwMDAwOmJlYW5zdHJlYW0="
+-H "Authorization: Passcode your_encoded_payment_passcode"
 -d '{
         "amount": 5.00,
         "payment_method": "card",
@@ -295,12 +295,12 @@ curl -X POST https://test01-api.na.bambora.com/v1/payments
     "links": [
         {
             "rel": "void",
-            "href": "https://test01-api.na.bambora.com/v1/payments/10000589/void",
+            "href": "https://api.na.bambora.com/v1/payments/10000589/void",
             "method": "POST"
         },
         {
             "rel": "return",
-            "href": "https://test01-api.na.bambora.com/v1/payments/10000589/returns",
+            "href": "https://api.na.bambora.com/v1/payments/10000589/returns",
             "method": "POST"
         }
     ],
@@ -324,9 +324,9 @@ Since this is a subsequent transaction in a set of transactions, the series ID f
 #### Request 4
 
 ```curl
-curl -X POST https://test01-api.na.bambora.com/v1/payments
+curl -X POST https://api.na.bambora.com/v1/payments
 -H "Content-Type: application/json"
--H "Authorization: Passcode MzcyOTMwMDAwOmJlYW5zdHJlYW0="
+-H "Authorization: Passcode your_encoded_payment_passcode"
 -d '{
         "amount": 5.00,
         "payment_method": "card",
@@ -383,12 +383,12 @@ curl -X POST https://test01-api.na.bambora.com/v1/payments
     "links": [
         {
             "rel": "void",
-            "href": "https://test01-api.na.bambora.com/v1/payments/10000589/void",
+            "href": "https://api.na.bambora.com/v1/payments/10000589/void",
             "method": "POST"
         },
         {
             "rel": "return",
-            "href": "https://test01-api.na.bambora.com/v1/payments/10000589/returns",
+            "href": "https://api.na.bambora.com/v1/payments/10000589/returns",
             "method": "POST"
         }
     ],
@@ -411,9 +411,9 @@ and a new series ID will be returned back in the response message.
 #### Request 5
 
 ```curl
-curl -X POST https://test01-api.na.bambora.com/v1/payments
+curl -X POST https://api.na.bambora.com/v1/payments
 -H "Content-Type: application/json"
--H "Authorization: Passcode MzcyOTMwMDAwOmJlYW5zdHJlYW0="
+-H "Authorization: Passcode your_encoded_payment_passcode"
 -d '{
         "amount": 5.00,
         "payment_method": "card",
@@ -469,12 +469,12 @@ curl -X POST https://test01-api.na.bambora.com/v1/payments
     "links": [
         {
             "rel": "void",
-            "href": "https://test01-api.na.bambora.com/v1/payments/10000589/void",
+            "href": "https://api.na.bambora.com/v1/payments/10000589/void",
             "method": "POST"
         },
         {
             "rel": "return",
-            "href": "https://test01-api.na.bambora.com/v1/payments/10000589/returns",
+            "href": "https://api.na.bambora.com/v1/payments/10000589/returns",
             "method": "POST"
         }
     ],
@@ -499,9 +499,9 @@ be passed in the request message.
 #### Request 6
 
 ```curl
-curl -X POST https://test01-api.na.bambora.com/v1/payments
+curl -X POST https://api.na.bambora.com/v1/payments
 -H "Content-Type: application/json"
--H "Authorization: Passcode MzcyOTMwMDAwOmJlYW5zdHJlYW0="
+-H "Authorization: Passcode your_encoded_payment_passcode"
 -d '{
         "amount": 5.00,
         "payment_method": "card",
@@ -558,12 +558,12 @@ curl -X POST https://test01-api.na.bambora.com/v1/payments
     "links": [
         {
             "rel": "void",
-            "href": "https://test01-api.na.bambora.com/v1/payments/10000589/void",
+            "href": "https://api.na.bambora.com/v1/payments/10000589/void",
             "method": "POST"
         },
         {
             "rel": "return",
-            "href": "https://test01-api.na.bambora.com/v1/payments/10000589/returns",
+            "href": "https://api.na.bambora.com/v1/payments/10000589/returns",
             "method": "POST"
         }
     ],
