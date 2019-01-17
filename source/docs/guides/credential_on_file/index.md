@@ -60,12 +60,14 @@ the set of installment payments, and it can be either a purchase or a pre-auth t
 
 Since this is the first transaction in a set of transactions, no series ID is required, and a new series ID will be returned back in the response message.
 
+For documentation on how to call our Payment APIs click <a href="https://dev.na.bambora.com/docs/guides/merchant_quickstart/calling_APIs/">here</a>.
+
 #### Request 1
 
 ```curl
 curl -X POST https://api.na.bambora.com/v1/payments
 -H "Content-Type: application/json"
--H "Authorization: Passcode your_encoded_payment_passcode"
+-H "Authorization: Passcode MTAwMDAwMDAwOmJhbWJvcmE="
 -d '{
         "amount": 5.00,
         "payment_method": "card",
@@ -151,7 +153,7 @@ Since this is a subsequent transaction in a set of transactions, the series ID f
 ```curl
 curl -X POST https://api.na.bambora.com/v1/payments
 -H "Content-Type: application/json"
--H "Authorization: Passcode your_encoded_payment_passcode"
+-H "Authorization: Passcode MTAwMDAwMDAwOmJhbWJvcmE="
 -d '{
         "amount": 5.00,
         "payment_method": "card",
@@ -239,7 +241,7 @@ Since this is the first transaction in a set of transactions, no series ID is re
 ```curl
 curl -X POST https://api.na.bambora.com/v1/payments
 -H "Content-Type: application/json"
--H "Authorization: Passcode your_encoded_payment_passcode"
+-H "Authorization: Passcode MTAwMDAwMDAwOmJhbWJvcmE="
 -d '{
         "amount": 5.00,
         "payment_method": "card",
@@ -326,7 +328,7 @@ Since this is a subsequent transaction in a set of transactions, the series ID f
 ```curl
 curl -X POST https://api.na.bambora.com/v1/payments
 -H "Content-Type: application/json"
--H "Authorization: Passcode your_encoded_payment_passcode"
+-H "Authorization: Passcode MTAwMDAwMDAwOmJhbWJvcmE="
 -d '{
         "amount": 5.00,
         "payment_method": "card",
@@ -413,7 +415,7 @@ and a new series ID will be returned back in the response message.
 ```curl
 curl -X POST https://api.na.bambora.com/v1/payments
 -H "Content-Type: application/json"
--H "Authorization: Passcode your_encoded_payment_passcode"
+-H "Authorization: Passcode MTAwMDAwMDAwOmJhbWJvcmE="
 -d '{
         "amount": 5.00,
         "payment_method": "card",
@@ -501,7 +503,7 @@ be passed in the request message.
 ```curl
 curl -X POST https://api.na.bambora.com/v1/payments
 -H "Content-Type: application/json"
--H "Authorization: Passcode your_encoded_payment_passcode"
+-H "Authorization: Passcode MTAwMDAwMDAwOmJhbWJvcmE="
 -d '{
         "amount": 5.00,
         "payment_method": "card",
