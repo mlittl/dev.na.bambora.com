@@ -40,6 +40,8 @@ Credential-on-File indicator for Credential-on-File transactions.  The new JSON 
 This new JSON object is also returned back as part of the PaymentResponse JSON object, identifying the Credential-on-File type that the transaction 
 was processed as, and the series ID that it belongs to.
 
+For documentation on how to call our Payment APIs click <a href="https://dev.na.bambora.com/docs/guides/merchant_quickstart/calling_APIs/">here</a>.
+
 ## Credential-on-File Types
 
 The following is a list of all possible Credential-on-File types that can be used when processing Credential-on-File transactions:
@@ -59,8 +61,6 @@ An example of this type is when the cardholder has purchased a fridge and is pay
 the set of installment payments, and it can be either a purchase or a pre-auth transaction.
 
 Since this is the first transaction in a set of transactions, no series ID is required, and a new series ID will be returned back in the response message.
-
-For documentation on how to call our Payment APIs click <a href="https://dev.na.bambora.com/docs/guides/merchant_quickstart/calling_APIs/">here</a>.
 
 #### Request 1
 
