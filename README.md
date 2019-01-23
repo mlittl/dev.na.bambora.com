@@ -2,29 +2,45 @@
 
 ## Contents
 
-* [Build the site](#build-the-site)
-  * [Docker](#docker)
-  * [Run locally](#run-locally)
-* [Branching, merging and deploying](#branching-merging-and-deploying)
-* [Editing the docs](#editing-the-docs)
-  * [Ways to make changes](#ways-to-make-changes)
-    * [Through your web browser](#through-your-web-browser)
-    * [Through a git branch](#through-a-git-branch)
-  * [Formatting content](#formatting-content)
-  * [YAML](#yaml)
-    * [Navigation](#navigation)
-      * [Header files](#header-files)
-      * [Footer files](#footer-files)
-      * [Table of contents files](#table-of-contents-files)
-  * [Markdown](#markdown)
-  * [Layouts](#layouts)
-    * [Landing layout](#landing-layout)
-    * [Product layout](#product-layout)
-    * [Tutorial layout](#tutorial-layout)
-    * [Spec layout](#spec-layout)
-    * [Swagger layout](#swagger-layout)
-    * [FAQ layout](#faq-layout)
-* [Making non-documentation changes to the site](#making-non-documentation-changes-to-the-site)
+- [Developer Portal for North America](#developer-portal-for-north-america)
+  - [Contents](#contents)
+  - [Build the site](#build-the-site)
+    - [Docker](#docker)
+      - [Build](#build)
+      - [Run](#run)
+      - [Test Local](#test-local)
+    - [Bundler](#bundler)
+      - [Build](#build-1)
+      - [Run](#run-1)
+  - [Branching, merging and deploying](#branching-merging-and-deploying)
+  - [Editing the docs](#editing-the-docs)
+    - [Ways to make changes](#ways-to-make-changes)
+      - [Through your web browser](#through-your-web-browser)
+      - [Through a git branch](#through-a-git-branch)
+    - [Formatting Content](#formatting-content)
+    - [YAML](#yaml)
+      - [Navigation](#navigation)
+        - [Header files](#header-files)
+        - [Footer files](#footer-files)
+        - [Table of contents files](#table-of-contents-files)
+    - [Markdown](#markdown)
+    - [Layouts](#layouts)
+      - [Landing layout](#landing-layout)
+      - [Product layout](#product-layout)
+      - [Tutorial layout](#tutorial-layout)
+      - [Spec layout](#spec-layout)
+      - [Swagger layout](#swagger-layout)
+      - [FAQ layout](#faq-layout)
+  - [Tone](#tone)
+    - [Voice](#voice)
+    - [Traits](#traits)
+    - [Best practices](#best-practices)
+    - [Engagement methods](#engagement-methods)
+      - [Ask questions](#ask-questions)
+      - [Show commitment](#show-commitment)
+      - [Send winks](#send-winks)
+      - [Be interesting](#be-interesting)
+  - [Making non-documentation changes to the site](#making-non-documentation-changes-to-the-site)
 
 ## Build the site
 
@@ -96,9 +112,14 @@ bundle exec rake run
 
 ## Branching, merging and deploying
 
-Changes should first be made and tested on a dedicated development team branch, then pushed to the staging branch, and only staging should ever be pushed to master.
+More complete, internal only documentation about deploying can be found in Confluence
+at: <https://confluence.beanstream.com/display/DVL/Developer+Portal>
 
-Any team branch that is pushed to the Github repo will be built and deployed to an internally accessible s3 bucket with the name `dev.beanstream.com.<branch_name>`. When development team base branches are deployed, Bamboo will attempt to merge changes on the master branch into the team branch, in order to keep the branches up to date with master.
+Changes should first be made and tested on a feature branch, then pushed to the test branch,
+and only test should be merged/pushed to master.
+
+Any team branch that is pushed to the Github repo will be built and deployed to an internally
+accessible s3 bucket with the name `dev.beanstream.com.<branch_name>`.
 
 ## Editing the docs
 
