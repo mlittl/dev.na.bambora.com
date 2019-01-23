@@ -36,41 +36,17 @@ cards:
         icon: creditcard-outline
         link: /docs/guides/custom_checkout/
     -
-        title: 3D Secure
-        description: >
-            Learn about implementing 3D Secure based payments.
-        icon: list
-        link: /docs/guides/3D_secure
-    -
         title: Apple Pay
         description: >
             Work with Apple Pay based payments from mobile devices and the Web.
         icon: list
         link: /docs/guides/apple_pay
     -
-        title: Batch Payment
+        title: Android Pay
         description: >
-            Batch credit card, EFT and ACH transactions.
-        icon: creditcard-outline
-        link: /docs/guides/batch_payment
-    -
-        title: Credential-on-File
-        description: >
-            Learn about processing transactions using stored payment credentials.
+            Start accepting Android Pay based payments.
         icon: list
-        link: /docs/guides/credential_on_file
-    -
-        title: Interac Online
-        description: >
-            Process payments with Interac Online.
-        icon: creditcard-outline
-        link: /docs/guides/interac_online
-    -
-        title: Masterpass
-        description: >
-            Process payments with Masterpass.
-        icon: creditcard-outline
-        link: /docs/guides/masterpass
+        link: /docs/guides/android_pay      
     -
         title: Onboarding
         description: >
@@ -84,6 +60,36 @@ cards:
         icon: checkmark
         link: /docs/guides/payment_profiles
     -
+        title: 3D Secure
+        description: >
+            Learn about implementing 3D Secure based payments.
+        icon: list
+        link: /docs/guides/3D_secure
+    -
+        title: Masterpass
+        description: >
+            Process payments with Masterpass.
+        icon: creditcard-outline
+        link: /docs/guides/masterpass
+    -
+        title: Visa Checkout
+        description: >
+            Process payments with Visa Checkout.
+        icon: creditcard-outline
+        link: /docs/guides/visa_checkout
+    -
+        title: Interac Online
+        description: >
+            Process payments with Interac Online.
+        icon: creditcard-outline
+        link: /docs/guides/interac_online
+    -
+        title: Batch Payment
+        description: >
+            Batch credit card, EFT and ACH transactions.
+        icon: creditcard-outline
+        link: /docs/guides/batch_payment
+    -
         title: Recurring Payment
         description: >
             Schedule series of automatic payments.
@@ -95,12 +101,6 @@ cards:
             Encrypt information and provide computer to computer authentication.
         icon: checkmark
         link: /docs/guides/SSL
-    -
-        title: Visa Checkout
-        description: >
-            Process payments with Visa Checkout.
-        icon: creditcard-outline
-        link: /docs/guides/visa_checkout
 ---
 
 # Guides
