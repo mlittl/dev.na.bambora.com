@@ -75,8 +75,7 @@ curl -X POST https://api.na.bambora.com/v1/payments
             "name": "Mr. Card On file",
             "number": "4520016000023001",
             "expiry_month": "12",
-            "expiry_year": "22",
-            "cvd": 123
+            "expiry_year": "22"
         },
         "card_on_file": {
             "type": "first_installment"
@@ -113,7 +112,7 @@ curl -X POST https://api.na.bambora.com/v1/payments
         "address_match": 0,
         "postal_result": 0,
         "avs_result": "0",
-        "cvd_result": "3",
+        "cvd_result": "2",
         "avs": {
             "id": "0",
             "message": "Address Verification not performed for this transaction.",
@@ -161,8 +160,7 @@ curl -X POST https://api.na.bambora.com/v1/payments
             "name": "Mr. Card On file",
             "number": "4520016000023001",
             "expiry_month": "12",
-            "expiry_year": "22",
-            "cvd": 123
+            "expiry_year": "22"
         },
         "card_on_file": {
             "type": "subsequent_installment",
@@ -200,7 +198,7 @@ curl -X POST https://api.na.bambora.com/v1/payments
         "address_match": 0,
         "postal_result": 0,
         "avs_result": "0",
-        "cvd_result": "3",
+        "cvd_result": "2",
         "avs": {
             "id": "0",
             "message": "Address Verification not performed for this transaction.",
@@ -244,13 +242,11 @@ curl -X POST https://api.na.bambora.com/v1/payments
 -H "Authorization: Passcode MTAwMDAwMDAwOmJhbWJvcmE="
 -d '{
         "amount": 5.00,
-        "payment_method": "card",
-        "card": {
-            "name": "Mr. Card On file",
-            "number": "4520016000023001",
-            "expiry_month": "12",
-            "expiry_year": "22",
-            "cvd": 123
+        "payment_method": "payment_profile",
+        "payment_profile": {
+            "customer_code": "SPPCustomerCode",
+            "card_id": 1
+            "complete": true
         },
         "card_on_file": {
             "type": "first_recurring"
@@ -287,7 +283,7 @@ curl -X POST https://api.na.bambora.com/v1/payments
         "address_match": 0,
         "postal_result": 0,
         "avs_result": "0",
-        "cvd_result": "3",
+        "cvd_result": "2",
         "avs": {
             "id": "0",
             "message": "Address Verification not performed for this transaction.",
@@ -331,13 +327,11 @@ curl -X POST https://api.na.bambora.com/v1/payments
 -H "Authorization: Passcode MTAwMDAwMDAwOmJhbWJvcmE="
 -d '{
         "amount": 5.00,
-        "payment_method": "card",
-        "card": {
-            "name": "Mr. Card On file",
-            "number": "4520016000023001",
-            "expiry_month": "12",
-            "expiry_year": "22",
-            "cvd": 123
+        "payment_method": "payment_profile",
+        "payment_profile": {
+            "customer_code": "SPPCustomerCode",
+            "card_id": 1
+            "complete": true
         },
         "card_on_file": {
             "type": "subsequent_recurring",
@@ -375,7 +369,7 @@ curl -X POST https://api.na.bambora.com/v1/payments
         "address_match": 0,
         "postal_result": 0,
         "avs_result": "0",
-        "cvd_result": "3",
+        "cvd_result": "2",
         "avs": {
             "id": "0",
             "message": "Address Verification not performed for this transaction.",
@@ -423,8 +417,7 @@ curl -X POST https://api.na.bambora.com/v1/payments
             "name": "Mr. Card On file",
             "number": "4520016000023001",
             "expiry_month": "12",
-            "expiry_year": "22",
-            "cvd": 123
+            "expiry_year": "22"
         },
         "card_on_file": {
             "type": "subsequent_customer_initiated"
@@ -461,7 +454,7 @@ curl -X POST https://api.na.bambora.com/v1/payments
         "address_match": 0,
         "postal_result": 0,
         "avs_result": "0",
-        "cvd_result": "3",
+        "cvd_result": "2",
         "avs": {
             "id": "0",
             "message": "Address Verification not performed for this transaction.",
@@ -511,8 +504,7 @@ curl -X POST https://api.na.bambora.com/v1/payments
             "name": "Mr. Card On file",
             "number": "4520016000023001",
             "expiry_month": "12",
-            "expiry_year": "22",
-            "cvd": 123
+            "expiry_year": "22"
         },
         "card_on_file": {
             "type": "subsequent_unscheduled",
@@ -550,7 +542,7 @@ curl -X POST https://api.na.bambora.com/v1/payments
         "address_match": 0,
         "postal_result": 0,
         "avs_result": "0",
-        "cvd_result": "3",
+        "cvd_result": "2",
         "avs": {
             "id": "0",
             "message": "Address Verification not performed for this transaction.",
