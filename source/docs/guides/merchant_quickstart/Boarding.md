@@ -186,7 +186,7 @@ Once you or your developer finish testing, send us an email requesting to go liv
 
 We'll perform a review of your website to ensure everything is running smoothly. If we detect any issues or problems, we'll send you an email concerning your site review. 
 
-> Test transactions will remain free of charge, but monthly processing fees will start from the point your account goes live.
+> Test transactions will remain free of charge, but monthly processing fees will start after your account is approved and authorized.
 
 ### More information
 If you're looking for more information about using Bambora, you can look through our [Quickstart Guide](http://support.na.bambora.com/bic/w/index.html#docs/online-help-area-quickstart-information.htm) for helpful hints, how-to's, and all things Bambora.
