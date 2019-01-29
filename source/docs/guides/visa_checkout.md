@@ -17,9 +17,6 @@ navigation:
 
 # Visa Checkout
 
-*Note: This is a draft document. All information is accurate, but some information may be missing.
-It will completed soon.*
-
 Visa Checkout simplifies and secures online payments by storing payment information.
 It removes the need for a customer to re-enter and share card information.
 
