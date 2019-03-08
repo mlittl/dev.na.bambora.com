@@ -75,7 +75,8 @@ curl -X POST https://api.na.bambora.com/v1/payments
             "name": "Mr. Card On file",
             "number": "4520016000023001",
             "expiry_month": "12",
-            "expiry_year": "22"
+            "expiry_year": "22",
+            "cvd": "123"
         },
         "card_on_file": {
             "type": "first_installment"
@@ -112,7 +113,7 @@ curl -X POST https://api.na.bambora.com/v1/payments
         "address_match": 0,
         "postal_result": 0,
         "avs_result": "0",
-        "cvd_result": "2",
+        "cvd_result": "1",
         "avs": {
             "id": "0",
             "message": "Address Verification not performed for this transaction.",
@@ -417,7 +418,8 @@ curl -X POST https://api.na.bambora.com/v1/payments
             "name": "Mr. Card On file",
             "number": "4520016000023001",
             "expiry_month": "12",
-            "expiry_year": "22"
+            "expiry_year": "22",
+            "cvd": "123"
         },
         "card_on_file": {
             "type": "subsequent_customer_initiated"
@@ -454,7 +456,7 @@ curl -X POST https://api.na.bambora.com/v1/payments
         "address_match": 0,
         "postal_result": 0,
         "avs_result": "0",
-        "cvd_result": "2",
+        "cvd_result": "1",
         "avs": {
             "id": "0",
             "message": "Address Verification not performed for this transaction.",
@@ -568,6 +570,17 @@ curl -X POST https://api.na.bambora.com/v1/payments
 }
 ```
 
+## Processing Credential-on-File Transactions for Recurring/Installment Customers
+
+For recurring/installment customers that already have transactions processed *without* Credential-on-File values, the first Credential-on-File transaction request should include the Credential-on-File `type` value *without* including a `series_id`. This transaction's response will include the Credential-on-File `series_id` value to be stored for later use, and would then need to be included with all future transactions within that set.
+
+This is applicable to the following Credential-on-File `type`s:
+
+- `subsequent_recurring`
+- `subsequent_installment`
+- `subsequent_unscheduled`
+
+
 ## Credential-on-File Defaults
 
 In addition to the Bambora Payment APIs, any transactions resulting from either the Secure Payment Profile service, Recurring Billing service, 
@@ -578,7 +591,7 @@ assign a default Credential-on-File indicator based on the following rules:
 
 - If the transaction is processed for the purpose of verifying a cardholder's payment credentials before storing it for later use, then the transaction 
   is assigned the `first_recurring` Credential-on-File type.
-- If the transaction is flagged as recurring and there is no specified end date, then the transaction is assigned the `first_recurring` Credential-on-File 
-  type. If there is a specified end date (which is only possible from the Recurring Billing service), then the transaction is assigned the `first_installment` Credential-on-File type.
+- If the transaction is flagged as recurring and there is no specified end date, then the transaction is assigned the `subsequent_recurring` Credential-on-File 
+  type. If there is a specified end date (which is only possible from the Recurring Billing service), then the transaction is assigned the `subsequent_installment` Credential-on-File type.
 - If the above rules do not apply, and the transaction is using a payment profile, or the transaction is from a batch, then the transaction is assigned the 
   `subsequent_customer_initiated` Credential-on-File type.
