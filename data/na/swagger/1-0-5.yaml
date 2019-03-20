@@ -1018,7 +1018,7 @@ definitions:
         description: 'Result of Address verification. 0 if Adddress Verification Service(AVS) is disabled or AVS fails. 1 if AVS is enabled and address and postal/zip code match'
       postal_result:
         type: integer
-        description: 'Result of postal verification. 0 if the postal_code parameter does does not match the customers address records or if AVS was not processed for the transaction. 1 if the postal_code parameter matches the consumers address records at the issuing bank.'
+        description: 'Result of postal verification. 0 if the postal\_code parameter does does not match the customers address records or if AVS was not processed for the transaction. 1 if the postal\_code parameter matches the consumers address records at the issuing bank.'
       avs:
         $ref: '#/definitions/AvsResponse'
       cavv_result:
@@ -1031,7 +1031,7 @@ definitions:
         enum: ['0','5','9','A','B','C','D','E','G','I','M','N','P','R','S','U','W','X','Y','Z']
       message:
         type: string
-        description: 'Message containing details of the avs status. Corresponding to each avs_id, there is an avs_message describing the status of address verification service. For example If avs_id = 5 then avs_message = Invalid AVS Response.'
+        description: 'Message containing details of the avs status. Corresponding to each avs\_id, there is an avs_message describing the status of address verification service. For example If avs\_id = 5 then avs\_message = Invalid AVS Response.'
       processed:
         type: boolean
         description: 'Is true if the issuing bank has successfully processed an AVS check on the transaction. Is false if no AVS check was performed.'
@@ -1754,18 +1754,18 @@ definitions:
       type:
         type: string
         description: |
-          * not_card_on_file - A transaction where the credit card information is not stored on file.
+          * not\_card\_on_file - A transaction where the credit card information is not stored on file.
           * first_installment - The first payment in a series of installment payments.  (Eg. Initial installment payment when purchasing a fridge.)
           * subsequent_installment - A subsequent payment (ie. not the first) in a series of installment payments.  (Eg. Next installment payment when purchasing a fridge.)
           * first_recurring - The first payment in a series of scheduled payments with no expected end date.  (Eg. Initial payment for a subscription service.)
           * subsequent_recurring - A subsequent payment (ie. not the first) in a series of scheduled payments with no expected end date.  (Eg. Next payment for a subscription service.)
-          * subsequent_customer_initiated - A recurring transaction that is initiated by the customer.  (Eg. Customer reloads a prepaid cash card.)
+          * subsequent\_customer_initiated - A recurring transaction that is initiated by the customer.  (Eg. Customer reloads a prepaid cash card.)
           * subsequent_unscheduled - An unscheduled recurring transaction that is initiated by the merchant. (Eg. Merchant auto-reloads a prepaid cash card for the customer when the balance on the card reaches a predetermined threshold.)
         enum: ['not_card_on_file', 'first_installment', 'subsequent_installment', 'first_recurring', 'subsequent_recurring', 'subsequent_customer_initiated', 'subsequent_unscheduled']
       series_id:
         type: number
         format: integer
-        description: 'The identifier for the set of transactions that this transaction belongs to.  This field is required for "subsequent_installment", "subsequent_recurring", and "subsequent_unscheduled" credential-on-file transaction types.'
+        description: 'The identifier for the set of transactions that this transaction belongs to.  This field is required for "subsequent\_installment", "subsequent\_recurring", and "subsequent\_unscheduled" credential-on-file transaction types.'
   ContinueRequest:
     required:
       - payment_method
@@ -1849,12 +1849,12 @@ definitions:
       type:
         type: string
         description: |
-          * not_card_on_file - A transaction where the credit card information is not stored on file.
+          * not\_card\_on\_file - A transaction where the credit card information is not stored on file.
           * first_installment - The first payment in a series of installment payments.  (Eg. Initial installment payment when purchasing a fridge.)
           * subsequent_installment - A subsequent payment (ie. not the first) in a series of installment payments.  (Eg. Next installment payment when purchasing a fridge.)
           * first_recurring - The first payment in a series of scheduled payments with no expected end date.  (Eg. Initial payment for a subscription service.)
           * subsequent_recurring - A subsequent payment (ie. not the first) in a series of scheduled payments with no expected end date.  (Eg. Next payment for a subscription service.)
-          * subsequent_customer_initiated - A recurring transaction that is initiated by the customer.  (Eg. Customer reloads a prepaid cash card.)
+          * subsequent\_customer_initiated - A recurring transaction that is initiated by the customer.  (Eg. Customer reloads a prepaid cash card.)
           * subsequent_unscheduled - An unscheduled recurring transaction that is initiated by the merchant. (Eg. Merchant auto-reloads a prepaid cash card for the customer when the balance on the card reaches a predetermined threshold.)
         enum: ['not_card_on_file', 'first_installment', 'subsequent_installment', 'first_recurring', 'subsequent_recurring', 'subsequent_customer_initiated', 'subsequent_unscheduled']
       series_id:
