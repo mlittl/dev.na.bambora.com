@@ -113,9 +113,14 @@ bundle exec rake run
 
 ## Branching, merging and deploying
 
-Changes should first be made and tested on a dedicated development team branch, then pushed to the staging branch, and only staging should ever be pushed to master.
+More complete, internal only documentation about deploying can be found in Confluence
+at: <https://confluence.beanstream.com/display/DVL/Developer+Portal>
 
-Any team branch that is pushed to the Github repo will be built and deployed to an internally accessible s3 bucket with the name `dev.beanstream.com.<branch_name>`. When development team base branches are deployed, Bamboo will attempt to merge changes on the master branch into the team branch, in order to keep the branches up to date with master.
+Changes should first be made and tested on a feature branch, then pushed to the test branch,
+and only test should be merged/pushed to master.
+
+Any team branch that is pushed to the Github repo will be built and deployed to an internally
+accessible s3 bucket with the name `dev.beanstream.com.<branch_name>`.
 
 ## Editing the docs
 
