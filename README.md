@@ -2,29 +2,46 @@
 
 ## Contents
 
-* [Build the site](#build-the-site)
-  * [Docker](#docker)
-  * [Run locally](#run-locally)
-* [Branching, merging and deploying](#branching-merging-and-deploying)
-* [Editing the docs](#editing-the-docs)
-  * [Ways to make changes](#ways-to-make-changes)
-    * [Through your web browser](#through-your-web-browser)
-    * [Through a git branch](#through-a-git-branch)
-  * [Formatting content](#formatting-content)
-  * [YAML](#yaml)
-    * [Navigation](#navigation)
-      * [Header files](#header-files)
-      * [Footer files](#footer-files)
-      * [Table of contents files](#table-of-contents-files)
-  * [Markdown](#markdown)
-  * [Layouts](#layouts)
-    * [Landing layout](#landing-layout)
-    * [Product layout](#product-layout)
-    * [Tutorial layout](#tutorial-layout)
-    * [Spec layout](#spec-layout)
-    * [Swagger layout](#swagger-layout)
-    * [FAQ layout](#faq-layout)
-* [Making non-documentation changes to the site](#making-non-documentation-changes-to-the-site)
+- [Developer Portal for North America](#developer-portal-for-north-america)
+  - [Contents](#contents)
+  - [Build the site](#build-the-site)
+    - [Docker](#docker)
+      - [Build](#build)
+      - [Run](#run)
+      - [Test Local](#test-local)
+    - [Bundler](#bundler)
+      - [Build](#build-1)
+      - [Run](#run-1)
+  - [Branching, merging and deploying](#branching-merging-and-deploying)
+  - [Editing the docs](#editing-the-docs)
+    - [Ways to make changes](#ways-to-make-changes)
+      - [Through your web browser](#through-your-web-browser)
+      - [Through a git branch](#through-a-git-branch)
+    - [Formatting Content](#formatting-content)
+    - [YAML](#yaml)
+      - [Navigation](#navigation)
+        - [Header files](#header-files)
+        - [Footer files](#footer-files)
+        - [Table of contents files](#table-of-contents-files)
+    - [Markdown](#markdown)
+    - [Layouts](#layouts)
+      - [Landing layout](#landing-layout)
+      - [Product layout](#product-layout)
+      - [Tutorial layout](#tutorial-layout)
+      - [Spec layout](#spec-layout)
+      - [Swagger layout](#swagger-layout)
+      - [FAQ layout](#faq-layout)
+  - [Tone](#tone)
+    - [Voice](#voice)
+    - [Traits](#traits)
+    - [Best practices](#best-practices)
+    - [Engagement methods](#engagement-methods)
+      - [Ask questions](#ask-questions)
+      - [Show commitment](#show-commitment)
+      - [Send winks](#send-winks)
+      - [Be interesting](#be-interesting)
+  - [Making non-documentation changes to the site](#making-non-documentation-changes-to-the-site)
+  - [Updating Gemfile](#updating-gemfile)
 
 ## Build the site
 
@@ -394,23 +411,23 @@ To keep things simple, Bambora follows a few guidelines when writing — nothing
 
 ### Traits
 
-* KNOWLEDGEABLE but not condescending
-* FRIENDLY but not chatty
-* HONEST but not brash
-* OPTIMISTIC but not naive
-* CURIOUS but not nosey
-* EASY but not basic
+- KNOWLEDGEABLE but not condescending
+- FRIENDLY but not chatty
+- HONEST but not brash
+- OPTIMISTIC but not naive
+- CURIOUS but not nosey
+- EASY but not basic
 
 ### Best practices
 
-* Use small words: Use > Utilize.
-* Write short sentences: Like this one.
-* Contractions are cool: Can’t stop, won’t stop.
-* Sentence case please: First letter stands tall.
-* Go easy on exclamations: Never more than one!
-* Adverbs are for embellishers: Stick to the truth.
-* Check your spelling: Use regional spelling (looking at you, English).
-* When to hyphenate: Compound adjectives before nouns (plus in-store and in-app).
+- Use small words: Use > Utilize.
+- Write short sentences: Like this one.
+- Contractions are cool: Can’t stop, won’t stop.
+- Sentence case please: First letter stands tall.
+- Go easy on exclamations: Never more than one!
+- Adverbs are for embellishers: Stick to the truth.
+- Check your spelling: Use regional spelling (looking at you, English).
+- When to hyphenate: Compound adjectives before nouns (plus in-store and in-app).
 
 ### Engagement methods
 
@@ -428,9 +445,53 @@ Look for ways to bake pleasant or unexpected surprises in every customer experie
 
 #### Be interesting
 
-Feel free to show the full range of our personality. Our brand is filled with passionate people. Show off (a little) and have some fun
-
+Feel free to show the full range of our personality. Our brand is filled with
+passionate people. Show off (a little) and have some fun.
 
 ## Making non-documentation changes to the site
 
 With a little more effort, larger changes (e.g. adding a new template, changing css styling) can be made to the developer portal.
+
+## Updating Gemfile
+
+Periodically the gems in the Gemfile.lock need to be updated (for example if
+Github reports a vulnerability in one of the pinned dependencies).  To update
+you need to update the `Gemfile.lock` file, but to ensure that related
+dependencies are updated appropriately you'll need to instruct `bundler` to do
+this.
+
+Easiest way to do this is to build the Docker image locally and do the update in
+there, then copy out the updated Gemfile.lock.
+
+To build the image:
+
+```shell
+docker build -t devbamboracom .
+```
+
+Now run a container from this image:
+
+```shell
+docker run -v `pwd`/source:/usr/src/app/source -w /usr/src/app -p 4567:4567 --rm --name devbamboracom devbamboracom
+```
+
+Now (in a separate terminal), exec into the container:
+
+```shell
+docker exec -it devbamboracom /bin/bash
+```
+
+Once into the container, update bundler:
+
+```shell
+gem install bundler:1.17.1
+```
+
+Update the gem of interest.  For example to update `nokogiri`:
+
+```shell
+bundler --update nokogiri
+```
+
+Now copy the contents of `Gemfile.lock` and paste over the current contents on
+your local machine.
