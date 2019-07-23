@@ -33,8 +33,9 @@ Batches of bank to bank transactions take multiple days to process. Batches subm
 ### Funds transfers
 
 We process funds transfers in 2 steps. We pull funds from the payer's bank account into our bank account and then we push them to the payee's bank account.
-* Eg. You are a fitness club charging your members for the monthly fees: members are the payers, money is pulled from their accounts, and you are the payee, the recipient of the money.
-* Eg: You want to pay your vendors: you are the payer, and the vendors are the payees.
+
+- Eg. You are a fitness club charging your members for the monthly fees: members are the payers, money is pulled from their accounts, and you are the payee, the recipient of the money.
+- Eg: You want to pay your vendors: you are the payer, and the vendors are the payees.
 
 We add a lag between receiving and re-sending the funds to mitigate the risk associated with returned transfers. This lag is usually 3 to 5 business days and is set relative to the risk associated with your business. Funds transfers can be returned due to closed or invalid bank accounts, insufficient funds, or disputes. We usually receive returns within 2 to 4 business days.
 
