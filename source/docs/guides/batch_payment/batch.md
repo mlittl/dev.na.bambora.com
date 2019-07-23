@@ -76,7 +76,7 @@ The following two examples show the use of the Batch Payment API. You can run th
 #### Vanilla file upload
 ```shell
 curl -X POST \
-  https://api.na.bambora.com/v1/payments \
+  https://api.na.bambora.com/v1/batchpayments \
   -H 'authorization: Passcode {{passcode_encoded}}' \
   -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
   -F file=@transactions.csv

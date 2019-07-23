@@ -15,9 +15,9 @@ navigation:
 
 # Batch payment
 
-The Batch Payment API allows you to batch transactions together into a single a API call. This reduces the number of HTTP connections your client has to make.
+The Batch Payment API allows you to batch transactions together into a single a API call.
 
-You can batch credit card transactions and funds transfer (ACH/EFT) transactions. You can use funds transfer transactions to push funds to a creditor, or pull funds from a debtor. The most common use cases for funds transfer transactions is payroll or Accounts Payable, and synchronized subscription models where multiple people are charged on a certain day each month, or each year.
+You can batch credit card transactions and bank to bank (ACH/EFT) transactions. You can use bank to bank transactions to push funds to a creditor, or pull funds from a debtor. The most common use cases for bank to bank transactions is payroll or Accounts Payable, and synchronized subscription models where multiple people are charged on a certain day each month, or each year.
 
 The Batch Payment API is compatible with our Payment Profiles service. This allows you to securely store credit card and bank account details on our servers.
 
@@ -28,11 +28,13 @@ The Batch Report API allows you to query the status of batches and individual tr
 
 Batches of credit card transactions can be processed immediately, on upload, or they can be scheduled to be processed on a certain date. Scheduled batches of credit card transactions are processed at 0600 PST (AM) each day.
 
-Batches of funds transfer transactions take multiple days to process. Batches submitted before 1100 PST (AM) can be scheduled to begin processing on the same day. Batches submitted after this time will be processed the following day.
+Batches of bank to bank transactions take multiple days to process. Batches submitted before 1100 PST (AM) can be scheduled to begin processing on the same day. Batches submitted after this time will be processed the following day.
 
 ### Funds transfers
 
-We process funds transfers in 2 steps. We pull funds from the payer's bank account into our bank account and then we push them to the payee's bank account. For direct debit transactions, you are the recipient.
+We process funds transfers in 2 steps. We pull funds from the payer's bank account into our bank account and then we push them to the payee's bank account.
+* Eg. You are a fitness club charging your members for the monthly fees: members are the payers, money is pulled from their accounts, and you are the payee, the recipient of the money.
+* Eg: You want to pay your vendors: you are the payer, and the vendors are the payees.
 
 We add a lag between receiving and re-sending the funds to mitigate the risk associated with returned transfers. This lag is usually 3 to 5 business days and is set relative to the risk associated with your business. Funds transfers can be returned due to closed or invalid bank accounts, insufficient funds, or disputes. We usually receive returns within 2 to 4 business days.
 
