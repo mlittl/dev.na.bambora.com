@@ -41,6 +41,8 @@ We add a lag between receiving and re-sending the funds to mitigate the risk ass
 
 This means that if you have a 3 day lag and you need funds to be deposited in a payee's account on Friday, 5 May, you will need to submit the batch before 1100 on Tuesday, 3 May. Or if you have a 5 day lag and you need funds to be deposited in a creditor's account on Friday, 8 June, you will need to submit the batch before 1100 on Friday, 1 June.
 
+<img src="/docs/guides/batch_payments/batch_flow_chart.png" alt="Flow chart showing the batch debit flow">
+
 #### 3 day lag
 1. Day 1 - We submit a transaction request to the bank and funds are removed from payer's bank account.
 1. Day 2 - The bank completes processing the debit and the funds are settled to our bank account.
