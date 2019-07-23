@@ -17,7 +17,7 @@ navigation:
 
 The Batch Payment API allows you to batch transactions together into a single a API call.
 
-You can batch credit card transactions and bank to bank (ACH/EFT) transactions. You can use bank to bank transactions to push bank to bank to a creditor, or pull bank to bank from a debtor. The most common use cases for bank to bank transactions is payroll or Accounts Payable, and synchronized subscription models where multiple people are charged on a certain day each month, or each year.
+You can batch credit card transactions and bank to bank (ACH/EFT) transactions. You can use bank to bank transactions to push funds to a creditor, or pull funds from a debtor. The most common use cases for bank to bank transactions is payroll or Accounts Payable, and synchronized subscription models where multiple people are charged on a certain day each month, or each year.
 
 The Batch Payment API is compatible with our Payment Profiles service. This allows you to securely store credit card and bank account details on our servers.
 
