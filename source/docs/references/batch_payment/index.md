@@ -56,7 +56,7 @@ For batches of EFT transactions, the API expects the following columns:
 - **Dynamic descriptor** - By default the Bambora merchant company name will show on your customer's bank statement. You can override this default by populating the Dynamic Descriptor field.
 
 
-#### American finds transfer (ACH)
+#### American funds transfer (ACH)
 
 For batches of ACH transactions, the API expects the following columns:
 
