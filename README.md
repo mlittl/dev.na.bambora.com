@@ -114,7 +114,7 @@ bundle exec rake run
 ## Branching, merging and deploying
 
 More complete, internal only documentation about deploying can be found in Confluence
-at: <https://confluence.beanstream.com/display/DVL/Developer+Portal>
+at: <https://confluence.beanstream.com/pages/viewpage.action?pageId=64456558>
 
 Changes should first be made and tested on a feature branch, then pushed to the test branch,
 and only test should be merged/pushed to master.
