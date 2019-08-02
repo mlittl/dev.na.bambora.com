@@ -44,9 +44,10 @@ Credit card fees will depend on your account but will include a percentage and a
 
 ### Processing
 
-Bank-to-bank transactions are dependent on bank cut off times. Therefore, if you want to process a bank-to-bank transaction the same day, you need to submit the request before 11:00 AM (PST).  Any request submitted after this time will be processed the following  day. 
+Bank-to-bank transactions are dependent on bank cut-off times. Therefore, if you want to process a bank-to-bank transaction the same day, you need to submit the request before 11:00 AM (PST).  Any request submitted after this time will be processed the following  day. 
 
-Example Processing Flow with a 4-business day credit lag.
+Example processing flow with a 4-business day credit lag.
+
 Day 0: A fitness software uploads a batch file through our Batch Payment API before the 11:00 am PST cut-off time. The fitness software uses the Batch Payment Report API to query the status of the transaction. The transaction status is ‘Scheduled’. 
 
 Day 1: The members of the fitness club are debited; the money is taken out of their bank accounts. The transaction status is ‘In process’. 
@@ -67,6 +68,6 @@ A batch of 5 direct debits will involve 5 debit transactions and 1 credit transa
 
 ## Supporting Services
 
-For repeat customers or payments, you can use our Payment Profiles to store their payment information on our servers securely. 
+For repeat customers or payments, you can use our Payment Profiles solution to store their payment information on our servers securely. 
 
 To query the status of your bank-to-bank batch and individual transactions, you can use our Batch Report API. 
