@@ -102,7 +102,7 @@ This section documents the fields returned for each of the 4 reports.
 - **trans_id** - Transaction identifier. This is unique per merchant account. [Numeric.]  
 - **item_number** - This is the transaction's line number within a batch file. [Numeric.]
 - **payee_name** - Merchant transaction reference field.
-- **reference** -
+- **reference** - Merchant transaction reference field. This is equivalent to order number on credit card transactions.
 - **operation_type** - Identifying the transaction as a credit or debit transaction to the payee's account.
   - **C** - a credit to the payee's account.
   - **D** - a debit to the payee's account.
@@ -127,7 +127,7 @@ This section documents the fields returned for each of the 4 reports.
 - **trans_id** - Batch transaction id. This is a unique identifier per transaction uploaded to a merchant account across all batch files. The unique transaction reference to a batch transaction is a combination of merchant_id, batch_id, and trans_id.
 - **item_number** - Numeric line number within a the batch file for the transaction.
 - **payee_name** - Name of the bank account holder that is being debited or credited.
-- **reference** - Merchant transaction reference field. This is equivalent to order number on credit card transactions
+- **reference** - Merchant transaction reference field. This is equivalent to order number on credit card transactions.
 - **operation_type** - Identifying the transaction as a credit or debit transaction to the payee's account.
   - **C** - a credit to the payee's account.
   - **D** - a debit to the payee's account.
