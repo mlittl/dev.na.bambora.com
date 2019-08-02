@@ -81,7 +81,7 @@ Filters are assembled as in groups containing a column name (`rptFilterBy*`), an
 
 The format of the response object is relative to `rptFormat` element in the request in either JSON, XMl, TSV, CSV, or XLS formats.
 
-JSON and XMl response object contains a "code" property" indicating the success of the request. This will be a number between 1 and 8, inclusive, where "1" indicates success. It also has a message property with a description of the code.
+JSON and XML response object contains a "code" property" indicating the success of the request. This will be a number between 1 and 8, inclusive, where "1" indicates success. It also has a message property with a description of the code.
 
 - Code: "**1**", Message:	"Report Generated"
 - Code: "**2**", Message:	"Unknown error"
@@ -103,8 +103,10 @@ This section documents the fields returned for each of the 4 reports.
 - **item_number** - This is the transaction's line number within a batch file. [Numeric.]
 - **payee_name** - Merchant transaction reference field.
 - **reference** -
-- **operation_type** - Either 'C' to indicate a credit to the payee's account or 'D' to indicate a debit to the payee's account.
-- **amount** -
+- **operation_type** - Identifying the transaction as a credit or debit transaction to the payee's account.
+  - **C** - a credit to the payee's account.
+  - **D** - a debit to the payee's account.
+- **amount** - Amount of the transaction to debit/credit to the payee's account in pennies.
 - **state_id** - The progress of valid transactions through the settlement process.
 - **state_name** - An enum relative to the state_id.
 - **status_id** - Our validation of the format of the request
