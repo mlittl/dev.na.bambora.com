@@ -17,12 +17,12 @@ navigation:
 
 The Batch Payment API allows you to combine multiple transactions into a single API request.
 
-The Batch Payment API supports credit card and bank-to-bank (ACH/EFT) transactions. Each payment type must be processed through their own batch request. Within a single bank-to-bank request, you can pay (credit) and collect (debit) funds. 
+The Batch Payment API supports credit card and bank-to-bank (ACH/EFT) transactions. Each payment type must be processed with a separate batch request. Within a single bank-to-bank request, you can pay (credit) and collect (debit) funds. 
 
 ## Use case
 
-1. A gym software can collect membership fees from customers of multiple gyms and submit as one API call. Payment can be made from a credit card or directly from their bank account.
-1. An accounting department can submit payroll and expense repayment to its employees.
+1. A gym management software can collect membership fees from customers of multiple gyms and submit as one API call. Customers can make payments from their credit card or directly from their bank account.
+1. An accounting department can submit payroll and expense reimbursement to its employees.
 
 Credit card and bank-to-bank transactions have different processing flows, settlement times, and fees.
 
@@ -30,15 +30,16 @@ Credit card and bank-to-bank transactions have different processing flows, settl
 
 ### Processing
 
-Credit card transactions can be processed in real-time, or you can schedule them to process on a specific date. If you select a future date, those transactions will be processed at 6:00 AM (PST), on the date you’ve selected.
+Credit card transactions can be processed in real-time, or you can schedule them to process on a specific date. If you select a future date, those transactions will be processed at 3:00 AM (PST), on the date you’ve selected.
 
 ### Settlement
 
-Settlement for credit card batches is dependent on the card type and processor. Typically people see a three-day settlement lag. Higher risk accounts may have a longer settlement time. 
+Settlement for batch credit card transactions is handled in the same way as the regular credit card settlement process. Typically a three day settlement lag can be expected. Higher risk accounts may have a longer settlement time.
+
 
 ### Fees
 
-Credit card fees will depend on your account but will include a percentage and a flat fee. It's handled through the regular credit card settlement process.
+Credit card fees will depend on your account but a percentage and a flat fee will apply. It's handled through the regular credit card settlement process.
 
 ## Bank-to-Bank
 
