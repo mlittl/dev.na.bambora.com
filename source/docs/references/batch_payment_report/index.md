@@ -81,7 +81,7 @@ Filters are assembled as in groups containing a column name (`rptFilterBy*`), an
 
 The format of the response object is relative to `rptFormat` element in the request in either JSON, XMl, TSV, CSV, or XLS formats.
 
-JSON and XML response object contains a "code" property" indicating the success of the request. This will be a number between 1 and 8, inclusive, where "1" indicates success. It also has a message property with a description of the code.
+JSON and XML response object contains a "code" property indicating the success of the request. This will be a number between 1 and 8, inclusive, where "1" indicates success. It also has a message property with a description of the code.
 
 - Code: "**1**", Message:	"Report Generated"
 - Code: "**2**", Message:	"Unknown error"
