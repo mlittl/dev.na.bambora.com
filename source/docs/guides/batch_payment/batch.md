@@ -42,7 +42,7 @@ The authorization string is a base64 encoded concatenation of merchant_id, ":", 
 
 If you have a partner account with us, you can specify the sub-merchant account on which to process the batched transactions.
 
-- Authorize the API request as by passing your ISV parent merchant ID and API passcode in the Authorization header.
+- Authorize the API request by passing your ISV parent merchant ID and API passcode in the Authorization header.
 - Specify in the body the sub-merchant account id that you want to upload the batch on behalf of.
 
 ## Request format
@@ -63,11 +63,11 @@ The server's response is a single HTTPS response using the text content type. Th
 
 You can query individual transactions from a batch through the Batch Payment Report API and the Report API.
 
-The response object contains a "code" property indicating the success of the request. This will be a number between 1 and 23, inclusive, where "1" indicates success. It has a "message" property with a description of the code. It also has a "process_date" property indicating the date that the batch will be sent to the bank to begin processing. The "batch_mode" property indicates if your account is in test or is live. The data is sent to the bank only for accounts live.
+The response object contains a "code" property indicating the success of the request. This will be a number between 1 and 23, inclusive, where "1" indicates success. It has a "message" property with a description of the code. It also has a "process_date" property indicating the date that the batch will be sent to the bank to begin processing. The "batch_mode" property indicates if your account is in test or is live. The data is sent to the bank only for accounts that are live.
 
 ## Examples
 
-This section includes a sample HTTPS request that references a file to be uploaded and a sample request where the data is declared inline within the request. It also includes formatted sample data for batched funds transfer and credit card payments.
+This section includes a sample HTTPS request that references a file to be uploaded and a sample request where the data is declared inline within the request. It also includes formatted sample data for bank-to-bank transfer and credit card payments.
 
 ### Example batch requests
 
