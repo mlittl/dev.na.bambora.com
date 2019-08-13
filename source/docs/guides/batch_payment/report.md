@@ -15,9 +15,9 @@ navigation:
 
 # Reporting on batched transactions
 
-The Batch Report API allows you to query the status of your batches of funds transfer (EFT/ACH) transactions and the status of the individual transactions within those batches.
+The Batch Report API allows you to query the status of your batches of bank-to-bank (EFT/ACH) transactions and the status of the individual transactions within those batches.
 
-The API supports batched funds transfers only. Batched credit card transactions are processed as individual transactions and are queried through our Report API (as distinct from our Batch Report API).
+The API supports bank-to-bank payments only. Batched credit card transactions are processed as individual transactions and can be viewed through the standard merchant portal reports  (as distinct from our Batch Report API).
 
 There are three distinct report types:
 
@@ -25,13 +25,13 @@ There are three distinct report types:
 - BatchPaymentsACH
 - BatchSettlement
 
-The settlement report will be empty until the batch is settled. You can query the date that a batch is due to settle using the BatchPaymentsEFT or BatchPaymentsACH report. You can then query the amount that was settled using the BatchSettlement report.
+The batch payments reports represent all of the payment entries uploaded in the batch, while the batch settlement report is the balancing bank transfer between Bambora and your merchant bank account.
 
-The current version of the API is: 2.0
+The settlement report will be empty until the batch is settled. You can query the date that a batch is due to settle using the BatchPaymentsEFT or BatchPaymentsACH report. You can then query the amount that was settled using the BatchSettlement report. The current version of the API is: 2.0
 
 ## Authorizing requests
 
-All requests to the Report API must be authorized. You can authorized a request by passing your merchant ID and API passcode in the body of the request with the `merchantId` and `passCode` parameters.
+All requests to the Report API must be authorized. You can authorize a request by passing your merchant ID and API passcode in the body of the request with the `merchantId` and `passCode` parameters.
 
 > You can generate an API key for the Report API in the [Member Area](https://web.na.bambora.com/). After logging in, select **administration**,  then **account settings**, and finally **order settings**.
 
@@ -41,15 +41,17 @@ All requests to the Report API must be authorized. You can authorized a request 
 
 If you have a partner account with us, you can authorize the request with the partner account's passcode and specify the sub-merchant account on which to report using the `rptMerchantId` parameter.
 
+You can also generate a report across all of your live sub-merchant accounts with the single API call by setting the rptMerchantId value to “AllLive”.
+
 ## Format
 
 ### Request
 
-A report request is a HTTP request using the `application/xml` content type. All parameters are passed in the body of the request.
+A report request is a HTTPS request using the `application/xml` content type. All parameters are passed in the body of the request.
 
 ### Response
 
-The response can be returned in either JSON, XMl, TSV, CSV, or XLS formats. The content type of the response is relative to the value of the `rptFormat` parameters in the request. The JSON and XMl response object contains a "code" property" indicating the success of the request. This will be a number between 1 and 8, inclusive, where "1" indicates success. It also has a message property with a description of the code.
+The response can be returned in either JSON, XML, TSV, CSV, or XLS formats. The content type of the response is relative to the value of the `rptFormat` parameters in the request. The JSON and XML response object contains a "code" property indicating the success of the request. This will be a number between 1 and 8, inclusive, where "1" indicates success. It also has a message property with a description of the code.
 
 A successful request returns an array of transaction/record objects. The most important properties on these  objects are `status`, `state` and `returns`.
 

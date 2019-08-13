@@ -19,7 +19,7 @@ A batch request is a single API call to upload a file containing a list of trans
 
 The number of transactions that you can include in a single batch is limited by the size of the file upload. The maximum file size is 40MB. You should limit the number of transactions in a single batch request to 10,000, as you will encounter longer upload times when uploading larger files. If you need to make more calls than that, use multiple batch requests.
 
-Transactions can reference raw bank or card data, or Payment Profile IDs.
+Transactions can reference raw bank or card data, or Payment Profile IDs. To create Secure Payment Profiles with banking information, you must use the [legacy API](https://help.na.bambora.com/hc/en-us/articles/115010346067)
 
 ### Test accounts
 
@@ -27,14 +27,14 @@ Transactions can reference raw bank or card data, or Payment Profile IDs.
 
 ## Authorizing requests
 
-All requests to the Batch Payment API must be authorized. You can authorized a request by passing your merchant ID and API passcode in the Authorization header.
+All requests to the Batch Payment API must be authorized. You can authorize a request by passing your merchant ID and API passcode in the Authorization header.
 
 > You can generate an API key for the Batch Payment API in the [Member Area](https://web.na.bambora.com/). After logging in, select **administration**,  then **account settings**, and finally **order settings**.
 
 > On the Order Settings page, you'll find the **Batch File Upload*** section. Here you can set an API access code by clicking the **Generate New Code** button. Once you have a new code, click **Update** at the bottom of the page.
 
 
-The authorization string is a base64 encoded concatenation of merchant_id, ":", and api_key. You Authorization header will be formatted like this.
+The authorization string is a base64 encoded concatenation of merchant_id, ":", and api_key. Your authorization header will be formatted like this.
 
 `Authorization: Passcode Base64Encoded(merchant_id:passcode)`
 
@@ -42,36 +42,36 @@ The authorization string is a base64 encoded concatenation of merchant_id, ":", 
 
 If you have a partner account with us, you can specify the sub-merchant account on which to process the batched transactions.
 
-- Authorize the API request as by passing your merchant ID and API passcode in the Authorization header.
-- Specify the sub-merchant account id in the body.
+- Authorize the API request by passing your ISV parent merchant ID and API passcode in the Authorization header.
+- Specify in the body the sub-merchant account id that you want to upload the batch on behalf of.
 
 ## Request format
 
-A batch request is a single HTTP request containing data for multiple transactions, using the `multipart/form-data` content type. The transaction data is passed in .csv format. You can read more about the `content-type` and `boundary` directives on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type).
+A batch request is a single HTTPS request containing data for multiple transactions, using the `multipart/form-data` content type. The transaction data is passed in CSV format. You can read more about the `content-type` and `boundary` directives on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type).
 
 The JSON object and file data are passed on a Content-Disposition headers. You can read more about them on [MDN](https://developer.mozilla.org/es/docs/Web/HTTP/Headers/Content-Disposition).
 
-In addition to the content type and authorization headers, you will need to specify the filetype as 'STD'.
+In addition to the content type and authorization headers, you will need to specify the filetype as 'STD', and you can also specify the date the batch should begin processing.
 
 ### Format of batched data
 
-The API expects a single CSV file with one transaction per row. It does not expect a header row - this means that you cannot omit any of the expected rows.
+The API expects a single CSV file with one transaction per row, using Windows style end-of-line characters (CR+LF). It does not allow a header row, and you cannot omit any of the expected columns or the format of the payments will be incorrect.
 
 ## Response format
 
-The server's response is a single HTTP response using the text content type. The response body is formatted as JSON and refers to the success of the batch request itself, not the success of the individual transactions it contained.
+The server's response is a single HTTPS response using the text content type. The response body is formatted as JSON and refers to the success of the upload of the batch request itself, not the success of the individual transactions it contained.
 
 You can query individual transactions from a batch through the Batch Payment Report API and the Report API.
 
-The response object contains a "code" property indicating the success of the request. This will be a number between 1 and 23, inclusive, where "1" indicates success. It has a "message" property with a description of the code. It also has a "process_date" property indicating the date that the batch will be sent to the bank to begin processing.
+The response object contains a "code" property indicating the success of the request. This will be a number between 1 and 23, inclusive, where "1" indicates success. It has a "message" property with a description of the code. It also has a "process_date" property indicating the date that the batch will be sent to the bank to begin processing. The "batch_mode" property indicates if your account is in test or is live. The data is sent to the bank only for accounts that are live.
 
 ## Examples
 
-This section includes a sample HTTP request that references a file to be uploaded and a sample request where the data is declared inline within the request. It also includes formatted sample data for batched funds transfer and credit card payments.
+This section includes a sample HTTPS request that references a file to be uploaded and a sample request where the data is declared inline within the request. It also includes formatted sample data for bank-to-bank transfer and credit card payments.
 
 ### Example batch requests
 
-The following two examples show the use of the Batch Payment API. You can run these cURL examples in your Terminal. You can create your authorization header encoder to create an authorization header [here](https://dev.na.bambora.com/docs/forms/encode_api_passcode/). You can also find these example batch requests in our Postman Collection.
+The following two examples show the use of the Batch Payment API. You can run these cURL examples in your Terminal. You can create an encoded value for your authorization header [here](https://dev.na.bambora.com/docs/forms/encode_api_passcode/). You can also find these example batch requests in our Postman Collection.
 
 #### Vanilla file upload
 ```shell
@@ -94,7 +94,7 @@ Content-Disposition: form-data; name="criteria"
 Content-Type: application/json
 
 {
-    "process_now": 1
+    "process_date": ”20191125"
 }
 --WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="testdata"; filename="transactions.csv"
@@ -107,7 +107,7 @@ E,C,003,99003,09400313373,30000,1000070003,Jane Doe
 '
 ```
 
-#### Payment authorized by partner and processed on sub-merchant
+#### Payment authorization by partner and processed on sub-merchant
 ```shell
 curl -X POST \
   https://api.na.bambora.com/v1/batchpayments \
@@ -119,7 +119,7 @@ Content-Disposition: form-data; name="criteria"
 Content-Type: application/json
 
 {
-    "process_now": 1,
+    "process_date": ”20191125",
     "sub_merchant_id: {{sub_merchant_id}}"
 }
 --WebKitFormBoundary7MA4YWxkTrZu0gW

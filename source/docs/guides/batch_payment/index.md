@@ -15,56 +15,60 @@ navigation:
 
 # Batch payment
 
-The Batch Payment API allows you to batch transactions together into a single a API call.
+The Batch Payment API allows you to combine multiple transactions into a single API request.
 
-You can batch credit card transactions and bank to bank (ACH/EFT) transactions. You can use bank to bank transactions to push funds to a creditor, or pull funds from a debtor. The most common use cases for bank to bank transactions is payroll or Accounts Payable, and synchronized subscription models where multiple people are charged on a certain day each month, or each year.
+The Batch Payment API supports credit card and bank-to-bank (ACH/EFT) transactions. Each payment type must be processed with a separate batch request. Within a single bank-to-bank request, you can pay (credit) and collect (debit) funds. 
 
-The Batch Payment API is compatible with our Payment Profiles service. This allows you to securely store credit card and bank account details on our servers.
+## Use case
 
-The Batch Report API allows you to query the status of batches and individual transactions.
+1. A gym management software can collect membership fees from customers of multiple gyms and submit as one API call. Customers can make payments from their credit card or directly from their bank account.
+1. An accounting department can submit payroll and expense reimbursement to its employees.
+
+Credit card and bank-to-bank transactions have different processing flows, settlement times, and fees.
+
+## Credit cards
+
+### Processing
+
+Credit card transactions can be processed in real-time, or you can schedule them to process on a specific date. If you select a future date, those transactions will be processed at 3:00 AM (PST), on the date you’ve selected.
+
+### Settlement
+
+Settlement for batch credit card transactions is handled in the same way as the regular credit card settlement process. Typically a three day settlement lag can be expected. Higher risk accounts may have a longer settlement time.
 
 
-## Settlement flow
+### Fees
 
-Batches of credit card transactions can be processed immediately, on upload, or they can be scheduled to be processed on a certain date. Scheduled batches of credit card transactions are processed at 0600 PST (AM) each day.
+Credit card fees will depend on your account but a percentage and a flat fee will apply. It's handled through the regular credit card settlement process.
 
-Batches of bank to bank transactions take multiple days to process. Batches submitted before 1100 PST (AM) can be scheduled to begin processing on the same day. Batches submitted after this time will be processed the following day.
+## Bank-to-Bank
 
-### Funds transfers
+### Processing
 
-We process funds transfers in 2 steps. We pull funds from the payer's bank account into our bank account and then we push them to the payee's bank account.
+Bank-to-bank transactions are dependent on bank cut-off times. Therefore, if you want to process a bank-to-bank transaction the same day, you need to submit the request before 11:00 AM (PST).  Any request submitted after this time will be processed the following  day. 
 
-- Eg. You are a fitness club charging your members for the monthly fees: members are the payers, money is pulled from their accounts, and you are the payee, the recipient of the money.
-- Eg: You want to pay your vendors: you are the payer, and the vendors are the payees.
+Example processing flow with a 4-business day credit lag.
 
-We add a lag between receiving and re-sending the funds to mitigate the risk associated with returned transfers. This lag is usually 3 to 5 business days and is set relative to the risk associated with your business. Funds transfers can be returned due to closed or invalid bank accounts, insufficient funds, or disputes. We usually receive returns within 2 to 4 business days.
+Day 0: A fitness software uploads a batch file through our Batch Payment API before the 11:00 am PST cut-off time. The fitness software uses the Batch Payment Report API to query the status of the transaction. The transaction status is ‘Scheduled’. 
 
-This means that if you have a 3 day lag and you need funds to be deposited in a payee's account on Friday, 5 May, you will need to submit the batch before 1100 on Tuesday, 3 May. Or if you have a 5 day lag and you need funds to be deposited in a creditor's account on Friday, 8 June, you will need to submit the batch before 1100 on Friday, 1 June.
+Day 1: The members of the fitness club are debited; the money is taken out of their bank accounts. The transaction status is ‘In process’. 
 
-<img src="/docs/guides/batch_payments/batch_flow_chart.png" alt="Flow chart showing the batch debit flow">
+Day 2-3: Bambora monitors for transactions being returned, where the money couldn’t be taken out of the members’ bank accounts. If a transaction is returned, the transaction status is ‘Rejected’. 
 
-#### 3 day lag
-1. Day 1 - We submit a transaction request to the bank and funds are removed from payer's bank account.
-1. Day 2 - The bank completes processing the debit and the funds are settled to our bank account.
-1. Day 3 - We submit a second transaction request to the bank and funds are removed from our bank account.
-1. Day 4 - The bank completes processing the credit and the funds are settled to the payee's account.
+Day 4: The money is deposited in the bank account of the fitness club. The transaction status is ‘Complete’. 
 
-#### 5 day lag
-1. Day 1 - We submit a transaction request to the bank and fund are removed from payer's bank account.
-1. Day 2 - The bank completes processing the debit and the funds are settled to our bank account.
-1. Day 3 - We wait for returns.
-1. Day 4 - We wait for returns.
-1. Day 5 - We submit a second transaction request to the bank and funds are removed from our bank account.
-1. Day 6 - The bank completes processing the credit and the funds are settled to the payee's account.
+### Settlement
 
-###  Credit card transactions
+Settlement for bank-to-bank transactions is typically 4 to 5 business days, to account for the risk associated with return payments. A payment can return if the bank account was closed, invalid, had insufficient funds, or was disputed. The return message typically takes a few days to be passed to Bambora. Therefore we need to ensure the transactions are valid before settling the funds. 
 
-Batched credit card transactions are processed and settled in the same manner as individual card transactions. Settlement timing is relative to the card type and the processor.
+### Fees
 
-## Transaction fees
-
-Funds transfers are settled in full without a transaction fee being deducted at the time. They are aggregated and charged to your account monthly. Fees are charged at a flat rate per transaction.
+Bank-to-Bank transactions are a flat fee. Payments are settled in full, and the fees are aggregated and charged to your account monthly. 
 
 A batch of 5 direct debits will involve 5 debit transactions and 1 credit transaction. You will be charged for a total of 6 transactions.
 
-Transactions fees for credit card payments are deducted before settlement.
+## Supporting Services
+
+For repeat customers or payments, you can use our Payment Profiles solution to store their payment information on our servers securely. 
+
+To query the status of your bank-to-bank batch and individual transactions, you can use our Batch Report API. 
