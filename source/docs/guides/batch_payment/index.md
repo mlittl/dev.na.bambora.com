@@ -63,9 +63,9 @@ Settlement for bank-to-bank transactions is typically 4 to 5 business days, to a
 
 ### Fees
 
-Bank-to-Bank transactions are a flat fee. Payments are settled in full, and the fees are aggregated and charged to your account monthly. 
+Bank-to-bank transactions incur a flat fee. Payments are settled in full, and the fees are aggregated and charged to your account monthly. 
 
-A batch of 5 direct debits will involve 5 debit transactions and 1 credit transaction. You will be charged for a total of 6 transactions.
+Eg. For a batch with 5 debit transactions and 1 credit transaction, you will be charged for a total of 6 transactions.
 
 ## Supporting Services
 
