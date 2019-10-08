@@ -32,12 +32,17 @@ The following workflows are currently supported:
 
 ## Changelog
 
-
 ### **API Version 2016-08-18**
 
 [Specification](./v2016-08-18)
 
 [Terms API Spec](./tac_v2016-08-18)
+
+#### October 8th, 2019
+
+* Added /documents endpoint to PSP-CAD
+* Added additional `copy_id` and `copy_id2` properties to `PspCadFile` and `PspUsdFile`
+* Added `submitted_on` and `approved_on` fields to GET's of application details
 
 #### December 11th, 2017
 * Update address description to specify ISO 3166-2 for region
@@ -136,4 +141,3 @@ The following workflows are currently supported:
     * Global address fields replace all existing address fields as follows: Address line 1, Address line 2, Region (includes: state/province/municipality/region), City, Postal Code (includes ZipCode), Country.
 * Changes to PSP-USD:
     * applicant.social_security_number is now required.
-
