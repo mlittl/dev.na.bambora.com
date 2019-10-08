@@ -24,6 +24,13 @@ cards:
             Need help? Call, instant message or email us.
         icon: list
         link: http://www.bambora.com/en/ca/contact/support
+    -
+        title: Release Notes
+        description: >
+            Looking for the latest bug fixes and features? Check out our release notes.
+        icon: list
+        link: https://help.na.bambora.com/hc/en-us/sections/360004804854-Release-Notes
+   
 ---
 
 # Support
