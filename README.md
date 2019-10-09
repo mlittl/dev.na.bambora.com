@@ -79,8 +79,7 @@ docker run -v $pwd/:/usr/src/app/ -p 4567:4567 -w /usr/src/app devbamboracom dev
 
 <http://localhost:4567/>
 
-**Note**: The site will update with changes you make when a page is reloaded as this is run in
-development mode.
+**Note**: The site will update with changes you make when a page is refreshed.
 
 #### Build Static Site Locally
 
