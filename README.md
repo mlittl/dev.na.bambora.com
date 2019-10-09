@@ -83,22 +83,29 @@ docker run -v $pwd/:/usr/src/app/ -p 4567:4567 -w /usr/src/app devbamboracom dev
 
 #### Build Static Site Locally
 
-To build the same content that our CI server builds & deploys, you can execute the following commands:
+To build the same content that our CI server builds & deploys, you can do the following:
+
+- create a local directory for the output:
 
 ```shell
 mkdir build
+```
+
+- generate the content via Docker into that directory:
+
+```shell
 docker run -e ONBOARDING_HOST=test-onboardingapi -v `pwd`/build:/usr/src/app/build devbamboracom static
 ```
 
-Then inspect the `build/` folder which will contain the generated static site.  If you'd like
-to preview that in a browser, you can spin up a local Python HTTP server to serve it:
+- inspect the `build/` folder which will contain the generated static site.
+- to preview that in a browser, spin up a local Python HTTP server to serve it:
 
 ```shell
 cd build
 python -m $(python -c 'import sys; print("http.server" if sys.version_info[:2] > (2,7) else "SimpleHTTPServer")')
 ```
 
-Then navigate to <http://0.0.0.0:8000> and you should see the docs homepage.
+- navigate to <http://0.0.0.0:8000> and you should see the docs homepage.
 
 ### Bundler
 
