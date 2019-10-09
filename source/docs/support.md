@@ -28,7 +28,7 @@ cards:
         title: Release Notes
         description: >
             Looking for the latest bug fixes and features? Check out our release notes.
-        icon: list
+        icon: notification-active
         link: https://help.na.bambora.com/hc/en-us/sections/360004804854-Release-Notes
    
 ---
