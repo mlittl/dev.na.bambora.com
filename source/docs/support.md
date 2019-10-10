@@ -13,7 +13,7 @@ navigation:
 
 cards:
     -
-        title: Additional documentation
+        title: Additional Documentation
         description: >
             Didn't find the docs you were looking for? Try our legacy documentation.
         icon: checkmark
