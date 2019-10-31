@@ -40,6 +40,15 @@ The following workflows are currently supported:
 
 [Terms API Spec](./tac_v2016-08-18)
 
+#### October 31st, 2019
+* New Fields for PSP-CAD and PSP-USA
+    * required `average_amount` : Average Transaction Amount `number` up to 10 digits
+    * required `average_delivery` : Average Time from Purchase to Delivery `string`
+    * required `seasonal sales` : Are You Seasonal `string` 
+* Changes to PSP-CAD and PSP-USA
+    * required `annual_sales` : Average Transaction Amount `number` up to 10 digits
+
+
 #### October 23rd, 2019
 
 * Added `has_consented` boolean to applicant to signify that user has given consent to data collection
