@@ -42,9 +42,9 @@ The following workflows are currently supported:
 
 #### October 31st, 2019
 * New Fields for PSP-CAD and PSP-USA
-    * required `average_amount` : Average Transaction Amount `number` up to 10 digits
-    * required `average_delivery` : Average Time from Purchase to Delivery `string`
-    * required `seasonal sales` : Are You Seasonal `string` 
+    * `average_amount` : Average Transaction Amount `number` up to 10 digits
+    * `average_delivery` : Average Time from Purchase to Delivery `string`
+    * `seasonal sales` : Are You Seasonal `string` 
 * Changes to PSP-CAD and PSP-USA
     * required `annual_sales` : Average Transaction Amount `number` up to 10 digits
 

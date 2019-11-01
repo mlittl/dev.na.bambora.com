@@ -272,9 +272,6 @@ curl https://sandbox-api.na.bambora.com/v1/boarding/workflows/psp-cad/applicatio
     "business": {
       "company_name": "TEST_APPROVED",
       "annual_sales": 800000.00,
-      "average_amount": 150.00,
-      "average_delivery": "14",
-      "seasonal_sales": "1",
       "merchant_category": "5813",
       "entity_type": "partnership",
       "start_date": "2013-06-01T22:06:00.00000Z",
