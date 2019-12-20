@@ -1504,6 +1504,8 @@ definitions:
     properties:
       card:
         $ref: '#/definitions/ProfileFromCard'
+      bankAccount:
+        $ref: '#/definitions/ProfileFromBankAccount'
       token:
         $ref: '#/definitions/ProfileFromToken'
       billing:
@@ -1566,6 +1568,43 @@ definitions:
         default: '123'
         maxLength: 4
         description: Security code on the back of the credit card. This can be set to mandatory in the back office.
+  ProfileFromBankAccount:
+    required:
+      - account_number
+      - bank_account_holder
+      - bank_account_type
+      - branch_number
+      - institution_number
+      - routing_number
+    properties:
+      account_number:
+        type: string
+        maxLength: 17
+        description: For U.S. and Canadian bank accounts. Specify the customer’s bank account number. Account number may vary in length. This field may contain up to 17 digits.
+      bank_account_holder:
+        type: string
+        maxLength: 20
+        description: Account holder name.
+      bank_account_type:
+        type: string
+        maxLength: 2
+        default: '???'
+        description: Bank account type. Options for merchants processing in U.S. currency. * PC=U.S. Personal Checking account * PS=U.S. Personal Saving account * CC=U.S. Corporate Checking account * CS=U.S. Corporate Savings account
+      branch_number:
+        type: string
+        maxLength: 2
+        default: '17'
+        description: For U.S. bank accounts, specify the first 9-digits on the customer’s check. For Canadian bank accounts, specify the customer’s 5-digit bank branch number.
+      institution_number:
+        type: string
+        default: '???'
+        maxLength: 3
+        description: For Canadian bank accounts only. Specify the 3-digit institution number of the customer’s financial institution.
+      routing_number:
+        type: string
+        default: '???'
+        maxLength: 9
+        description: For U.S. bank accounts only. Specify the customer’s 9-digit routing number.
   ProfileFromToken:
     required:
       - name
