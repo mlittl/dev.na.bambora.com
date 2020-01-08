@@ -58,3 +58,25 @@ All billing addresses in the Canada or the United States will trigger an AVS res
 
 - Street address - 1407 Graymalkin Lane
 - Postal code - 111 111
+
+### Timeouts
+Simulate delayed responses from the gateway, with associated approvals and declines. Transactions take 45+ seconds to respond.
+
+#### Approved
+The transaction takes 45+ seconds to respond and returns as approved.
+
+| Brand                    | Card number        | CVV  | Response            |
+| :------------------------| :------------------| :----| :-------------------|
+| Visa                     | 4485349439401891   | 123  | Approved            |
+| Mastercard               | 5396191225134160   | 123  | Approved            |
+
+#### Declined
+The transaction takes 45+ seconds to respond and returns as declined.
+
+| Brand                    | Card number        | CVV| Response                                           |    
+| :------------------------| :------------------| :----| :------------------------------------------------|
+| Visa                     | 4539939815032280   | 123  | Declined                                         |                     
+| Mastercard               | 5366520542338805   | 123  | Declined                                         |
+| Visa                     | 4872385877270993   | 123  | 55 Transaction timeout - No transaction response |
+| Visa                     | 4294215026184763   | 123  | 158 Declined - TIMEOUT                           |
+| Visa                     | 4104631199283796   | 123  | 54 Transaction timeout - No available device     |
