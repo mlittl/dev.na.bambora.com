@@ -60,7 +60,7 @@ to store the cardholder's payment credentials for the purpose of charging the ca
 An example of this type is when the cardholder has purchased a fridge and is paying for it in installments.  This type will be the first payment in 
 the set of installment payments, and it can be either a purchase or a pre-auth transaction.
 
-Since this is the first transaction in a set of transactions, no series ID is required, and a new series ID will be returned back in the response message.
+Since this is the first transaction in a set of transactions, a series ID should not be specified. The transaction response will include the series ID that should be used for future related payments in the series.
 
 #### Request 1
 
@@ -146,7 +146,7 @@ credentials by the merchant that originally started from a `first_installment` t
 type must be charged to the cardholder at regular intervals, up to a specified end date.  An example of this type is when the cardholder has purchased a fridge 
 and is paying for it in installments.  This type will be the next payment in the set of installment payments, and it must be a purchase transaction only.
 
-Since this is a subsequent transaction in a set of transactions, the series ID for the set is required to be passed in the request message.
+Since this is a subsequent transaction in a set of transactions, the series ID that was returned in the first payment of the series is required to be passed in the request message.
 
 #### Request 2
 
@@ -233,7 +233,7 @@ this type is when the cardholder is paying for a subscription service.  This typ
 either a purchase or a pre-auth transaction.  Additionally, any transaction that is processed for the purpose of verifying the cardholder's payment credentials 
 before storing it for later use will have the `first_recurring` Credential-on-File type.
 
-Since this is the first transaction in a set of transactions, no series ID is required, and a new series ID will be returned back in the response message.
+Since this is the first transaction in a set of transactions, a series ID should not be specified. The transaction response will include the series ID that should be used for future related payments in the series.
 
 #### Request 3
 
@@ -318,7 +318,7 @@ the `subsequent_recurring` type must be charged to the cardholder at regular int
 is when the cardholder is paying for a subscription service, and this is one of the subsequent payments for the subscription service.  
 Any transaction that has the `subsequent_recurring` type must be a purchase only.
 
-Since this is a subsequent transaction in a set of transactions, the series ID for the set is required to be passed in the request message.
+Since this is a subsequent transaction in a set of transactions, the series ID that was returned in the first payment of the series is required to be passed in the request message.
 
 #### Request 4
 
@@ -402,8 +402,7 @@ The `subsequent_customer_initiated` Credential-on-File type is used for any tran
 and uses that cardholder's stored payment credentials as the form of payment.  These transactions are not charged on any regular interval, 
 and they can be either a purchase or a pre-auth transaction.  An example of this type is when the cardholder is reloading a prepaid cash card.
 
-Since these transactions are initiated by the cardholder, they are not considered connected together as a set.  Therefore, no series ID is required, 
-and a new series ID will be returned back in the response message.
+Since these transactions are initiated by the cardholder, they are not considered connected together as a set.  Therefore, no series ID should be specified, and a new series ID will be returned back in the response message.
 
 #### Request 5
 

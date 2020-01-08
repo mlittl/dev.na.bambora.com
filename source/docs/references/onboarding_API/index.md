@@ -16,7 +16,10 @@ navigation:
 
 The Onboarding API allows partners to build their own custom interface through which sub-merchants can sign up for an account.
 
-Applications can be submitted completed or as partial updates. This allows flexibility for partners and allows full control of how integrators upload sub-merchant data to the API. Partners can integrate to different **workflows** of the API to sign sub-merchants up for various services.
+Applications can be submitted completed or as partial updates. This allows
+flexibility for partners and allows full control of how integrators upload
+sub-merchant data to the API. Partners can integrate to different **workflows**
+of the API to sign sub-merchants up for various services.
 
 The following workflows are currently supported:
 
@@ -29,9 +32,7 @@ The following workflows are currently supported:
 * BACS-GBP - United Kingdom Funds Transfer
 * SEPA-EUR - European Funds Transfer
 
-
 ## Changelog
-
 
 ### **API Version 2016-08-18**
 
@@ -39,10 +40,29 @@ The following workflows are currently supported:
 
 [Terms API Spec](./tac_v2016-08-18)
 
+#### October 31st, 2019
+
+* New fields for PSP-CAD
+  * 'average_amount' : Average Transaction Amount `number` up to 10 digits
+  * 'average_delivery' : Average Time from Purchase to Delivery `string`
+  * 'seasonal_sales' : Are You Seasonal `string`
+
+#### October 23rd, 2019
+
+* Added `has_consented` boolean to applicant to signify that user has given consent to data collection
+
+#### October 8th, 2019
+
+* Added /documents endpoint to PSP-CAD
+* Added additional `copy_id` and `copy_id2` properties to `PspCadFile` and `PspUsdFile`
+* Added `submitted_on` and `approved_on` fields to GET's of application details
+
 #### December 11th, 2017
+
 * Update address description to specify ISO 3166-2 for region
 
 #### May 30th, 2017
+
 * New fields for GW-USA and GW-CDN
     * terminal.first_data_nashville_terminal.visa_debit_number
     * terminal.first_data_nashville_terminal.jcb_number
@@ -70,24 +90,29 @@ The following workflows are currently supported:
     * terminal.desjardins_terminal.jcb_number
 
 #### May 9th, 2017
+
 * Update and rewrite [Onboarding API Guide](../../guides/onboarding)
 * Updated all Onboarding documentation to now use the 'Bambora' name
 
 #### March 6th, 2017
+
 * Changes to all workflows:
     * on_hold is a new state an application can be in while being processed.
 * Changes to GW-USA and GW-CDN
     * discover_merchant_id is a new field for first data terminals.
-    * amex_merchant_id is a new field for first data terminals. 
+    * amex_merchant_id is a new field for first data terminals.
 
 #### November 28th, 2016
+
 * New Gateway USA workflow added.
 
 #### November 16th, 2016
+
 * Extensive changes to PSP-USD workflow. See API spec for full details.
 * New Gateway CDN workflow added.
 
 #### September 10th, 2016
+
 * Changes to all workflows:
     * agreement.personal_guarantee_accepted is **new** and is optional. The personal guarantee must be accepted where entity_type is "sole_proprietor" or "partnership".
     * Remove restriction on country fields so that full ISO 3166 list of country codes can be accepted.
@@ -109,26 +134,30 @@ The following workflows are currently supported:
     * applicant.date_of_birth is **new** and required.
     * business.services_description is **new** and required.
 
-
 ### **API Version 2016-06-11**
 
 [Specification](./v2016-06-11)
 
 #### November 16th, 2017
+
 * Added new 'temp_disabled' and 'on_hold' status as possible return value for all flows.
 
 #### November 9th, 2017
+
 * Added new 'live' status as possible return value for all flows.
 
 #### July 20th, 2017
+
 * Added optional custom_data field to all flows.
 
 #### June 8th, 2017
+
 * Added optional Address to Bank flows for BACS-GBP
 
 #### June 11th, 2016
+
 * Changes to all workflows:
-    *  **API version is now required in the header attributes X-API-Version: 2016-06-11**
+    * **API version is now required in the header attributes X-API-Version: 2016-06-11**
     * Additional properties are no longer allowed. This means that no extra/undefined properties will be allowed to be passed in that are not already in the swagger specification.
     * The list of countries for each flow is now more extensive.
     * Postal code is no longer a required field.
@@ -136,4 +165,3 @@ The following workflows are currently supported:
     * Global address fields replace all existing address fields as follows: Address line 1, Address line 2, Region (includes: state/province/municipality/region), City, Postal Code (includes ZipCode), Country.
 * Changes to PSP-USD:
     * applicant.social_security_number is now required.
-

@@ -29,7 +29,6 @@ The following parameters are passed as a JSON object on a Content-Disposition he
   - **0** – Transactions are processed on the date passed in the process_date field.
 - **process_date** - The date the transactions starts processing. Format **YYYYMMDD**.
 - **sub_merchant_id** - The merchant account on which to process the transactions. Required only if request is authorized by a partner account.
-- **addendum** - A note associated with the batch file. Max length: 80 characters.
 
 ### Format of data in file
 
@@ -56,7 +55,7 @@ For batches of EFT transactions, the API expects the following columns:
 - **Dynamic descriptor** - By default the Bambora merchant company name will show on your customer's bank statement. You can override this default by populating the Dynamic Descriptor field.
 
 
-#### American finds transfer (ACH)
+#### American funds transfer (ACH)
 
 For batches of ACH transactions, the API expects the following columns:
 

@@ -8,7 +8,10 @@
     - [Docker](#docker)
       - [Build](#build)
       - [Run](#run)
+        - [Mac and Linux](#mac-and-linux)
+        - [Windows](#windows)
       - [Test Local](#test-local)
+      - [Build Static Site Locally](#build-static-site-locally)
     - [Bundler](#bundler)
       - [Build](#build-1)
       - [Run](#run-1)
@@ -47,7 +50,8 @@
 
 ### Docker
 
-The simplest way to get set up is to use the included Dockerfile (must install docker first).
+The simplest way to get set up is to use the included Dockerfile (must install
+[docker](https://www.docker.com) first).
 
 #### Build
 
@@ -57,13 +61,13 @@ docker build -t devbamboracom .
 
 #### Run
 
-*Mac and Linux*
+##### Mac and Linux
 
 ```shell
 docker run -v `pwd`/:/usr/src/app/ -p 4567:4567 -w /usr/src/app devbamboracom development_server
 ```
 
-*Windows*
+##### Windows
 
 ```shell
 docker run -v $pwd/:/usr/src/app/ -p 4567:4567 -w /usr/src/app devbamboracom development_server_windows
@@ -75,24 +79,53 @@ docker run -v $pwd/:/usr/src/app/ -p 4567:4567 -w /usr/src/app devbamboracom dev
 
 <http://localhost:4567/>
 
-**Note**: The site will update with changes you make when a page is reloaded.
+**Note**: The site will update with changes you make when a page is refreshed.
+
+#### Build Static Site Locally
+
+To build the same content that our CI server builds & deploys, you can do the following:
+
+- create a local directory for the output:
+
+```shell
+mkdir build
+```
+
+- generate the content via Docker into that directory:
+
+```shell
+docker run -e ONBOARDING_HOST=test-onboardingapi -v `pwd`/build:/usr/src/app/build devbamboracom static
+```
+
+- inspect the `build/` folder which will contain the generated static site.
+- to preview that in a browser, spin up a local Python HTTP server to serve it:
+
+```shell
+cd build
+python -m $(python -c 'import sys; print("http.server" if sys.version_info[:2] > (2,7) else "SimpleHTTPServer")')
+```
+
+- navigate to <http://0.0.0.0:8000> and you should see the docs homepage.
 
 ### Bundler
 
 Alternatively, you can build and run the site locally. You're going to need:
-* **Ruby, version 1.9.3 or newer**
-* **Node.js**
-* **Bundler**
-    *  If Ruby is already installed, but the `bundle` command doesn't work run:
+
+- **Ruby, version 1.9.3 or newer**
+- **Node.js**
+- **Bundler**
+  - If Ruby is already installed, but the `bundle` command doesn't work run:
 
     ```gem install bundler```
 
 #### Build
+
 ```shell
 bundle install
 ```
 
 #### Run
+
 To start the preview web server:
 
 ```shell
@@ -114,7 +147,7 @@ bundle exec rake run
 ## Branching, merging and deploying
 
 More complete, internal only documentation about deploying can be found in Confluence
-at: <https://confluence.beanstream.com/display/DVL/Developer+Portal>
+at: <https://confluence.beanstream.com/pages/viewpage.action?pageId=64456558>
 
 Changes should first be made and tested on a feature branch, then pushed to the test branch,
 and only test should be merged/pushed to master.
