@@ -59,8 +59,8 @@ All billing addresses in the Canada or the United States will trigger an AVS res
 - Street address - 1407 Graymalkin Lane
 - Postal code - 111 111
 
-### Timeouts
-Simulate delayed responses from the gateway, with associated approvals and declines. Transactions take 45+ seconds to respond.
+### Slow API response
+Simulate slow responses to transaction requests, with associated approvals and declines. Transactions take 45+ seconds to respond.
 
 #### Approved
 The transaction takes 45+ seconds to respond and returns as approved.
