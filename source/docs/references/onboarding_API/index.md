@@ -40,6 +40,10 @@ The following workflows are currently supported:
 
 [Terms API Spec](./tac_v2016-08-18)
 
+#### November 18th, 2019
+
+* Added `on_hold_on` field to GET's of application details
+
 #### October 31st, 2019
 
 * New fields for PSP-CAD
