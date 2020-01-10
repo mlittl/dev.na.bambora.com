@@ -265,7 +265,7 @@ paths:
   /profiles:
     post:
       summary: Create Profile
-      description: Create a new Payment Profile using either a card, a single-use token or a bank credentials. You must supply one of them. You many store a card and bank credentials on the same profile.
+      description: Create a new Payment Profile using either a card, a single-use token or a bank credentials. You must supply one of them. You may store a card and bank credentials on the same profile.
       tags:
         - Profiles
       operationId: createProfile
