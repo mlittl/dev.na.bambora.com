@@ -1590,18 +1590,23 @@ definitions:
         maxLength: 2
         default: '2'
         description:
-          - PC=U.S. Personal Checking account
-          - PS=U.S. Personal Saving account
-          - CC=U.S. Corporate Checking account
-          - CS=U.S. Corporate Savings account
-          - CA=Canadian account
+          PC=U.S. Personal Checking account.
+
+          PS=U.S. Personal Saving account.
+
+          CC=U.S. Corporate Checking account.
+
+          CS=U.S. Corporate Savings account.
+
+          CA=Canadian account.
       branch_number:
         type: string
         maxLength: 9
         default: '5'
         description: 
-          - For U.S. bank accounts, specify the first 9-digits on the customer’s check. 
-          - For Canadian bank accounts, specify the customer’s 5-digit bank branch number.
+          For U.S. bank accounts, specify the first 9-digits on the customer’s check. 
+          
+          For Canadian bank accounts, specify the customer’s 5-digit bank branch number.
       institution_number:
         type: string
         maxLength: 3
