@@ -1601,7 +1601,7 @@ definitions:
         minLength: 5
         maxLength: 5
         description: 
-          For Canadian bank accounts only., specify the customer’s bank branch number.
+          For Canadian bank accounts only. Specify the customer’s bank branch number.
       institution_number:
         type: string
         minLength: 3
