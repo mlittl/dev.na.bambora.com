@@ -1504,7 +1504,7 @@ definitions:
     properties:
       card:
         $ref: '#/definitions/ProfileFromCard'
-      bankAccount:
+      bank_account:
         $ref: '#/definitions/ProfileFromBankAccount'
       token:
         $ref: '#/definitions/ProfileFromToken'
@@ -1570,17 +1570,14 @@ definitions:
         description: Security code on the back of the credit card. This can be set to mandatory in the back office.
   ProfileFromBankAccount:
     required:
-      - account_number (US and Canada)
-      - bank_account_holder (US and Canada)
-      - bank_account_type (US and Canada)
-      - branch_number (Canada)
-      - institution_number (Canada)
-      - routing_number (US)
+      - account_number
+      - bank_account_holder
+      - bank_account_type
     properties:
       account_number:
         type: string
         maxLength: 17
-        description: For U.S. and Canadian bank accounts. Specify the customer’s bank account number. Account number may vary in length. This field may contain up to 17 digits.
+        description: For U.S. and Canadian bank accounts. Specify the customer’s bank account number. Account number may vary in length.
       bank_account_holder:
         type: string
         maxLength: 20
