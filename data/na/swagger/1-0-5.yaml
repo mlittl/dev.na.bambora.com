@@ -1584,8 +1584,8 @@ definitions:
         description: Account holder name.
       bank_account_type:
         type: string
+        minLength: 2
         maxLength: 2
-        default: '2'
         description:
           PC=U.S. Personal Checking account.
 
@@ -1598,22 +1598,20 @@ definitions:
           CA=Canadian account.
       branch_number:
         type: string
-        maxLength: 9
-        default: '5'
+        minLength: 5
+        maxLength: 5
         description: 
-          For U.S. bank accounts, specify the first 9-digits on the customer’s check. 
-          
-          For Canadian bank accounts, specify the customer’s 5-digit bank branch number.
+          For Canadian bank accounts only., specify the customer’s bank branch number.
       institution_number:
         type: string
+        minLength: 3
         maxLength: 3
-        default: '3'
-        description: For Canadian bank accounts only. Specify the 3-digit institution number of the customer’s financial institution.
+        description: For Canadian bank accounts only. Specify the institution number of the customer’s financial institution.
       routing_number:
         type: string
+        minLength: 9
         maxLength: 9
-        default: '9'
-        description: For U.S. bank accounts only. Specify the customer’s 9-digit routing number.
+        description: For U.S. bank accounts only. Specify the customer’s routing number.
   ProfileFromToken:
     required:
       - name
