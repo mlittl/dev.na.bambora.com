@@ -40,6 +40,10 @@ The following workflows are currently supported:
 
 [Terms API Spec](./tac_v2016-08-18)
 
+#### January 15th, 2020
+
+* Removed Moneris from Gateway applications as a terminal type
+
 #### November 18th, 2019
 
 * Added `on_hold_on` field to GET's of application details
@@ -141,6 +145,10 @@ The following workflows are currently supported:
 ### **API Version 2016-06-11**
 
 [Specification](./v2016-06-11)
+
+#### January 15th, 2020
+
+* Removed Moneris from Gateway applications as a terminal type
 
 #### November 16th, 2017
 
