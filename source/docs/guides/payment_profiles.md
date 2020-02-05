@@ -14,7 +14,7 @@ navigation:
 
 # Payment Profiles
 
-Our Secure Payment Profile service allows merchants to create secure payment profiles, or just "profiles", for storing confidential credit card, bank account and/or contact details on our server. Transactions can then be processed against these profiles without the need to recollect payment information from the customer. Also, you do not need to store payment information on your systems. Each profile can store multiple cards. You can store a card or multiple cards with a bank account but can not store multiple bank accounts.
+Our Secure Payment Profile service allows merchants to create secure payment profiles, or just "profiles", for storing confidential credit, bank and/or contact details on our server. Transactions can then be processed against these profiles without the need to recollect payment information from the customer. Also, you do not need to store payment information on your systems. Each profile can store multiple cards. You can store a card or multiple cards with a bank account but can not store multiple bank accounts.
 
 When you save a payment profile you will be given a customer code ID in return. This ID can be used for retrieving the profile information, updating it, and also for making payments.
 
@@ -65,7 +65,7 @@ curl -X POST https://api.na.bambora.com/v1/profiles
 
 ### Create Profile (Bank Account)
 
-With this action, you can create a new payment profile tied to one individual with an assigned bank account.
+With this action, you can create a new payment profile tied to one individual, assigning, and validating a bank account.
 
 ```shell
 curl -X POST https://api.na.bambora.com/v1/profiles
