@@ -3,6 +3,7 @@ set -e
 
 # This file is passed evironment variables AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY,
 # APP_HOME=bamboo.build.working.directory and planName=bamboo.shortPlanName by Bamboo.
+# The script itself is responsible for "deploying" the built content to an S3 bucket.
 
 planName=$(echo "$planName" | tr '[:upper:]' '[:lower:]') # S3 bucket names can't have capital letters.
 
@@ -25,7 +26,6 @@ else
     fi
 fi
 
-
 echo "Syncing to bucket: $bucket_name"
 aws s3 sync --delete --exact-timestamps $APP_HOME/build s3://${bucket_name}
 
@@ -44,7 +44,6 @@ policy="{
 		}
 	]
 }"
-
 
 if [ "$newBucket" = true ]
 then

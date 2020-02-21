@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# This script is used by Bamboo to generate the dev portal doc content.  The
+# BRANCH and APP_HOME variables are passed in as env vars by Bamboo.
+
 echo "BRANCH is $BRANCH yo"
 echo "APP_HOME is $APP_HOME yo"
 
