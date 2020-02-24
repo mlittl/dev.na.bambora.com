@@ -45,6 +45,7 @@
       - [Be interesting](#be-interesting)
   - [Making non-documentation changes to the site](#making-non-documentation-changes-to-the-site)
   - [Updating Gemfile](#updating-gemfile)
+  - [Bamboo Build Scripts](#bamboo-build-scripts)
 
 ## Build the site
 
@@ -533,3 +534,9 @@ bundler --update nokogiri
 
 Now copy the contents of `Gemfile.lock` and paste over the current contents on
 your local machine.
+
+## Bamboo Build Scripts
+
+The `build_content.sh` and `s3-deploy.sh` scripts are used by Bamboo for
+building and deploying dev portal.  The former generates the static content and
+the latter deploys the built content to an S3 bucket.
