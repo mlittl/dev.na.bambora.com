@@ -265,7 +265,7 @@ paths:
   /profiles:
     post:
       summary: Create Profile
-      description: Create a new Payment Profile using either a card or a single-use token. You must supply one of them.
+      description: Create a new Payment Profile using either a card, a single-use token or a bank credentials. You must supply one of them. You may store a card and bank credentials on the same profile.
       tags:
         - Profiles
       operationId: createProfile
@@ -1504,6 +1504,8 @@ definitions:
     properties:
       card:
         $ref: '#/definitions/ProfileFromCard'
+      bank_account:
+        $ref: '#/definitions/ProfileFromBankAccount'
       token:
         $ref: '#/definitions/ProfileFromToken'
       billing:
@@ -1566,6 +1568,50 @@ definitions:
         default: '123'
         maxLength: 4
         description: Security code on the back of the credit card. This can be set to mandatory in the back office.
+  ProfileFromBankAccount:
+    required:
+      - account_number
+      - bank_account_holder
+      - bank_account_type
+    properties:
+      account_number:
+        type: string
+        maxLength: 17
+        description: For U.S. and Canadian bank accounts. Specify the customer’s bank account number. Account number may vary in length.
+      bank_account_holder:
+        type: string
+        maxLength: 20
+        description: Account holder name.
+      bank_account_type:
+        type: string
+        minLength: 2
+        maxLength: 2
+        description:
+          PC=U.S. Personal Checking account.
+
+          PS=U.S. Personal Saving account.
+
+          CC=U.S. Corporate Checking account.
+
+          CS=U.S. Corporate Savings account.
+
+          CA=Canadian account.
+      branch_number:
+        type: string
+        minLength: 5
+        maxLength: 5
+        description: 
+          For Canadian bank accounts only. Specify the customer’s bank branch number.
+      institution_number:
+        type: string
+        minLength: 3
+        maxLength: 3
+        description: For Canadian bank accounts only. Specify the institution number of the customer’s financial institution.
+      routing_number:
+        type: string
+        minLength: 9
+        maxLength: 9
+        description: For U.S. bank accounts only. Specify the customer’s routing number.
   ProfileFromToken:
     required:
       - name
