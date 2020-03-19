@@ -18,7 +18,7 @@ Our Secure Payment Profile service allows merchants to create secure payment pro
 
 When you save a payment profile you will be given a customer code ID in return. This ID can be used for retrieving the profile information, updating it, and also for making payments.
 
-Payment Profiles can be created with a plain credit card number, however we recommend that you first tokenize the card data in the client-side application and then use that token to create the profile.
+Payment Profiles can be created with a plain credit card number, however we recommend that you first tokenize the card data in the client-side application and then use that token to create the profile. Payment Profiles can also be created from a past transaction using the transaction id.
 
 Creating and modifying Secure Payment Profiles requires you use your Profiles API Key. If you get an authentication error you might be using your Payments API Key, so double check!
 
@@ -83,6 +83,22 @@ curl -X POST https://api.na.bambora.com/v1/profiles
       }
     }'
 ```
+
+### Create Profile (Transaction ID)
+
+With this action, you can create a new payment profile tied to one individual with a validated credit card from a past transaction.
+
+```shell
+curl -X POST https://api.na.bambora.com/v1/profiles
+-H "Content-Type: application/json"
+-H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU="
+-d '{
+      "language":"en",
+      "comments":"hello",
+      "create_from_id":10000000
+    }'
+```
+
 
 ### Retrieve Profile
 
