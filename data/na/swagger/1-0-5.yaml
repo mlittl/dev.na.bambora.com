@@ -265,7 +265,7 @@ paths:
   /profiles:
     post:
       summary: Create Profile
-      description: Create a new Payment Profile using either a card, a single-use token or a bank credentials. You must supply one of them. You may store a card and bank credentials on the same profile.
+      description: Create a new Payment Profile using either a card, a single-use token, a transaction id, or bank credentials. You must supply one of them. You may store a card and bank credentials on the same profile.
       tags:
         - Profiles
       operationId: createProfile
@@ -1506,6 +1506,8 @@ definitions:
         $ref: '#/definitions/ProfileFromCard'
       bank_account:
         $ref: '#/definitions/ProfileFromBankAccount'
+      create_from_id:
+        $ref: '#/definitions/ProfileFromTransactionId'
       token:
         $ref: '#/definitions/ProfileFromToken'
       billing:
@@ -1612,6 +1614,16 @@ definitions:
         minLength: 9
         maxLength: 9
         description: For U.S. bank accounts only. Specify the customer’s routing number.
+  ProfileFromTransactionId:
+    required:
+      - create_from_id
+    properties:
+      create_from_id:
+        type: number
+        format: integer
+        minLength: 8
+        maxLength: 8
+        description: The id of the transaction the user wishes to create a profile from.
   ProfileFromToken:
     required:
       - name
