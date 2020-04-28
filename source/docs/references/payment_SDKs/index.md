@@ -71,13 +71,5 @@ Our Mobile SDKs wraps our Tokenization API. You can read more about the function
 [ios-pm]: https://beanstream.jfrog.io/beanstream/api/pods/beanstream-public
 
 ## Browser SDK
-Our Browser SDKs wraps our Tokenization API. It limits the scope of your PCI compliance to PCI SAQ-A. You can read more about the functionality [here](./collect_card_data#browser-sdk-payfields).
+Our Browser SDK, Custom Checkout, wraps our Tokenization API. It limits the scope of your PCI compliance to PCI SAQ-A. You can read more about the functionality [here](/docs/guides/custom_checkout/).
 
-### Source
-| Language | Source                    |
-| -------- | ------------------------- |
-| JS (ES5) | [Source][browser-source]  |
-
-[browser-source]: https://github.com/bambora-na/customcheckout
-[browser-docs]: #
-[browser-pm]: #
