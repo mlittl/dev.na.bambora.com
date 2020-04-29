@@ -6,5 +6,5 @@
   title: Bank response codes
 - file: /docs/references/payment_APIs/payment_profile_response_codes/
   title: Payment Profile response codes
-- file: /docs/references/payment_APIs/test_cards/
+- file: /includes/na/_test_cards/
   title: Test cards
