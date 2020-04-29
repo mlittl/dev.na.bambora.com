@@ -11,6 +11,9 @@ navigation:
   toc: na.tocs.checkout_reference
   header_active: References
 
+includes:
+    na/_test_cards.md
+
 ---
 
 # Link parameters
