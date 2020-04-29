@@ -8,5 +8,5 @@
   title: Bank codes
 - file: /docs/references/checkout/misc/
   title: Misc codes
-- file: /docs/references/checkout/test_cards/
+- file: /includes/na/test_cards/
   title: Test cards
