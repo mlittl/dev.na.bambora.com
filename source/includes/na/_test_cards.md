@@ -41,8 +41,8 @@ You can use the sample credit cards below to trigger different responses from ou
 ### AVS
 All billing addresses in the Canada or the United States will trigger an AVS response. You can trigger an approved AVS response on all test cards with the same street address and postal code:
 
-- Street address - 1407 Graymalkin Lane
-- Postal code - 111 111
+- Street address - 2659 Douglas St
+- Postal code - V8T 4M3
 
 ### Timeouts
 Simulate delayed responses from the gateway, with associated approvals and declines. Transactions take 45+ seconds to respond.
