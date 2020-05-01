@@ -26,10 +26,10 @@ language_tabs:
   - python
   - csharp
   - java
-  - ruby
+  - ruby (legacy)
   - php
-  - javascript
-  - go
+  - javascript (legacy)
+  - go (legacy)
 
 
 ---

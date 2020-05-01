@@ -3,7 +3,7 @@ title: Payment Profiles
 layout: tutorial
 
 summary: >
-    Our Secure Payment Profile service allows merchants to create secure payment profiles — or just "profiles" — for storing confidential contact and/or credit details on our server.
+    Our Secure Payment Profile service allows merchants to create secure payment profiles — or just "profiles" — for storing confidential credit card, bank account and/or contact details on our server.
 
 navigation:
   header: na.tocs.na_nav_header
@@ -14,11 +14,11 @@ navigation:
 
 # Payment Profiles
 
-Our Secure Payment Profile service allows merchants to create secure payment profiles, or just "profiles", for storing confidential contact and/or credit details on our server. Transactions can then be processed against these profiles without the need to recollect payment information from the customer. Also, you do not need to store payment information on your systems. Each profile can store multiple cards.
+Our Secure Payment Profile service allows merchants to create secure payment profiles, or just "profiles", for storing confidential credit card, bank account and/or contact details on our server. Transactions can then be processed against these profiles without the need to recollect payment information from the customer. Also, you do not need to store payment information on your systems. Each profile can store multiple cards. You can store a card or multiple cards with a bank account but can not store multiple bank accounts.
 
 When you save a payment profile you will be given a customer code ID in return. This ID can be used for retrieving the profile information, updating it, and also for making payments.
 
-Payment Profiles can be created with a plain credit card number, however we recommend that you first tokenize the card data in the client-side application and then use that token to create the profile.
+Payment Profiles can be created with a plain credit card number, however we recommend that you first tokenize the card data in the client-side application and then use that token to create the profile. Payment Profiles can also be created from a past transaction using the transaction id.
 
 Creating and modifying Secure Payment Profiles requires you use your Profiles API Key. If you get an authentication error you might be using your Payments API Key, so double check!
 
@@ -62,6 +62,43 @@ curl -X POST https://api.na.bambora.com/v1/profiles
       }
     }'
 ```
+
+### Create Profile (Bank Account)
+
+With this action, you can create a new payment profile tied to one individual with an assigned bank account.
+
+```shell
+curl -X POST https://api.na.bambora.com/v1/profiles
+-H "Content-Type: application/json"
+-H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU="
+-d '{
+      "language":"en",
+      "comments":"hello",
+      "bank_account":{
+        "bank_account_holder":"Bill Smith",
+        "account_number":"123456",
+        "bank_account_type":"Canadian",
+        "institution_number":"127",
+        "branch_number":"12773"
+      }
+    }'
+```
+
+### Create Profile (Transaction ID)
+
+With this action, you can create a new payment profile tied to one individual with a validated credit card from a past transaction.
+
+```shell
+curl -X POST https://api.na.bambora.com/v1/profiles
+-H "Content-Type: application/json"
+-H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU="
+-d '{
+      "language":"en",
+      "comments":"hello",
+      "create_from_id":10000000
+    }'
+```
+
 
 ### Retrieve Profile
 
@@ -160,6 +197,48 @@ curl -X PUT https://api.na.bambora.com/v1/profiles/{id}/cards/{card_id}
 ```shell
 curl -X DELETE https://api.na.bambora.com/v1/profiles/{id}/cards/{card_id}
 -H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU="
+```
+
+### Add a Bank Account
+
+You can add a bank account to an existing profile.
+
+```shell
+curl -X PUT https://api.na.bambora.com/v1/profiles/{id}
+-H "Content-Type: application/json"
+-H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU="
+-d '{
+      "language":"en",
+      "comments":"hello",
+      "bank_account":{
+        "bank_account_holder":"Bill Smith",
+        "account_number":"12345",
+        "bank_account_type":"Canadian",
+        "institution_number":"123",
+        "branch_number":"12345"
+      }
+    }'
+```
+
+### Update a Bank Account
+
+You can update a bank account on an existing profile.
+
+```shell
+curl -X PUT https://api.na.bambora.com/v1/profiles/{id}
+-H "Content-Type: application/json"
+-H "Authorization: Passcode bWVyY2hhbnRfaWQ6cGFzc2NvZGU="
+-d '{
+      "language":"en",
+      "comments":"hello",
+      "bank_account":{
+        "bank_account_holder":"Bill Smith",
+        "account_number":"123456",
+        "bank_account_type":"Canadian",
+        "institution_number":"125",
+        "branch_number":"12773"
+      }
+    }'
 ```
 
 ### Errors
