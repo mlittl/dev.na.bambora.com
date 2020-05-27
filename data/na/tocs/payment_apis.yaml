@@ -8,3 +8,5 @@
   title: Payment Profile response codes
 - file: /docs/references/payment_APIs/test_cards/
   title: Test cards
+- file: /docs/references/payment_APIs/ip_addresses/
+  title: IP Addresses
