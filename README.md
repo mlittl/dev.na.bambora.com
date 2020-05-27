@@ -239,13 +239,13 @@ The footer config file referenced in the navigation object defines the footer fo
 
 ```yaml
 copyright:                # The copyright info for the footer
-  title: 2017 Bambora     # The text to display for copyright
-  link: http://www.bambora.com/en/en/payment-solutions/     # The destination of the copyright link
+  title: 2020 Bambora     # The text to display for copyright
+  link: https://www.bambora.com/en/ca/online-payments/     # The destination of the copyright link
 left_links:               # The links floated to the left of the footer
   - link: http://www.bambora.com/en/en/payment-solutions/customer-service/faq/terms-and-conditions/  # The link path
     title: 'Terms & Conditions'                                                                      # The link value
 right_links:              # The links floated to the right of the footer
-  - link: https://github.com/bambora/                    # The link path
+  - link: https://github.com/bambora-na                    # The link path
     title: Github                                        # The link value
 ```
 
