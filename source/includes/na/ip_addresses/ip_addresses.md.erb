@@ -1,0 +1,36 @@
+# IP Addresses
+
+In order to ensure a secure integration to Bambora, you must be able to communicate with one of our fully qualified domains and IP Addresses below.
+
+
+## Domains
+
+Bambora uses the following fully qualified domain names to interact with your integration:
+
+```
+api.na.bambora.com
+web.na.bambora.com
+```
+
+## IP Addresses
+
+Here is the full list of IP addresses in CIDR notation that `api.na.bambora.com` and `web.na.bambora.com` can resolve to:
+
+```
+<%= partial 'includes/na/ip_addresses/ips.txt' %>
+```
+⚠️ Please be sure to always use the `api.na.bambora.com` or `web.na.bambora.com` DNS names to contact our APIs — never communicate with an IP Address directly. Bambora IP addresses are subject to change. To be notified of changes, follow our <%= link_to 'release notes', 'https://help.na.bambora.com/hc/en-us/sections/360007996574-Release-Notes' %>.
+
+
+## Response Notifications
+
+If your integration is configured to receive Response Notifications from Bambora, you should ensure these events also originate from one of our listed IP Addresses above.
+
+## Downloading
+
+For convenience, we have provided our IP Address list as a `.txt` file for easy import into `iptables` and similar tools:
+
+  - <%= link_to 'ip_addresses.txt', '/ip_addresses.txt' %>
+
+
+
