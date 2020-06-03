@@ -11,7 +11,7 @@ gem 'rouge', '~> 1.9.0'
 gem 'redcarpet', '~> 3.3.2'
 gem 'puma', '~> 3.12.6'
 
-gem 'rake', '~> 10.4.2'
+gem 'rake', '~> 12.3.3'
 gem 'therubyracer', '~> 0.12.2', platforms: :ruby
 
 gem 'rack', '~> 1.6.12'
