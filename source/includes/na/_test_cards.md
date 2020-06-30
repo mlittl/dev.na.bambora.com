@@ -27,7 +27,7 @@ You can use the sample credit cards below to trigger different responses from ou
 |:---------------------------|:-----------------|:-----|:---------|
 | Visa (Verified by Visa)    | 4123450131003312 | 123  | 12345    |
 | Mastercard (SecureCode)    | 5105105105105100 | 123  | 12345    |
-| American Express (SafeKey) | 71449635398431   | 1234 | 12345    |
+| American Express (SafeKey) | 375987000000088  | 1234 | 12345    |
 
 ### Test amounts
 
