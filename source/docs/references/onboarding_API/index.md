@@ -34,6 +34,14 @@ The following workflows are currently supported:
 
 ## Changelog
 
+#### July 8th, 2020
+
+* Re-added Moneris from Gateway applications as a terminal type
+* Edited Documentation to indicate that there is a 10MB upload limit per file upload
+* Fixed broken IBAN validation link for 2016-06-11, 2016-08-18, & 2017-08-03 documentation
+* Fixed broken BIC validation link for 2016-06-11 documentation
+* Fixed broken Create Profile (Bank Account) link on batch payment guide
+
 ### **API Version 2016-08-18**
 
 [Specification](./v2016-08-18)

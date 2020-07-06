@@ -59,8 +59,6 @@ Because of requirements from Bambora and its banking partners, you're required t
  - The Card Brand Mark in full colour, informing the customer of card acceptance including terms and conditions, as well as the method of payment.
  > **Card Brand Marks**<br>[Visa Merchant Services](https://www.visa.ca/en_CA/run-your-business/commercial-solutions/merchant-processing.html)<br>[MasterCard Brand Center](https://brand.mastercard.com/brandcenter/mastercard-brand-mark.html)<br>[Discover Signage and Logos](https://www.discovernetwork.com/en-us/business-resources/free-signage-logos)<br>[American Express Signs & Supplies](https://merchant-supplies.americanexpress.com/?locale=en_US#/)</br>
 
->
-
 After we've confirmed this information is readily available on your website, we can start work on issuing your Merchant Account. If you have questions about any of these requirements, or need more detail on making them available, contact our [Customer Experience Team](https://www.bambora.com/en/ca/contact/support/).
 
 ## Terminal accounts
@@ -71,7 +69,7 @@ If you've already got a Merchant Account through a bank or credit union, you'll 
 <br>[Elavon](#elavon)
 <br>[First Data](#first-data)
 <br>[Global Payments](#global-payments)
-<br>[Royal Bank of Canada (RBC), Scotiabank, Desjardins and Canadian Credit Unions](#royscomondesoth)
+<br>[Royal Bank of Canada (RBC), Scotiabank, Desjardins, Moneris, and Canadian Credit Unions](#royscomondesoth)
 <br>[TSYS](#tsys)
 <br>[Toronto Dominion (TD)](#td)
 
@@ -123,7 +121,7 @@ If you're using Global Payments, ensure that your accounts are set up on the **G
 
 <a name="royscomondesoth"></a>
 
-#### Royal Bank, Scotia Bank, Desjardins, and other Canadian credit unions
+#### Royal Bank, Scotiabank, Desjardins, Moneris, and other Canadian credit unions
 If you're currently using any of these banks or credit unions, you need to provide your 5 to 12-digit Merchant ID, and confirm with your bank or union that these ID's are set up for use through a third-party provider.
 
 <a name="tsys"></a>

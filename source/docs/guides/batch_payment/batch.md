@@ -19,7 +19,7 @@ A batch request is a single API call to upload a file containing a list of trans
 
 The number of transactions that you can include in a single batch is limited by the size of the file upload. The maximum file size is 40MB. You should limit the number of transactions in a single batch request to 10,000, as you will encounter longer upload times when uploading larger files. If you need to make more calls than that, use multiple batch requests.
 
-Transactions can reference raw bank or card data, or Payment Profile IDs. To create Secure Payment Profiles with banking information, you must use the [legacy API](https://help.na.bambora.com/hc/en-us/articles/115010346067)
+Transactions can reference raw bank or card data, or Payment Profile IDs. For more information on how create Secure Payment Profiles with banking information, check out [Create Profile (Bank Account)](https://dev.na.bambora.com/docs/guides/payment_profiles/#create-profile-bank-account)
 
 ### Test accounts
 
