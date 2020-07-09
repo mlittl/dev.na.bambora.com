@@ -34,6 +34,12 @@ The following workflows are currently supported:
 
 ## Changelog
 
+### **API Version 2016-08-18**
+
+[Specification](./v2016-08-18)
+
+[Terms API Spec](./tac_v2016-08-18)
+
 #### July 8th, 2020
 
 * Re-added Moneris from Gateway applications as a terminal type
@@ -41,12 +47,6 @@ The following workflows are currently supported:
 * Fixed broken IBAN validation link for 2016-06-11, 2016-08-18, & 2017-08-03 documentation
 * Fixed broken BIC validation link for 2016-06-11 documentation
 * Fixed broken Create Profile (Bank Account) link on batch payment guide
-
-### **API Version 2016-08-18**
-
-[Specification](./v2016-08-18)
-
-[Terms API Spec](./tac_v2016-08-18)
 
 #### January 15th, 2020
 
