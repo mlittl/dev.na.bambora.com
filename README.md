@@ -8,8 +8,6 @@
     - [Docker](#docker)
       - [Build](#build)
       - [Run](#run)
-        - [Mac and Linux](#mac-and-linux)
-        - [Windows](#windows)
       - [Test Local](#test-local)
       - [Build Static Site Locally](#build-static-site-locally)
     - [Bundler](#bundler)
@@ -57,21 +55,13 @@ The simplest way to get set up is to use the included Dockerfile (must install
 #### Build
 
 ```shell
-docker build -t devbamboracom .
+make build
 ```
 
 #### Run
 
-##### Mac and Linux
-
 ```shell
-docker run -v `pwd`/:/usr/src/app/ -p 4567:4567 -w /usr/src/app devbamboracom development_server
-```
-
-##### Windows
-
-```shell
-docker run -v $pwd/:/usr/src/app/ -p 4567:4567 -w /usr/src/app devbamboracom development_server_windows
+make run
 ```
 
 **Note**: If you get a `request canceled while waiting for connection` error when running `docker build`, go to `Docker Settings > Network` and change the DNS server to fixed.
