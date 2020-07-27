@@ -179,7 +179,8 @@ curl -X GET https://api.na.bambora.com/v1/profiles/{id}/cards
 
 ### Update a Card
 
-Only the card expiry fields can be updated.
+If an account is configured to allow more than one card to the profile, only the card expiry fields can be updated.
+To update the card number, a new card must be added to the profile and the invalid card can be deleted.
 
 ```shell
 curl -X PUT https://api.na.bambora.com/v1/profiles/{id}/cards/{card_id}
