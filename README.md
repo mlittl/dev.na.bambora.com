@@ -8,8 +8,6 @@
     - [Docker](#docker)
       - [Build](#build)
       - [Run](#run)
-        - [Mac and Linux](#mac-and-linux)
-        - [Windows](#windows)
       - [Test Local](#test-local)
       - [Build Static Site Locally](#build-static-site-locally)
     - [Bundler](#bundler)
@@ -57,21 +55,13 @@ The simplest way to get set up is to use the included Dockerfile (must install
 #### Build
 
 ```shell
-docker build -t devbamboracom .
+make build
 ```
 
 #### Run
 
-##### Mac and Linux
-
 ```shell
-docker run -v `pwd`/:/usr/src/app/ -p 4567:4567 -w /usr/src/app devbamboracom development_server
-```
-
-##### Windows
-
-```shell
-docker run -v $pwd/:/usr/src/app/ -p 4567:4567 -w /usr/src/app devbamboracom development_server_windows
+make run
 ```
 
 **Note**: If you get a `request canceled while waiting for connection` error when running `docker build`, go to `Docker Settings > Network` and change the DNS server to fixed.
@@ -239,13 +229,13 @@ The footer config file referenced in the navigation object defines the footer fo
 
 ```yaml
 copyright:                # The copyright info for the footer
-  title: 2017 Bambora     # The text to display for copyright
-  link: http://www.bambora.com/en/en/payment-solutions/     # The destination of the copyright link
+  title: 2020 Bambora     # The text to display for copyright
+  link: https://www.bambora.com/en/ca/online-payments/     # The destination of the copyright link
 left_links:               # The links floated to the left of the footer
   - link: http://www.bambora.com/en/en/payment-solutions/customer-service/faq/terms-and-conditions/  # The link path
     title: 'Terms & Conditions'                                                                      # The link value
 right_links:              # The links floated to the right of the footer
-  - link: https://github.com/bambora/                    # The link path
+  - link: https://github.com/bambora-na                    # The link path
     title: Github                                        # The link value
 ```
 
