@@ -29,7 +29,7 @@ cards:
         description: >
             Looking for the latest bug fixes and features? Check out our release notes.
         icon: notification-active
-        link: https://help.na.bambora.com/hc/en-us/categories/360003477234-Release-Notes
+        link: https://help.na.bambora.com/hc/en-us/sections/360004804854-Release-Notes
    
 ---
 

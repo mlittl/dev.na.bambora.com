@@ -3,7 +3,7 @@ title: Go live
 layout: tutorial
 
 summary: >
-  Learn how to create, configure, and test your merchant account with our Payment APIs.
+  Learn how to create, configure, and test your merchant account with our Payment APIs. 
 
 navigation:
   header: na.tocs.na_nav_header
@@ -58,6 +58,8 @@ Because of requirements from Bambora and its banking partners, you're required t
  - The terms and conditions of the use for your website.
  - The Card Brand Mark in full colour, informing the customer of card acceptance including terms and conditions, as well as the method of payment.
  > **Card Brand Marks**<br>[Visa Merchant Services](https://www.visa.ca/en_CA/run-your-business/commercial-solutions/merchant-processing.html)<br>[MasterCard Brand Center](https://brand.mastercard.com/brandcenter/mastercard-brand-mark.html)<br>[Discover Signage and Logos](https://www.discovernetwork.com/en-us/business-resources/free-signage-logos)<br>[American Express Signs & Supplies](https://merchant-supplies.americanexpress.com/?locale=en_US#/)</br>
+ 
+> 
 
 After we've confirmed this information is readily available on your website, we can start work on issuing your Merchant Account. If you have questions about any of these requirements, or need more detail on making them available, contact our [Customer Experience Team](https://www.bambora.com/en/ca/contact/support/).
 
@@ -69,7 +71,7 @@ If you've already got a Merchant Account through a bank or credit union, you'll 
 <br>[Elavon](#elavon)
 <br>[First Data](#first-data)
 <br>[Global Payments](#global-payments)
-<br>[Royal Bank of Canada (RBC), Scotiabank, Desjardins, Moneris, and Canadian Credit Unions](#royscomondesoth)
+<br>[Royal Bank of Canada (RBC), Scotiabank, Moneris, Desjardins and Canadian Credit Unions](#royscomondesoth)
 <br>[TSYS](#tsys)
 <br>[Toronto Dominion (TD)](#td)
 
@@ -92,7 +94,7 @@ For Elavon merchant accounts, request a terminal setup sheet if you don't alread
 
  - 6-digit bank ID/BIN number.
  - 16-digit terminal ID.
- - Merchant numbers for each accepted card type.
+ - Merchant numbers for each accepted card type. 
 
 If you are processing a high volume of transactions, your setup sheet may also include additional information such as FTP usernames and passwords.
 
@@ -121,12 +123,12 @@ If you're using Global Payments, ensure that your accounts are set up on the **G
 
 <a name="royscomondesoth"></a>
 
-#### Royal Bank, Scotiabank, Desjardins, Moneris, and other Canadian credit unions
+#### Royal Bank, Scotia Bank, Moneris, Desjardins, and other Canadian credit unions
 If you're currently using any of these banks or credit unions, you need to provide your 5 to 12-digit Merchant ID, and confirm with your bank or union that these ID's are set up for use through a third-party provider.
 
 <a name="tsys"></a>
 
-#### TSYS
+#### TSYS 
 If you don't already have one, request a terminal setup sheet from your TYSYS account representative with your:
 
  - 12-digit merchant number.
@@ -182,7 +184,7 @@ After integration tests are complete, as well as your terminal and merchant acco
 
 Once you or your developer finish testing, send us an email requesting to go live, and we will make it so. You'll move from the test environment to live on production.
 
-We'll perform a review of your website to ensure everything is running smoothly. If we detect any issues or problems, we'll send you an email concerning your site review.
+We'll perform a review of your website to ensure everything is running smoothly. If we detect any issues or problems, we'll send you an email concerning your site review. 
 
 > Test transactions will remain free of charge, but monthly processing fees will start after your account is approved and authorized.
 
