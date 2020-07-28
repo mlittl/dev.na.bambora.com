@@ -491,7 +491,7 @@ paths:
           $ref: '#/responses/InternalServerError'
     put:
       summary: Update card
-      description: Update the details of a card on the profile.
+      description: Update the details of a card on the profile. A card number can only be updated when an account is configured to only allow 1 card per profile.
       tags:
         - Profiles
       operationId: updateCard
