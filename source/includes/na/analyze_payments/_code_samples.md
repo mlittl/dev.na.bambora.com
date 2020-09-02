@@ -9,26 +9,12 @@ curl https://api.na.bambora.com/v1/payments/{transactionId} \
 -H "Authorization: Passcode MzAwMjAwNTc4OjRCYUQ4MkQ5MTk3YjRjYzRiNzBhMjIxOTExZUU5Zjcw" \
 ```
 
-```javascript
-beanstream.payments.getPayment(transactionId)
-  .then(function(transaction) {
-    console.log(transaction);
-  })
-  .catch(function(error){
-    console.log(error);
-  });
-```
-
 ```php
 try {
     $result = $beanstream->reporting()->getTransaction($transaction_id);
 } catch (\Beanstream\Exception $e) {
     //handle exception
 }
-```
-
-```ruby
-get_trans = Beanstream.PaymentsAPI.get_transaction(transaction_id)
 ```
 
 ```python
@@ -47,10 +33,6 @@ try {
 
 ```csharp
 Transaction trans = beanstream.Reporting.GetTransaction (TransactionId);
-```
-
-```go
-transaction, err := gateway.Payments().GetTransaction(transactionId)
 ```
 
 You can retrieve a previous transaction using this method. All you need the the transaction ID.
@@ -82,31 +64,6 @@ curl https://api.na.bambora.com/v1/reports \
    }'
 ```
 
-```javascript
-var Reports = require('beanstream/reports');
-
-var start = new Date();
-start.setHours(start.getHours()-4-8);
-var end = new Date();
-end.setHours(end.getHours()+2-8); // -8 to convert to PDT, the time the test account is in
-
-var criteria = [
-  {
-    field: Reports.FIELDS.TransactionId,
-    operator: Reports.OPERATORS.Equals,
-    value: transId
-  }
-];
-
-beanstream.reports.query(start.toISOString(), end.toISOString(), 1, 10, criteria)
-  .then(function(response) {
-    // return results
-  })
-  .catch(function(error){
-    console.log(error);
-  });
-```
-
 ```php
 $search_criteria = array(
      'name' => 'TransHistoryMinimal', // or 'Search',
@@ -125,23 +82,6 @@ try {
 } catch (\Beanstream\Exception $e) {
     //handle exception
 }
-```
-
-```ruby
-last3Hours = Time.now - 3*60*60
-next3Hours = Time.now + 3*60*60
-
-results = Beanstream.ReportingAPI.search_transactions(
-        last3Hours,
-        next3Hours,
-        1,
-        10,
-        Criteria.new(
-          Fields::OrderNumber,
-          Operators::EQUALS,
-          "orderNum1"
-        )
-      )
 ```
 
 ```python
@@ -191,17 +131,6 @@ List<TransactionRecord> records = beanstream.Reporting.Query (
 		}
 	}
 );
-```
-
-```go
-startTime := time.Now().AddDate(0, 0, -1)
-endTime := time.Now().AddDate(0, 0, 1)
-
-criteria1 := beanstream.Criteria{
-	fields.Amount,
-	operators.GreaterThanEqual,
-	"200.00"}
-res, err3 := gateway.Reports().Query(startTime, endTime, 1, 10, criteria1)
 ```
 
 With the Reporting API you can access basic summary order information using simple search functions.
