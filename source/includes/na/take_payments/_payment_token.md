@@ -20,26 +20,6 @@ curl https://api.na.bambora.com/v1/payments
 }'
 ```
 
-```javascript
-var tokenPayment = {
-  order_number: 'order123456',
-  amount:12.00,
-  payment_method:"token",
-  token:{
-    name:"John Doe",
-    code: myTokenString,
-    complete: true
-  }
-};
-beanstream.payments.makePayment(tokenPayment)
-  .then(function(response){
-    // display success
-  })
-  .catch(function(error){
-    console.log(error);
-  });
-```
-
 ```php
 $beanstream = new \Beanstream\Gateway('300200578', '4BaD82D9197b4cc4b70a221911eE9f70', 'www', 'v1');
 
@@ -54,27 +34,6 @@ try {
 } catch (\Beanstream\Exception $e) {
     //handle exception
 }
-```
-
-```ruby
-begin
-  result = Beanstream.PaymentsAPI.make_payment(
-    {
-      :order_number => PaymentsAPI.generateRandomOrderId("test"),
-      :amount => 13.99,
-      :payment_method => PaymentMethods::TOKEN,
-      :token => {
-        :name => "Craig Test",
-        :code => token, # add your token here
-        :complete => true
-      }
-    }
-  )
-  puts "Success: #{result}"
-
-rescue BeanstreamException => ex
-  puts "Error: #{ex.user_facing_message()}"
-end
 ```
 
 ```python
@@ -128,28 +87,6 @@ PaymentResponse response = bambora.Payments.MakePayment (
 );
 ```
 
-```go
-import (
-	beanstream "github.com/Beanstream/beanstream-go"
-	"github.com/Beanstream/beanstream-go/paymentMethods"
-)
-
-config := beanstream.DefaultConfig()
-config.MerchantId = "300200578"
-config.PaymentsApiKey = "4BaD82D9197b4cc4b70a221911eE9f70"
-
-gateway := beanstream.Gateway{config}
-request := beanstream.PaymentRequest{
-    PaymentMethod: paymentMethods.TOKEN,
-    OrderNumber:   "order0012345",
-    Amount:        15.99,
-    Token: beanstream.Token{
-        token,
-        "John Doe",
-        true}} // set to false for pre-auth
-res, err := gateway.Payments().MakePayment(request)
-```
-
 Single-use tokens provide a secure method of taking payments that reduces your PCI scope. You can take a payment using a token the same as you would take a payment with a credit card, the main difference being the ‘payment_method’ parameter and supplying the token.
 
 To process a transaction using a token, you first need to have created a token. You can either do this from the browser/client using the [Tokenization API](/docs/references/payment_APIs) or using the [Mobile or Browser SDKs](/docs/references/payment_SDKs/collect_card_data).
@@ -194,35 +131,6 @@ curl https://api.na.bambora.com/v1/payments/{transId}/completions
 }'
 ```
 
-```javascript
-var tokenPayment = {
-  order_number: 'order123456abc',
-  amount:12.00,
-  payment_method:"token",
-  token:{
-    name:"John Doe",
-    code: myTokenString,
-    complete: false // false for pre auth
-  }
-};
-beanstream.payments.makePayment(tokenPayment)
-  .then(function(response){
-    // display success
-  })
-  .catch(function(error){
-    console.log(error);
-  });
-
-// capture/complete a lesser amount
-beanstream.payments.completePayment(transId, {amount: 50.50})
-  .then(function(result) {
-    // payment captured/completed
-  })
-  .catch(function(error){
-    console.log(error);
-  });
-```
-
 ```php
 $beanstream = new \Beanstream\Gateway('300200578', '4BaD82D9197b4cc4b70a221911eE9f70', 'www', 'v1');
 
@@ -240,30 +148,6 @@ try {
 } catch (\Beanstream\Exception $e) {
     //todo handle exception
 }
-```
-
-```ruby
-begin
-  result = Beanstream.PaymentsAPI.make_payment(
-    {
-      :order_number => PaymentsAPI.generateRandomOrderId("test"),
-      :amount => 13.99,
-      :payment_method => PaymentMethods::TOKEN,
-      :token => {
-        :name => "Gizmo Test",
-        :code => token, # add your token here
-        :complete => false #false makes it a pre-auth
-      }
-    }
-  )
-  puts "result: #{result}"
-  transaction_id = result['id']
-
-  result = Beanstream.PaymentsAPI.complete_preauth(transaction_id, 10.33)
-  puts "completion result: #{result}"
-rescue BeanstreamException => ex
-  puts "Error: #{ex.user_facing_message()}"
-end
 ```
 
 ```python
@@ -320,28 +204,4 @@ PaymentResponse response = bambora.Payments.PreAuth (
 );
 
 response = bambora.Payments.PreAuthCompletion (response.TransactionId, 15.45);
-```
-
-```go
-import (
-	beanstream "github.com/Beanstream/beanstream-go"
-	"github.com/Beanstream/beanstream-go/paymentMethods"
-)
-
-config := beanstream.DefaultConfig()
-config.MerchantId = "300200578"
-config.PaymentsApiKey = "4BaD82D9197b4cc4b70a221911eE9f70"
-
-gateway := beanstream.Gateway{config}
-request := beanstream.PaymentRequest{
-    PaymentMethod: paymentMethods.TOKEN,
-    OrderNumber:   "order0012345",
-    Amount:        15.99,
-    Token: beanstream.Token{
-        token, // add your Legato token here
-        "John Doe",
-        false}} // false for pre-auth
-res, err := gateway.Payments().MakePayment(request)
-// complete payment
-res2, err2 := gateway.Payments().CompletePayment(res.ID, 5.67)
 ```

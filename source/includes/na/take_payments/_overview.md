@@ -5,14 +5,6 @@ Our RESTful APIs allow you to take payments, analyze payments, create payment pr
 
 ## Include the Server SDK
 
-```javascript
-// Step 1) Install module with NPM
-npm install beanstream-node
-
-// Step 2) Import module into your project
-var beanstream = require('beanstream-node')('merchantId', 'Payments API passcode', 'Profiles API passcode', 'Reporting API passcode');
-```
-
 ```php
 
 // Composer
@@ -27,10 +19,6 @@ composer install
 
 // 3. Require in your php file
 require 'vendor/autoload.php';
-```
-
-```ruby
-gem install beanstream --pre
 ```
 
 ```python
@@ -71,11 +59,6 @@ dependencies {
 Id: Bambora.NA.SDK
 
 PM> Install-Package Bambora.NA.SDK
-```
-
-```go
-// Go Get
-import beanstream "github.com/Beanstream/beanstream-go"
 ```
 
 Select the programming language of your project from the tabs at the top of the right-hand column.

@@ -15,9 +15,6 @@ curl https://api.na.bambora.com/v1/payments
 }'
 ```
 
-```javascript
-```
-
 ```php
 $beanstream = new \Beanstream\Gateway('300200578', '4BaD82D9197b4cc4b70a221911eE9f70', 'www', 'v1');
 
@@ -26,9 +23,6 @@ $legato_payment_data = array(
     'amount' => 100.0,
     'name' => 'Mrs. Testerson'
 );
-```
-
-```ruby
 ```
 
 ```python
@@ -71,24 +65,6 @@ PaymentResponse response = bambora.Payments.MakePayment (
 );
 ```
 
-```go
-import (
-	beanstream "github.com/Beanstream-DRWP/beanstream-go"
-	"github.com/Beanstream-DRWP/beanstream-go/paymentMethods"
-)
-
-config := beanstream.DefaultConfig()
-config.MerchantId = "300200578"
-config.PaymentsApiKey = "4BaD82D9197b4cc4b70a221911eE9f70"
-
-gateway := beanstream.Gateway{config}
-request := beanstream.PaymentRequest{
-    PaymentMethod: paymentMethods.CASH,
-    OrderNumber:   "order12345b",
-    Amount:        12.00}
-res, err := gateway.Payments().MakePayment(request)
-```
-
 If you receive a cash or cheque payment, you can record it through our REST API. We offer this payment method to help provide a centralized record of all your sales.
 
 ## Cheque
@@ -108,9 +84,6 @@ curl https://api.na.bambora.com/v1/payments
 }'
 ```
 
-```javascript
-```
-
 ```php
 $beanstream = new \Beanstream\Gateway('300200578', '4BaD82D9197b4cc4b70a221911eE9f70', 'www', 'v1');
 
@@ -120,9 +93,6 @@ $payment_data = array(
 );
 
 $result = $beanstream->payments()->makeChequePayment($payment_data);
-```
-
-```ruby
 ```
 
 ```python
@@ -163,24 +133,6 @@ PaymentResponse response = bambora.Payments.MakePayment (
         OrderNumber = "orderNum-TobiasFunke"
     }
 );
-```
-
-```go
-import (
-	beanstream "github.com/Beanstream-DRWP/beanstream-go"
-	"github.com/Beanstream-DRWP/beanstream-go/paymentMethods"
-)
-
-config := beanstream.DefaultConfig()
-config.MerchantId = "300200578"
-config.PaymentsApiKey = "4BaD82D9197b4cc4b70a221911eE9f70"
-
-gateway := beanstream.Gateway{config}
-request := beanstream.PaymentRequest{
-    PaymentMethod: paymentMethods.CHEQUE,
-    OrderNumber:   "order12345b",
-    Amount:        12.00}
-res, err := gateway.Payments().MakePayment(request)
 ```
 
 If you receive a cash or cheque payment, you can record it through our REST API. We offer this payment method to help provide a centralized record of all your sales.

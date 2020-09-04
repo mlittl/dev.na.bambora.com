@@ -21,27 +21,6 @@ curl https://api.na.bambora.com/v1/payments
 }'
 ```
 
-```javascript
-var profilePayment = {
-    order_number: 'order123456abc',
-    amount:3.00,
-    payment_method:"payment_profile",
-    payment_profile:{
-      customer_code: profileCustomerCode,
-      card_id: 1,
-      complete: true
-    },
-    comment: 'making a payment with a tokenized card on a payment profile.'
-  };
-beanstream.payments.makePayment(profilePayment)
-  .then(function(response){
-    // display success
-  })
-  .catch(function(error){
-    console.log(error);
-  });
-```
-
 ```php
 $beanstream = new \Beanstream\Gateway('300200578', '4BaD82D9197b4cc4b70a221911eE9f70', 'www', 'v1');
 
@@ -55,17 +34,6 @@ try {
 } catch (\Beanstream\Exception $e) {
     //handle exception
 }
-```
-
-```ruby
-begin
-  profile_payment = Beanstream.PaymentsAPI.getProfilePaymentRequestTemplate()
-  profile_payment[:payment_profile][:customer_code] = profile_id
-  profile_payment[:amount] = 77.50
-  result = Beanstream.PaymentsAPI.make_payment(profile_payment)
-rescue BeanstreamException => ex
-  puts "Error: #{ex.user_facing_message()}"
-end
 ```
 
 ```python
@@ -115,28 +83,6 @@ PaymentResponse payment = bambora.Payments.MakePayment (new ProfilePaymentReques
 });
 ```
 
-```go
-import (
-	beanstream "github.com/Beanstream/beanstream-go"
-	"github.com/Beanstream/beanstream-go/paymentMethods"
-)
-
-config := beanstream.DefaultConfig()
-config.MerchantId = "300200578"
-config.PaymentsApiKey = "4BaD82D9197b4cc4b70a221911eE9f70"
-
-gateway := beanstream.Gateway{config}
-payment := beanstream.PaymentRequest{
-	PaymentMethod: paymentMethods.PROFILE,
-	OrderNumber:   "orderId000345",
-	Amount:        12.99,
-	Profile: beanstream.ProfilePayment{
-		res.Id,
-		1,
-		true}} // set to false for pre-auth
-res, err := gateway.Payments().MakePayment(payment)
-```
-
 Payment Profiles provide a secure method of taking payments that reduces your PCI scope. You can take a payment using a token the same as you would take a payment with a credit card, the main difference being you have to supply the Profile’s customer_code.
 
 Before processing a transaction using a 'Payment Profile', you need to have created a one. See [here](/docs/references/payment_SDKs/save_customer_data).
@@ -180,36 +126,6 @@ curl https://api.na.bambora.com/v1/payments/{transId}/completions
 }'
 ```
 
-```javascript
-var profilePayment = {
-    order_number: 'order123456abc',
-    amount:3.00,
-    payment_method:"payment_profile",
-    payment_profile:{
-      customer_code: profileCustomerCode,
-      card_id: 1,
-      complete: false
-    },
-    comment: 'making a payment with a tokenized card on a payment profile.'
-  };
-beanstream.payments.makePayment(profilePayment)
-  .then(function(response){
-    // display success
-  })
-  .catch(function(error){
-    console.log(error);
-  });
-
-// capture/complete a lesser amount
-beanstream.payments.completePayment(transId, {amount: 50.50})
-  .then(function(result) {
-    // payment captured/completed
-  })
-  .catch(function(error){
-    console.log(error);
-  });
-```
-
 ```php
 $beanstream = new \Beanstream\Gateway('300200578', '4BaD82D9197b4cc4b70a221911eE9f70', 'www', 'v1');
 
@@ -226,23 +142,6 @@ try {
 } catch (\Beanstream\Exception $e) {
     //todo handle exception
 }
-```
-
-```ruby
-begin
-  # pre-auth
-  profile_payment = Beanstream.PaymentsAPI.getProfilePaymentRequestTemplate()
-  profile_payment[:amount] = 80
-  profile_payment[:payment_profile][:customer_code] = profile_id
-  profile_payment[:payment_profile][:complete] = false #false for pre-auth
-  result = Beanstream.PaymentsAPI.make_payment(profile_payment)
-
-  #complete pre-auth
-  result = Beanstream.PaymentsAPI.complete_preauth(result['id'], 40.50)
-  puts "success: #{result}"
-rescue BeanstreamException => ex
-  puts "Error: #{ex.user_facing_message()}"
-end
 ```
 
 ```python
@@ -291,28 +190,4 @@ PaymentResponse payment = bambora.Payments.PreAuth (new ProfilePaymentRequest() 
 });
 // complete payment
 payment = bambora.Payments.PreAuthCompletion (payment.TransactionId, 15.12);
-```
-
-```go
-import (
-	beanstream "github.com/Beanstream/beanstream-go"
-	"github.com/Beanstream/beanstream-go/paymentMethods"
-)
-
-config := beanstream.DefaultConfig()
-config.MerchantId = "300200578"
-config.PaymentsApiKey = "4BaD82D9197b4cc4b70a221911eE9f70"
-
-gateway := beanstream.Gateway{config}
-payment := beanstream.PaymentRequest{
-	PaymentMethod: paymentMethods.PROFILE,
-	OrderNumber:   "orderId000345",
-	Amount:        12.99,
-	Profile: beanstream.ProfilePayment{
-		res.Id,
-		1,
-		false}} // false for pre-auth
-res, err := gateway.Payments().MakePayment(payment)
-// complete payment
-res2, err2 := gateway.Payments().CompletePayment(res.ID, 5.67)
 ```

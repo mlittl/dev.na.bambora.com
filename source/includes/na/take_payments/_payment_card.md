@@ -27,31 +27,6 @@ curl https://api.na.bambora.com/v1/payments
 }'
 ```
 
-```javascript
-var beanstream = require('beanstream-node')('YOUR_MERCHANT_ID', 'YOUR_PAYMENTS_API_PASSCODE');
-
-var cardPayment = {
-  order_number: 'order123456abc',
-  amount:10.00,
-  payment_method:"card",
-  card:{
-    name:"John Doe",
-    number:"5100000010001004",
-    expiry_month:"02",
-    expiry_year:"19",
-    cvd:"123"
-  }
-};
-beanstream.payments.makePayment(cardPayment)
-  .then(function(response){
-    // display syccess
-  })
-  .catch(function(error){
-    console.log(error);
-    // display error
-  });
-```
-
 ```php
 $beanstream = new \Beanstream\Gateway('YOUR_MERCHANT_ID', 'YOUR_PAYMENTS_API_PASSCODE', 'www', 'v1');
 
@@ -73,29 +48,6 @@ try {
 } catch (\Beanstream\Exception $e) {
     //handle exception
 }
-```
-
-```ruby
-begin
-  result = Beanstream.PaymentsAPI.make_payment(
-  {
-    :order_number => PaymentsAPI.generateRandomOrderId("test"),
-    :amount => 100,
-    :payment_method => PaymentMethods::CARD,
-    :card => {
-      :name => "Mr. Card Testerson",
-      :number => "4030000010001234",
-      :expiry_month => "07",
-      :expiry_year => "22",
-      :cvd => "123",
-      :complete => true
-    }
-  })
-  puts "Success! TransactionID: #{result['id']}"
-
-rescue BeanstreamException => ex
-  puts "Exception: #{ex.user_facing_message}"
-end
 ```
 
 ```python
@@ -159,31 +111,6 @@ PaymentResponse response = bambora.Payments.MakePayment (
 );
 ```
 
-```go
-import (
-  beanstream "github.com/Beanstream/beanstream-go"
-  "github.com/Beanstream/beanstream-go/paymentMethods"
-)
-
-config := beanstream.DefaultConfig()
-config.MerchantId = "YOUR_MERCHANT_ID"
-config.PaymentsApiKey = "YOUR_PAYMENTS_API_PASSCODE"
-
-gateway := beanstream.Gateway{config}
-request := beanstream.PaymentRequest{
-  PaymentMethod: paymentMethods.CARD,
-  OrderNumber:   beanstream.Util_randOrderId(6),
-  Amount:        12.99,
-  Card: beanstream.CreditCard{
-    Name:        "John Doe",
-    Number:      "5100000010001004",
-    ExpiryMonth: "11",
-    ExpiryYear:  "19",
-    Cvd:         "123",
-    Complete:    true}} // set to false for pre-auth
-res, err := gateway.Payments().MakePayment(request)
-```
-
 **Test Cards**<br/>
 If you are using a test account, or a production account that is still in its initial 'test' mode, you’ll need to use test card numbers. You’ll be able to view the transaction process from beginning to end without sending real information to the banking network. See [here](https://support.na.bambora.com/bic/w/index.html#docs/using-test-card-numbers.htm) for a list of test card numbers.
 
@@ -243,38 +170,6 @@ curl https://api.na.bambora.com/v1/payments/{transId}/completions
 }'
 ```
 
-```javascript
-var cardPayment = {
-  order_number: 'order123456abc',
-  amount:80.00,
-  payment_method:"card",
-  card:{
-    name:"John Doe",
-    number:"5100000010001004",
-    expiry_month:"02",
-    expiry_year:"19",
-    cvd:"123",
-    complete: false // false for pre-auth
-  }
-};
-beanstream.payments.makePayment(cardPayment)
-  .then(function(response){
-    // approved
-  })
-  .catch(function(error){
-    console.log(error);
-  });
-
-// capture/complete a lesser amount
-beanstream.payments.completePayment(transId, {amount: 50.50})
-  .then(function(result) {
-    // payment captured/completed
-  })
-  .catch(function(error){
-    console.log(error);
-  });
-```
-
 ```php
 $beanstream = new \Beanstream\Gateway('300200578', '4BaD82D9197b4cc4b70a221911eE9f70', 'www', 'v1');
 
@@ -299,35 +194,6 @@ try {
 } catch (\Beanstream\Exception $e) {
     //todo handle exception
 }
-```
-
-```ruby
-begin
-  result = Beanstream.PaymentsAPI.make_payment(
-    {
-      :order_number => PaymentsAPI.generateRandomOrderId("test"),
-      :amount => 100,
-      :payment_method => PaymentMethods::CARD,
-      :card => {
-        :name => "Mr. Card Testerson",
-        :number => "4030000010001234",
-        :expiry_month => "07",
-        :expiry_year => "22",
-        :cvd => "123",
-        :complete => false #false makes it a pre-auth
-      }
-    }
-  )
-  puts "pre-authorized success: #{result}"
-  transaction_id = result['id']
-  puts "TransactionId: #{transaction_id}"
-
-  result = Beanstream.PaymentsAPI.complete_preauth(transaction_id, 59.50)
-  puts "completion success: #{result}"
-
-rescue BeanstreamException => ex
-  puts "Exception: #{ex.user_facing_message}" # declined
-end
 ```
 
 ```python
@@ -391,33 +257,6 @@ PaymentResponse response = bambora.Payments.PreAuth (
 );
 
 PaymentResponse response2 = bambora.Payments.PreAuthCompletion (response.TransactionId, 35.99);
-```
-
-```go
-import (
-	beanstream "github.com/Beanstream/beanstream-go"
-	"github.com/Beanstream/beanstream-go/paymentMethods"
-)
-
-config := beanstream.DefaultConfig()
-config.MerchantId = "300200578"
-config.PaymentsApiKey = "4BaD82D9197b4cc4b70a221911eE9f70"
-
-gateway := beanstream.Gateway{config}
-request := beanstream.PaymentRequest{
-	PaymentMethod: paymentMethods.CARD,
-	OrderNumber:   beanstream.Util_randOrderId(6),
-	Amount:        12.99,
-	Card: beanstream.CreditCard{
-		Name:        "John Doe",
-		Number:      "5100000010001004",
-		ExpiryMonth: "11",
-		ExpiryYear:  "19",
-		Cvd:         "123",
-		Complete:    false}} // false for pre-auth
-res, err := gateway.Payments().MakePayment(request)
-// complete payment
-res2, err2 := gateway.Payments().CompletePayment(res.ID, 5.67)
 ```
 
 For completions you will have to supply the Transaction Id {TransId} to the URL when using REST. The transId is returned from the pre-auth.
