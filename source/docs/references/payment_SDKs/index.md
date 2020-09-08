@@ -13,7 +13,7 @@ navigation:
 ---
 
 # Overview
-Our SDKs wrap our RESTful APIs. Our server and mobile SDKs make it easy for you to use our RESTful APIs in a range of languages: C#, Java, PHP, and Python. Our browser SDK, Custom Checkout, limits the scope of your PCI compliance to PCI SAQ-A.
+Our SDKs wrap our RESTful APIs. Our server SDKs make it easy for you to use our RESTful APIs in a range of languages: C#, Java, PHP, and Python. Our browser SDK, Custom Checkout, limits the scope of your PCI compliance to PCI SAQ-A.
 
 
 ## Server SDK
