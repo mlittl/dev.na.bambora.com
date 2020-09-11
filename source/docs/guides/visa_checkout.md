@@ -17,7 +17,7 @@ navigation:
 
 # Visa Secure Remote Commerce
 
-Visa SRC simplifies and secures online payments by storing payment information.
+Visa SRC (formerly Visa Checkout) simplifies and secures online payments by storing payment information.
 It removes the need for a customer to re-enter and share card information.
 
 Visa SRC is a digital wallet. Customers load their digital wallet with their credit, debit and prepaid cards once. They can then retrieve their payment information at any checkout supporting the wallet.
@@ -30,7 +30,7 @@ time checking out. Visa SRC benefits merchants by reducing checkout abandonment.
 
 A Visa SRC payment can involve either one or two steps for a merchant.
 
-It will always begin with a user choosing the 'click to pay' button. Visa's
+It will always begin with a user choosing the 'click to pay' button in the checkout flow. Visa's
 SDK handles the event and pops a lightbox where the user can authenticate and select a payment card.
 Visa SRC then calls a callback function on the merchant's webpage.
 
