@@ -35,7 +35,7 @@ try {
 Transaction trans = beanstream.Reporting.GetTransaction (TransactionId);
 ```
 
-You can retrieve a previous transaction using this method. All you need the the transaction ID.
+You can retrieve a previous transaction using this method. All you need is the transaction ID.
 
 You must use the correct API key for this method.
 
