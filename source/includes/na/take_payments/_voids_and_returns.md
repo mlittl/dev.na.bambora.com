@@ -13,22 +13,8 @@ curl https://api.na.bambora.com/v1/payments/{transId}/void
 }'
 ```
 
-```javascript
-beanstream.payments.voidPayment(transId, {amount: 30})
-  .then(function(result) {
-    // success
-  })
-  .catch(function(error){
-    console.log(error);
-  });
-```
-
 ```php
 $result = $beanstream->payments()->voidPayment($transaction_id, 12.99);
-```
-
-```ruby
-void_result = Beanstream.PaymentsAPI.void_payment(transaction_id, 100)
 ```
 
 ```python
@@ -44,10 +30,6 @@ PaymentResponse response = beanstream.payments().voidPayment(transactionId, 70.0
 
 ```csharp
 PaymentResponse response = bambora.Payments.Void (response.TransactionId, 30);
-```
-
-```go
-res, err := gateway.Payments().VoidPayment(transactionId, 12.99)
 ```
 
 A Void will cancel a transaction before it is registered against a customer’s credit card account. Cardholders will never see a voided transaction on their credit card statement. As a result voids can only be attempted on the same day as the original transaction. After the end of day (roughly 11:59 PM EST/EDT), void requests will be rejected from the API if attempted. From that point on, for that transaction, you will need to perform a Return.
@@ -70,22 +52,8 @@ curl https://api.na.bambora.com/v1/payments/{transId}/returns
 }'
 ```
 
-```javascript
-beanstream.payments.returnPayment(transId, {amount: 40})
-  .then(function(result) {
-    // success
-  })
-  .catch(function(error){
-    console.log(error);
-  });
-```
-
 ```php
 $result = $beanstream->payments()->returnPayment($transaction_id, 12.99, $order_number);
-```
-
-```ruby
-return_result = Beanstream.PaymentsAPI.return_payment(transaction_id, 100)
 ```
 
 ```python
@@ -98,10 +66,6 @@ PaymentResponse response = beanstream.payments().returnPayment(transactionId, 70
 
 ```csharp
 PaymentResponse response = bambora.Payments.Return (response.TransactionId, 40.0);
-```
-
-```go
-res, err := gateway.Payments().ReturnPayment(transactionId, 12.99)
 ```
 
 ### Unreferenced Returns
@@ -125,10 +89,6 @@ curl https://api.na.bambora.com/v1/payments/0/returns
       "cvd":"642"
    }
 }'
-```
-
-```javascript
-
 ```
 
 ```php
@@ -172,39 +132,6 @@ print_r($res);
 ?>
 ```
 
-```ruby
-require 'open-uri'
-require 'net/http'
-require 'json'
-
-uri = URI('https://api.na.bambora.com/v1/payments/0/returns')
-req = Net::HTTP::Post.new(uri.path) # Ruby 2.0: use .new(uri) instead
-req['Content-Type'] = 'application/json'
-req['Authorization'] = 'Basic dXNlcm5hbWU6cGFzc3dvcmQ='
-
-req.body = {
-   :merchant_id => 280001000,
-   :order_number => '10000123',
-   :amount => 500.00,
-   :payment_method => 'card',
-   :card => {
-      :name => 'John Doe',
-      :number => '5100000010001004',
-      :expiry_month => '02',
-      :expiry_year => '14',
-      :cvd => '642'
-   }
-}.to_json
-
-res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => true) { |http|
-    http.request(req)
-}
-
-puts "\nUNREFERENCED RETURN"
-puts res.inspect
-puts res.body
-```
-
 ```python
 from urllib2 import Request, urlopen, HTTPError
 import json
@@ -246,10 +173,6 @@ except HTTPError, e:
 ```
 
 ```csharp
-
-```
-
-```go
 
 ```
 

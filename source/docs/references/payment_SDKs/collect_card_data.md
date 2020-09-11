@@ -12,9 +12,6 @@ navigation:
 
 includes:
 - na/collect_card_data/online
-- na/collect_card_data/in_app
-
-language_tabs:
 
 ---
 
