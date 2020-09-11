@@ -1,11 +1,11 @@
 ---
-title: Visa Checkout
+title: Visa Secure Remote Commerce (SRC)
 layout: tutorial
 
 summary: >
-    You can use Visa Checkout to integrate Visa’s digital payment service with Bambora’s payment gateway.
-    Visa Checkout is a digital payment service where consumers can store card information for Visa, MasterCard,
-    Discover, and American Express. Visa Checkout provides quick integration for merchants to accept payments
+    You can use Visa SRC to integrate Visa’s digital payment service with Bambora’s payment gateway.
+    Visa SRC is a digital payment service where consumers can store card information for Visa, MasterCard,
+    Discover, and American Express. Visa SRC provides quick integration for merchants to accept payments
     from these card holders.
 
 navigation:
@@ -15,24 +15,24 @@ navigation:
   header_active: Guides
 ---
 
-# Visa Checkout
+# Visa Secure Remote Commerce
 
-Visa Checkout simplifies and secures online payments by storing payment information.
+Visa SRC simplifies and secures online payments by storing payment information.
 It removes the need for a customer to re-enter and share card information.
 
-Visa Checkout is a digital wallet. Customers load their digital wallet with their credit, debit and prepaid cards once. They can then retrieve their payment information at any checkout supporting the wallet.
+Visa SRC is a digital wallet. Customers load their digital wallet with their credit, debit and prepaid cards the first time they click to pay at participating merchant websites. They can then retrieve their payment information at any checkout supporting the wallet.
 
-Visa Checkout benefits users by securing their payment information and saving them
-time checking out. MasterPass benefits merchants by reducing checkout abandonment.
+Visa SRC benefits users by securing their payment information and saving them
+time checking out. Visa SRC benefits merchants by reducing checkout abandonment.
 
 
 ## Standard integration
 
-A Visa Checkout payment can involve either one or two steps for a merchant.
+A Visa SRC payment can involve either one or two steps for a merchant.
 
-It will always begin with a user clicking on a Visa Checkout button. Visa Checkout's
+It will always begin with a user choosing the "click to pay" button. Visa's
 SDK handles the event and pops a lightbox where the user can authenticate and select a payment card.
-Visa checkout then calls a callback function on the merchant's webpage.
+Visa SRC then calls a callback function on the merchant's webpage.
 
 The one step process involves simply listening for a callback from Visa's SDK and calling our Payment API to complete the payment.
 
@@ -41,19 +41,19 @@ our API to retrieve addresses, and then calling our Payment API to complete the 
 
 ### Caveats
 
-Bambora's Visa Checkout integration is not compatible with 3D Secure.
+Bambora's Visa SRC integration is not compatible with 3D Secure.
 
 ### Testing
 
-Visa Checkout is not enabled by default on test accounts. Contact us at (support.northamerica@bambora.com)[mailto:support.northamerica@bambora.com]
+Visa SRC is not enabled by default on test accounts. Contact us at [support.northamerica@bambora.com](mailto:support.northamerica@bambora.com)
 and we will enable it.
 
-You can test visa checkout on sandbox-web.na.bambora.com.
+You can test Visa SRC on sandbox-web.na.bambora.com.
 
 ### Visa Checkout SDK
 
 You will need to add Visa Checkout to your page and register a listener to handle
-payments originating from it. You can find out more (here)[https://developer.visa.com/capabilities/visa_checkout/docs].
+payments originating from it. You can find out more [here](https://developer.visa.com/capabilities/visa_checkout/docs).
 
 
 ### Example requests:
@@ -106,13 +106,13 @@ cardType=VI&cardLastFour=1234&trnAmount=10.00&authorizingMerchantId=123456789
 
 ## Advanced integration
 
-If you have integrated and certified to Visa’s Visa Checkout API and are handling the redirect to the Visa Checkout Portal
-independently of Bambora’s internal integration, you will need to pass the Visa Checkout Call ID with your Payment REST API
-request to Bambora. This ensures that your transaction is picked up by the Card Issuer as being a Visa Checkout transaction.
+If you have integrated and certified to Visa’s Visa SRC API and are handling the redirect to the Visa SRC Portal
+independently of Bambora’s internal integration, you will need to pass the Visa SRC Call ID with your Payment REST API
+request to Bambora. This ensures that your transaction is picked up by the Card Issuer as being a Visa SRC transaction.
 
 Note: This option must be enabled by us. Contact support if you want to use this method.
 
-The Visa Checkout Call ID must be sent with the transaction request using the following system variable:
+The Visa SRC Call ID must be sent with the transaction request using the following system variable:
 
 | Attribute | Description |
 | --- | --- |
