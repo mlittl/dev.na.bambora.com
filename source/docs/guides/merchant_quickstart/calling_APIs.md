@@ -91,8 +91,8 @@ curl https://api.na.bambora.com/v1/payments  \
      "amount":100.00,
      "payment_method":"payment_profile",
      "payment_profile":{
-       "customer_code":"John Doe",
-       "card_id":"your_customer_token",
+       "customer_code":"D08a4F40374EF8c167aA0471B",
+       "card_id":"1",
        "complete":"true"
      }
   }'

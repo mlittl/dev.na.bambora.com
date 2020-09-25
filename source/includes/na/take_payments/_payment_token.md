@@ -89,7 +89,7 @@ PaymentResponse response = bambora.Payments.MakePayment (
 
 Single-use tokens provide a secure method of taking payments that reduces your PCI scope. You can take a payment using a token the same as you would take a payment with a credit card, the main difference being the ‘payment_method’ parameter and supplying the token.
 
-To process a transaction using a token, you first need to have created a token. You can either do this from the browser/client using the [Tokenization API](/docs/references/payment_APIs) or using the [Mobile or Browser SDKs](/docs/references/payment_SDKs/collect_card_data).
+To process a transaction using a token, you first need to have created a token. You can either do this from the browser/client using the [Tokenization API](/docs/references/payment_APIs) or using the [Browser SDKs](/docs/references/payment_SDKs/collect_card_data).
 
 A single-use token is a 'single-use nonce'. It is distinct from a multi-use Payment Profile token. See [here](/docs/references/payment_SDKs/save_customer_data).
 
