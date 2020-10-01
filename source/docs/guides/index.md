@@ -96,9 +96,9 @@ cards:
         icon: checkmark
         link: /docs/guides/SSL
     -
-        title: Visa Checkout
+        title: Visa Secure Remote Commerce
         description: >
-            Process payments with Visa Checkout.
+            Process payments with Visa Secure Remote Commerce (SRC).
         icon: creditcard-outline
         link: /docs/guides/visa_checkout
 ---
