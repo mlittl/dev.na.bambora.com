@@ -54,7 +54,9 @@ curl https://api.na.bambora.com/v1/payments
 
 Before returning the response to your users HTML client, you will need to save the `merchant_data` string in the users session. This value can be used as the `{id}` value when creating your 'continue' endpoint URL for the final request in step 3.
 
-The response will have HTML in the `contents`. This should be embedded in the user's browser client and this needs to be displayed to the customer to redirect them to the Interac login page. Here the customer will log onto their bank account and approve the payment. An approved or declined payment will forward the customer back to the Funded or Non-funded URLs (respectively) on your website.
+The response from the Payments API has HTML in the `contents` field. You should return this HTML to the user, and your response should include the "Referrer-Policy" header (see [Browser Referrer Policy](#browser-referrer-policy) below).
+This HTML "redirects" the user to the Interac login page, by causing their browser to submit a form. On the Interac login page, the customer will log onto their bank account and approve the payment.
+An approved or declined payment will forward the customer back to the Funded or Non-funded URLs (respectively) on your website.
 
 ```html
 <!-- Sample URL Decoded Response -->
@@ -82,6 +84,28 @@ The response will have HTML in the `contents`. This should be embedded in the us
 </BODY>
 </HTML>
 ```
+
+#### Browser Referrer Policy
+
+When you redirect the customer to Interac, Interac verifies that the redirect was from a trusted source.
+It does this by comparing the HTTP "Referer" header passed by the customer's browser to the "referring URL" configured on your Interac account.
+This "referring URL" is the full URL of the page on your server that is redirecting to Interac. You are asked to provide it during the setup of your Interac Online payment method with Bambora.
+If the "Referer" header does not match this URL exactly, your customer will be declined from continuing with their payment.
+
+Major browsers have been working towards changing their default Referrer Policy from "no-referrer-when-downgrade" to "strict-origin-when-cross-origin" to improve default security.
+With this new default, if your referring URL is for instance "https://www.my-company.com/pages/ionline", the "Referer" header would only be "https://www.my-company.com", and therefore not match the referring URL.
+In order to have the browser include the full URL in the "Referer" header, **you must set the "Referrer-Policy" response header to a value of "no-referrer-when-downgrade".**
+This ensures that your Interac Online integration properly supports referring host validation.
+
+To validate that your integration is correctly setting the Referrer Policy and passing the correct URL in the "Referer" header, you can use your browser's network tools to view the values being passed in the redirection to Interac.
+
+* Documentation for HTTP headers
+    * <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer>
+    * <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy>
+* Documentation for browser network tools
+    * Google Chrome: <https://developers.google.com/web/tools/chrome-devtools/network>
+    * Firefox: <https://developer.mozilla.org/en-US/docs/Tools/Network_Monitor>
+    * Safari: <https://developer.apple.com/safari/tools/>
 
 ### Step 2: Redirect request
 
