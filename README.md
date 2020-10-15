@@ -76,6 +76,14 @@ make run
 
 To build the same content that our CI server builds & deploys, you can do the following:
 
+- Rebuild the docker image:
+
+```shell
+make build
+
+# If you see "make: 'build' is up to date", you may need to force a rebuild with -B (or whatever your version of make uses for "Unconditionally make all targets", verify with --help)
+```
+
 - create a local directory for the output:
 
 ```shell
@@ -85,7 +93,7 @@ mkdir build
 - generate the content via Docker into that directory:
 
 ```shell
-docker run -e ONBOARDING_HOST=test-onboardingapi -v `pwd`/build:/usr/src/app/build devbamboracom static
+docker run -e ONBOARDING_HOST=test-onboardingapi -v `pwd`/build:/usr/src/app/build bambora/devbamboracom static
 ```
 
 - inspect the `build/` folder which will contain the generated static site.
