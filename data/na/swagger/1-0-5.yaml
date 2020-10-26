@@ -265,7 +265,12 @@ paths:
   '/reports/settlement':
     get:
       summary: Settlement Report
-      description: This report provides credit card settlement and fee information. It is helpful to understand the credit date, amount, and fees of each settlement. You can retrieve settlement data with up to a three-month range.
+      description: |
+        This report provides credit card settlement and fee information. It is helpful to understand the credit date, amount, and fees of each settlement. You can retrieve settlement data with up to a three-month range.
+      
+        Note:
+        
+        * Our system calculates settlement using Pacific Time (PT) with midnight cut off.
       tags:
         - Reports
       operationId: getCardSettlementReport
@@ -1278,7 +1283,7 @@ definitions:
       chargebacks_count:
         type:  number
         format:  integer
-        description: 'Total count of cahargebacks'
+        description: 'Total count of chargebacks'
       chargebacks_amount_total:
         type:  number
         format:  double
