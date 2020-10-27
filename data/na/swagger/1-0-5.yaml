@@ -238,7 +238,7 @@ paths:
       summary: Search Query
       description: 'Query for transactions using a date range and optional search criteria. This method allows you to page your search results if you are expecting a lot of results to be returned. The page start value begins at 1. If no records are found the API will return a 200 response message with an empty array. For details on the parameters and allowed values for Criteria please visit the documentation http://dev.na.bambora.com'
       tags:
-        - Reporting
+        - Reports
       operationId: getReport
       parameters:
         - name: search_query
@@ -250,6 +250,48 @@ paths:
           description: A transaction object.
           schema:
             $ref: '#/definitions/SearchResult'
+        400:
+          $ref: '#/responses/BadRequest'
+        401:
+          $ref: '#/responses/Unauthorized'
+        402:
+          $ref: '#/responses/PaymentRequired'
+        403:
+          $ref: '#/responses/Forbidden'
+        405:
+          $ref: '#/responses/MethodNotAllowed'
+        500:
+          $ref: '#/responses/InternalServerError'
+  '/reports/settlement':
+    get:
+      summary: Settlement Report
+      description: |
+        This report provides credit card settlement and fee information. It is helpful to understand the credit date, amount, and fees of each settlement. You can retrieve settlement data with up to a three-month range.
+      
+        Note:
+        
+        * Our system calculates settlement using Pacific Time (PT) with midnight cut off.
+      tags:
+        - Reports
+      operationId: getCardSettlementReport
+      parameters:
+        - name: start_date
+          in: query
+          description: "The start date (inclusive) '2020-04-21'. Must be on or before end_date."
+          required: true
+          type: string
+          format: date
+        - name: end_date
+          in: query
+          description: "The end date (inclusive) '2020-05-30'. Must be no more than 3 months passed the start_date and cannot include today's date."
+          required: true
+          type: string
+          format: date
+      responses:
+        200:
+          description: A settlement object.
+          schema:
+            $ref: '#/definitions/CardSettlementReport'
         400:
           $ref: '#/responses/BadRequest'
         401:
@@ -430,7 +472,7 @@ paths:
           description: The profile id. (aka CustomerCode)
           required: true
           type: string
-        - name:
+        - name: body
           in: body
           description: The card information that will be added to the profile.
           required: true
@@ -507,7 +549,7 @@ paths:
           required: true
           type: number
           format: integer
-        - name:
+        - name: body
           in: body
           description: The card information that will be updated on the profile.
           required: true
@@ -1189,6 +1231,111 @@ definitions:
         description: "The date it was created '2015-04-22T10:03:19.323-07:00'"
       url:
         type: string
+
+  CardSettlementReport:
+    properties:
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/CardSettlementRecord'
+  CardSettlementRecord:
+    properties:
+      merchant_id:
+        type:  number
+        format:  integer
+        description: 'The id of the merchant for this settlement.'
+      transactions_date:
+        type:  string
+        format:  date
+        description: 'The day (PT) the transactions settled.'
+      currency:
+        type: string
+        maxLength: 3
+        description: 'The currency abbreviation for this settlement.'
+      settlement_net_amount:
+        type:  number
+        format:  double
+        description: 'Shows the total net amount of the settlement.'
+      settlement_state:
+        type:  string
+        description: 'State of the settlement.'
+        enum: ['Scheduled','Generating','In Process','Approved','Declined','Transferred','On Hold','Accumulating','Perform Settlement','Under Minimum Threshold','Pending Account Verification']
+      settlement_date:
+        type:  string
+        format:  date
+        description: 'The day (PT) the funds are expected to be processed by the bank and settled. If there is no date scheduled yet then it will return "0001-01-01"'
+      approved_transaction_count:
+        type:  number
+        format:  integer
+        description: 'Total count of approved transactions'
+      declined_transaction_count:
+        type:  number
+        format:  integer
+        description: 'Total count of declined transactions'
+      sale_amount_total:
+        type:  number
+        format:  double
+        description: 'Total amount of sales in dollars and cents'
+      returned_amount_total:
+        type:  number
+        format:  double
+        description: 'Total amount of returns in dollars and cents'
+      chargebacks_count:
+        type:  number
+        format:  integer
+        description: 'Total count of chargebacks'
+      chargebacks_amount_total:
+        type:  number
+        format:  double
+        description: 'Total amount of chargebacks in dollars and cents'
+      card_transaction_approved_rate:
+        type:  number
+        format:  double
+        description: 'Rate for approved transactions'
+      card_transaction_declined_rate:
+        type:  number
+        format:  double
+        description: 'Rate for declined transactions'
+      card_discount_rate:
+        type:  number
+        format:  double
+        description: 'Card discount rate'
+      gst_tax_rate:
+        type:  number
+        format:  double
+        description: 'GST rate applied to fees'
+      approved_transaction_fee_total:
+        type:  number
+        format:  double
+        description: 'Total fees for approved transactions'
+      declined_transaction_fee_total:
+        type:  number
+        format:  double
+        description: 'Total fees for declined transactions'
+      discount_rate_fee_total:
+        type:  number
+        format:  double
+        description: 'Total of the per-transaction fees that is charged based upon the total amount of the transaction size.'
+      chargeback_fee_total:
+        type:  number
+        format:  double
+        description: 'Chargeback fees are applied against transactions that were contested by a credit card owner.'
+      gst_tax_fee_total:
+        type:  number
+        format:  double
+        description: 'The total GST applied to transaction fees. GST is only added to chargeback fees.'
+      reserves_held:
+        type:  number
+        format:  double
+        description: 'The amount currently held in a Bambora reserve account.'
+      reserves_released:
+        type:  number
+        format:  double
+        description: 'Amount released from the reserve account during the current statement period.'
+      reserves_forward:
+        type:  number
+        format:  double
+        description: 'Total amount that Bambora held in a reserve account as of the previous statement period.'
   SearchQuery:
     required:
       - name
@@ -1602,7 +1749,7 @@ definitions:
         type: string
         minLength: 5
         maxLength: 5
-        description: 
+        description:
           For Canadian bank accounts only. Specify the customer’s bank branch number.
       institution_number:
         type: string
