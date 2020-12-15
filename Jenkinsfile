@@ -1,7 +1,7 @@
 #!groovy
 
 PROJECT_NAME = "dev.na.bambora.com"
-ENV = 'test'
+ENV = 'corp'
 
 REGION = 'us-west-2'
 //ACCOUNT = '056252067802'
@@ -12,7 +12,7 @@ SLACK_ID = "vic-payments-ci"
 timestamps {
     node("$ENV") {
         try {
-            stage('corp') {
+            stage('build') {
                 deleteDir()
                 checkout scm
 
