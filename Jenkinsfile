@@ -12,7 +12,7 @@ SLACK_ID = "vic-payments-ci"
 timestamps {
     node("$ENV") {
         try {
-            stage('build') {
+            stage('corp') {
                 deleteDir()
                 checkout scm
 
