@@ -27,5 +27,5 @@ else
 fi
 
 echo "ONBOARDING_HOST is $ONBOARDING_HOST"
-mkdir -p build
-docker run -e ONBOARDING_HOST=${ONBOARDING_HOST} -v $APP_HOME/build:/usr/src/app/build dev.bambora.com static
+# mkdir -p build
+# docker run -e ONBOARDING_HOST=${ONBOARDING_HOST} -v $APP_HOME/build:/usr/src/app/build dev.bambora.com static
